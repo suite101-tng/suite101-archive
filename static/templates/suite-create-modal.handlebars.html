@@ -1,0 +1,71 @@
+<div class="suiteCreateModal modal normal" style="display: none;" tabindex="-1">
+    <div class="modal-card  ">       
+
+        <div class="tab-content">
+            <div class="tab-pane {{#unless userTab}}active{{/unless}} settingsTab suiteSettingsTab" id="manage-settings">                
+
+                <div class="modal-header transparent">
+                    <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent"><i class="io io-android-close"></i></button>       
+                </div>
+
+                <div class="modal-body">
+    
+                    <div class="suite-setting-element">
+                        <div class="setting-label title-desc wee-form-label manageTitle">Title</div>
+                        <div class="setting-main suiteTitleContainer form-field-container">
+                            <div class="suite-title newSuiteTitle" maxlength="80" data-placeholder="Give your Suite a name"></div>
+                        </div>   
+
+                        <div class="setting-label title-desc wee-form-label manageDesc">Description</div>
+                        <div class="setting-main suiteDescriptionContainer form-field-container">
+                            <div class="suite-description miniCreateInput newSuiteDesc" data-placeholder="Type a short description"></div>
+                        </div>
+                    </div>
+
+                    <div class="suite-setting-element">
+                        <div class="setting-main privacySettings">
+                            <div class="suite-privacy-options suitePrivacyOptions {{#if private}}private{{else}}public{{/if}}">
+                                <div class="{{#if suite.private}}checked{{/if}} p-option suiteIsPrivate" data-actionbind data-action="toggleSuitePrivacy">
+                                    <div class="check"><i class="io public io-checkmark"></i>
+                                    <i class="io private io-locked"></i></div>
+                                    <div class="p-option-desc">
+                                        <div class="desc-head"><span class="option-name optionName {{#if private}}first{{else}}second{{/if}} privateOption">Private</span><span class="option-name optionName {{#if private}}second{{else}}first{{/if}} publicOption">Public</span></div>
+                                        <div class="desc-body private">Only you and invited members can see this Suite.</div>
+                                        <div class="desc-body public">Visible to all. Anyone can ask to join.</div>
+                                    </div>
+                                </div>
+                            </div>                                           
+                        </div>
+                    </div>
+
+                    <div class="suite-member-search suite-create suiteMemberSearch">
+                        <div class="user-list userList">
+                            <div class="paged-list-filter pagedListFilter">
+                                <div class="ctxt-filter ctxtFilter">
+                                    <div class="q-wrapper">
+                                        <input type="text" class="ctxt-search-input ctxtSearchInput" placeholder="Invite some collaborators"/>
+                                    </div>
+                                </div>
+                            </div>                        
+                            <div class="paginated-list paginatedList">
+                                <div class="orbitalloader initial-loader blue"><i class="io io-load-c io-spin"></i></div>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="suite-invited-container invitedContainer">
+                        <div class="invite-list invites inviteList"></div>
+                    </div>                     
+
+
+  
+                </div>  <!-- / .modal-body -->     
+                <div class="modal-footer">
+                    <button class="btn btn-footer-white save-suite-settings createIt" data-actionbind data-action="createIt">Create your Suite</button>
+                </div>
+            </div> <!-- / .tab-pane -->
+        </div> <!-- /.modal-body -->
+
+    </div>
+</div>
+

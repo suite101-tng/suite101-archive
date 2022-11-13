@@ -1,0 +1,4 @@
+{{other_user.get_full_name}}
+
+just loved your story "{{obj.article.title}}":
+{{site_url}}{{obj.article.get_absolute_url}}

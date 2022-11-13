@@ -1,0 +1,15 @@
+ <div class="stats-story-teaser statsStoryTeaser">
+ 	<div class="stats-header">
+ 		<div class="order">{{ordinalize order}}</div>
+	    <div class="stats-entries statsEntries">
+	        <span class="story-stats reads">{{reads}} read{{pluralize reads "" "s"}}</span>
+	        {{#if views }}<span class="story-stats views"><span class="num">{{views}}</span> view{{pluralize views "" "s"}}</span>{{/if}}
+	        {{#if rate }}<span class="story-stats rate"><span class="num">{{rate}}%</span> read rate</span>{{/if}}
+	    </div>
+    </div>
+    <div class="teaser-body">
+	    <h3 class="title storyTitle"><a href="{{absoluteUrl}}" class="wrapping-anchor" data-navigate>{{heading}}</a></h3>
+	    <span class="created-label">{{timeAgo created}}</span>
+	    <button class="pull-right btn btn-transparent showStoryStats" data-id="{{id}}" data-target="#sec-story">View stats <i class="io io-ios-arrow-forward"></i></button>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{% extends 'emails/base.html' %}
+
+{% block email-summary %}Hello {{ user.get_full_name }},{% endblock email-summary %}
+
+{% block email-content %}
+
+<p>Sorry to let you know but {{suite.owner.get_full_name}} has decided not to let you join the suite "{{suite.name}}"</p>
+
+{% if message %}
+<p>{{suite.owner.get_full_name}} left this message for you</br>
+    "{{message}}"</p>
+{% endif %}
+
+<p>Thanks!<br />The Suite101 team</p>
+
+{% endblock %}

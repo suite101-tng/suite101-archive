@@ -1,0 +1,12 @@
+{% extends 'emails/base.html' %}
+
+{% block email-summary %}Twitter Error!{% endblock email-summary %}
+
+{% block email-content %}
+
+<p>Request GET - {{request}}</p>
+
+<p>Exception - {{exception_e}}</p>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+  "name": "NodeHandlebars",
+  "version": "0.0.0",
+  "description": "Node Handlebars renderer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suite",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.4",
+    "handlebars": "~4.0.5"
+  },
+  "private": true,
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

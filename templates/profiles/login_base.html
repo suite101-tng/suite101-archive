@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Suite{% endblock %}
+{% block meta-robots %}noindex, follow, noodp, noydir{% endblock meta-robots %}
+{% block body-class %}no-reg{% endblock%}
+{% block navbar-class %}light{% endblock %}
+{% block page-container-class %}registration-page{%endblock%}
+
+
+{% load cache %}
+{% load humanize %}
+{% block shell %}
+
+
+  <div class="page-container registration-page pageContainer">
+    
+ <div class="page-outer-wrapper">
+        <header class="static-header">
+                
+				{% block content %}
+				<div class="login-container">
+
+				{% block inner-content %}
+				{% endblock inner-content %}
+				</div>
+				{% endblock  %}
+
+        </header>
+
+    </div>
+</div>
+
+{% endblock %}

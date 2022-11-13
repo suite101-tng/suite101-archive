@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{%block title%}Check your email{%endblock%}
+{%block meta-description%}Welcome! (And please confirm your email address.){%endblock%}
+{% block shell %}
+<div class="page-container pageContainer about-page activeView" id="supportPage">
+    <div class="static-main">
+        <header class="static-header tight">
+            <div class="center-column">
+                <h1>Check your email...</h1>
+            </div>
+        </header>              
+        <div class="center-column static-reading">
+            <p>Thanks! To complete your registration, click on the link in the activation email we just sent you.</p> 
+
+   			<p>Didn't receive the email – let's resend it.</p>
+   			<p>Still having trouble? Send us an email and we'll help you through!</p>
+        
+        </div>
+     </div>
+</div>
+{% endblock %}
+
+{% block script-application %}
+require(['jquery', 'views/SupportView'], function($, SupportView) {
+    $(function() { new SupportView(); });
+});
+{% endblock %}

@@ -1,0 +1,153 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: @backgroundColor;
+    color: @baseInk;
+    font-weight: 400;
+    font-family: @sansFontFamily;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    &.refresh {
+        position: relative;
+    }
+}
+figure {
+    .unselectable;
+}
+h1, h2, h3, h4 {
+    font-family: @sansFontFamily;
+    color: @grayDark;
+    word-break: normal;
+}
+h1 {
+    font-size: @headlineType;
+    color: @grayDarker;
+    line-height: 1em;
+    letter-spacing: -1px;
+    margin: 0 0 36px 0;
+    font-weight: 700;
+    &.big {
+        font-size: 3.8em;
+    }
+}
+h2 {
+    font-size: 1.35em;
+    line-height: 1.05;
+    font-weight: 700;
+    color: @gray;
+}
+h3 {
+    font-size: 1.25em;
+    line-height: 1.05em;
+    margin: 0 0 6px;
+    font-weight: 600;
+    color: lighten(@grayDark,7%);
+}
+hr {
+    border: none;
+    margin: 48px auto;
+    border-top: solid 1px @grayLighter;
+    width: 120px;
+    max-width: @minorLineLength;
+}
+.shell {
+    z-index: 1000;
+    background: @backgroundColor;
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    &.quite-dark {
+        background-color: @grayDark;
+    }
+}
+.page-container {
+    margin: 0;
+
+}
+.no-reg {
+    .navbar {
+        .nav-login {
+            display: none;
+        }
+    }
+}
+.login-page {
+    .topright {
+        display: none;
+    }
+}
+.no-nav {
+    .navbar {
+        display: none;
+    }
+    footer.page-footer {
+        a {
+            color: @grayLight;
+        }
+    }
+    .page-wrapper {
+        padding-bottom: 0;
+    }
+}
+.page-wrapper {
+}
+.container {
+    .clearfix;
+    .center-block();
+}
+.main.container {
+    //.transition(.2s cubic-bezier(.64,.24,.36,.63));
+    padding: 0;
+    //width: 1152px;
+    margin: 0 auto;
+    &.article-edit,
+    &.article-detail {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 60px;
+    }
+    &.story {
+        padding-bottom: 0;
+    }
+}
+.center-column {
+    position: relative;
+    max-width: @stem;
+    margin: 0 auto;
+    &.wider {
+        max-width: 1140px;
+        width: 100%;
+    }
+    &.spill {
+        max-width: 856px;
+    }
+    &.narrow {
+        max-width: 480px;
+    }
+    &.full {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+.wide {
+    max-width: 1200px;
+    &.suites {
+        .suite-list {
+            margin-left: -12px;
+            margin-right: -12px;
+        }
+    }
+}
+.tab-pane {
+    display: none;
+    &.active {
+        display: block;
+    }
+}

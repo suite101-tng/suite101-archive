@@ -1,0 +1,48 @@
+.story-teaser {
+    .clearfix;
+    overflow: visible;    
+    position: relative;
+    margin-top: -1px;
+    &.draft {
+        // something
+    }
+    &:last-child {
+        border: none;
+    }
+    &:first-child {
+        padding-top: 0;
+        border-top: none;
+        .teaser-main {
+            border-top: none;
+        }
+        .feed-entry-footer {
+            border: none;
+        }
+    }
+    .teaser-main {
+        padding: 48px 0;
+        border-bottom: 1px solid @grayLighter;
+        border-top: 1px solid @grayLighter;        
+    }
+}
+.story-teaser-actions {
+    .hoverAnimate;
+    position: relative;
+    margin-top: 12px;
+    padding: 4px 0 0;
+    .action-item {
+        display: inline-block;
+        position: relative;
+        .expand-responses {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .btn {
+            color: @grayLight;
+            .io {
+                font-size: 20px;
+            }
+        }
+    }
+}

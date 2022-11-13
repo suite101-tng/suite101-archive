@@ -1,0 +1,202 @@
+<div class="notification-item item notifItem {{#if unread}}is-unread{{/if}} {{#unless peristent}}clearOnClick{{/unless}}" data-score="{{score}}" data-key="{{key}}"> 
+
+{{{id}}}
+    {{#if followType}}
+        <!-- Follow -->
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            <span class="verb">{{verbVerbose}}</span>
+            <a href="{{object.absoluteUrl}}" data-navigate><span class="verb">{{object.fullName}}</span></a>
+            <div class="trailing-date">{{timeAgo date}}</div>
+        </div>
+    {{/if}}
+
+
+    {{#if responseType}}
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            
+            <span class="verb"> {{verbVerbose}} </span>
+
+            <a href="{{target.absoluteUrl}}" class="wrapping-anchor" data-navigate><span class="verb target">{{target.heading}}</span></a>:
+            <a href="{{object.absoluteUrl}}" class="wrapping-anchor" data-navigate><span class="verb response">{{object.heading}}</span></a>           
+            <div class="trailing-date">{{timeAgo date}}</div>
+        </div>  
+    {{/if}}
+
+    {{#if modNoteType}}
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            
+            <span class="verb"> {{verbVerbose}} </span>
+            <a href="{{object.absoluteUrl}}" data-navigate>
+            {{#if modNoteUser}}<div class="inline profile-image tiny" style="background-image: url('{{target.mainImageUrl}}');"></div><span class="inline-profile target">{{target.fullName}}</span>{{/if}}:</a>
+            <span class="mod-msg">{{{object.message}}}</span>           
+            <div class="trailing-date">{{timeAgo object.created}}</div>
+        </div>  
+    {{/if}}    
+
+    {{#if chatType}}                        
+    <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+        <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+    </a>
+    <div class="texty">
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+        
+        <a href="{{object.absoluteUrl}}" data-navigate>
+            <span class="verb">{{verbVerbose}}</span>
+        </a>
+        <span class="chat-msg">{{{object.message}}}</span>
+    </div>
+    {{/if}}
+
+    <!-- Added to suite -->
+    {{#if addToSuiteType}}
+    <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+        <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+    </a>
+    <div class="texty">
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+        <span class="verb">added</span>
+        <a href="{{target.absoluteUrl}}" data-navigate class="wrapping-anchor">{{target.heading}}</a> to: 
+        
+        <div class="suite-teaser suiteTeaser">
+            <a class="wrapping-anchor suiteTeaserLink" href="{{object.absoluteUrl}}" data-suite-id="{{object.id}}" data-navigate>
+                <div class="subsuite-img" {{#if object.image}}style="background-image: url('{{object.image}}');"{{/if}}></div>
+                <div class="texty">
+                    <div class="ss-name ssName">
+                        {{object.name}}
+                    </div>
+                    <div class="ss-stats ssStats">
+                        <span class="stats">{{object.stats.stories}} stor{{pluralize object.stats.stories "y" "ies"}}</span>
+                        {{#if object.stats.followers}}<span class="stats">{{object.stats.followers}} follower{{pluralize object.stats.followers "" "s"}}</span>{{/if}}
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{#if others}}<div class="suite-notif-others suiteNotifOthers">and {{others}} other{{pluralize others "" "s"}}</div>{{/if}}
+    </div>
+    {{/if}}
+
+    <!-- paid notif -->
+    {{#if verbAccrued}}
+    <span class="alert-icon green">$</span>
+    <div class="texty">
+        <span class="verb">{{verb}}</span>
+        <span class="sub-text">Your month-end balance was ${{balance}}</span>
+        <a href="/stats" data-navigate><span class="verb">View your stats</span></a>
+    </div>
+    {{/if}}
+
+    <!-- paid notif -->
+    {{#if verbPaid}}
+    <span class="alert-icon red">$</span>
+    <div class="texty">
+        <span class="verb">{{verb}}</span>
+        <a href="{{object.absoluteUrl}}" data-navigate><span class="verb">{{object.fullName}}</span></a>
+    </div>
+    {{/if}}
+
+    <!-- royalapps -->
+    {{#if verbRoyalAppDecision}}
+    <span class="alert-icon red">$</span>
+    <div class="texty">
+    <span class="verb">{{verb}}</span>
+    {{#if verbRoyalAccepted}}<span class="notif-trailing-link"><a href="/royalties/welcome">Read more</a></span>{{/if}}
+        {{#if royalAppEdMsg}}
+            <div class="ed-msg-author">
+                <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+                    <div class="profile-image small" style="background-image: url('{{editorImg}}');"></div>
+                    <span class="ed-msg-name">{{editorName}}</span>
+                </a>
+                wrote: 
+            </div>
+            <div class="trailing-msg">{{{royalAppEdMsg}}}</div>
+        {{/if}}
+    {{/if}}
+
+    <!-- Invited to join a Suite -->
+    {{#if verbInvite}}
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            <span class="verb">{{verb}}</span>
+            <a href="{{object.absoluteUrl}}" data-navigate><span class="verb">{{object.fullName}}</span></a>
+
+            {{#if pending}}
+            <div class="request-action-buttons centered requestActionButtons">
+                <span class="btn btn-blue btn-sm acceptRejectInvite" data-accept="true" data-suite="{{suiteId}}" data-key="{{key}}">Accept</span>   
+                <span class="btn btn btn-sm acceptRejectInvite" data-accept="false" data-suite="{{suiteId}}" data-key="{{key}}">Reject</span>
+            </div>
+            {{/if}}
+
+        </div>
+    {{/if}}
+
+    <!-- Ask to join a Suite -->
+    {{#if verbAsk}}
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            <span class="verb">{{verb}}</span>
+            <a href="{{object.absoluteUrl}}" data-navigate><span class="verb">{{object.fullName}}</span></a>
+
+            {{#if pending}}
+            <div class="request-message">
+                {{requestMsg}}
+            </div>
+            <div class="action-buttons">
+                <span class="btn btn-blue btn-sm acceptRequest" data-actionbind data-action="updateSuiteRequestStatus" data-id="{{requestId}}" data-status="1" data-key="{{key}}">Accept</span>   
+                <span class="btn btn btn-sm rejectRequest" data-actionbind data-action="updateSuiteRequestStatus" data-id="{{requestId}}" data-status="0" data-key="{{key}}">Reject</span>
+            </div>
+            {{/if}}
+
+        </div>
+    {{/if}}
+
+    <!-- Request to join a suite accepted -->
+    {{#if verbRequestAccepted}}
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            <span class="verb">{{verb}}</span>
+            <a href="{{object.absoluteUrl}}" data-navigate><span class="verb">{{object.fullName}}</span></a>
+
+        </div>
+    {{/if}}
+
+    <!-- Made editor of a Suite -->
+    {{#if verbMadeSuiteEditor}}
+        <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor">
+            <div class="profile-image small" style="background-image: url('{{actor.mainImageUrl}}');"></div>
+        </a>
+        <div class="texty">
+            <a href="{{actor.absoluteUrl}}" data-navigate data-id="{{actor.id}}" class="wrapping-anchor"><span class="actor">{{actor.fullName}}</span></a>
+            <span class="verb">{{verb}}</span>
+            <a href="{{object.absoluteUrl}}" data-navigate><span class="verb">{{object.fullName}}</span></a>
+
+        </div>
+    {{/if}}
+
+        <div class="feed-item-options notifs">
+            <div class="feed-options-toggle feedItemOptions dropdown-toggle" data-toggle="dropdown"><i class="io io-android-more-horizontal"></i></div>
+            <ul class="dropdown-menu top-drop feed-options-menu">
+                <li><a data-actionbind data-action="clearNotification" data-id="{{key}}"><i class="io io-ios-close-empty"></i>Delete notification</a></li>          
+            </ul>
+        </div>
+</div>

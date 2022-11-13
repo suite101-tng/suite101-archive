@@ -1,0 +1,60 @@
+{% extends "profiles/login_base.html" %}
+
+{% block title %}Forgot your password?{% endblock %}
+
+{% block inner-content %}
+<div class="registration-wrapper">
+     <div class="registration-wrapper" data-view-bind="LoginView">
+
+
+                  <div class="brand-modal centered">
+
+                    <div class="floating-subhead centered login-nav loginNav">
+                      <h3 class="bare-label">
+                        <a href="/login" class="showLogin forgot-password" title="Log in">Log in</a> 
+                        or 
+                        <a href="/register" class="showReg forgot-password" title="Sign up">Create an account</a>
+                      </h3>
+                    </div>
+
+                  </div>
+
+   <div class="tab-content">       
+
+<!-- Request password reset -->
+<section class="resetPane tab-pane active" id="resetPane">
+<p class="blurb">Submit your email address and we'll send you a reset link.</p>
+  <form class="password-reset-form" action="/profile/request_reset" method="POST">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+      <input id="id_email" maxlength="255" name="email" placeholder="Email" type="text">
+    </div>
+    <div class="reg-bottom centered">
+    <p class="reg-disclaimer">(Still having trouble? Email us at <a tabindex="-1" href="mailto:help@suite.io">help@suite.io</a></p>
+
+
+      <button class="btn whitelineBlue" type="submit">Send reset link</button>
+    </div>
+  </form>
+
+  <div class="registration-bottom centered">
+  </div>
+
+</section>
+
+              <div class="sec-links white centered">
+                    <a class="h-link" href="/about"><span class="suite-icon"></span>About Suite</a></a>
+                    <a class="h-link" href="/terms">Terms</a>
+                    <a class="h-link" href="/support">Support</a>
+                  </div>
+
+</div>
+
+    
+
+</div>
+
+
+
+</div><!-- /.registration-wrapper -->
+{% endblock %}

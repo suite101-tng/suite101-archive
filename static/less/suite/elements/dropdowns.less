@@ -1,0 +1,353 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+@dropDownPadding: 8px;
+
+// Dropdown arrow/caret
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top:   @caret-width-base solid;
+  border-right: @caret-width-base solid transparent;
+  border-left:  @caret-width-base solid transparent;
+}
+
+// The dropdown wrapper (div)
+.dropup,
+.dropdown {
+  position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+.chip-down {
+    &:before {
+      border: none;
+    .border-radius(0 @boxBorderRadius);
+    // border: solid 1px @grayLighter;
+    // .box-shadow(-1px 3px 8px rgba(0, 0, 1, 0.125));
+    width: 14px;
+    height: 14px;
+    background-color: lighten(@grayLighter, 4%);
+    position: absolute;
+    display: block;
+    content: '';
+    transform: rotate(-45deg);
+    left: 50%;
+    margin-left: -7px;
+    bottom: -10px;
+    z-index: -1;
+  }   
+  &:after {
+    content: "";
+    display: block;
+    left: 0;
+    right: 0;
+    height: @dropDownPadding;
+    background-color: @white;
+    position: absolute;
+    bottom: 0;
+    .border-radius(0 0 @boxBorderRadius @boxBorderRadius);
+  }
+}
+.chip-up {
+    &:before {
+      border: none;
+    .border-radius(@boxBorderRadius);
+    width: 14px;
+    height: 14px;
+    background-color: @white;
+    position: absolute;
+    display: block;
+    content: '';
+    transform: rotate(-45deg);
+    left: 50%;
+    margin-left: -7px;
+    top: -7px;
+    z-index: -1;
+  }   
+}
+.chip-right {
+    &:before {
+      border: none;
+    .border-radius(@boxBorderRadius);
+    width: 12px;
+    height: 12px;
+    background-color: @white;
+    position: absolute;
+    display: block;
+    content: '';
+    transform: rotate(-45deg);
+    left: initial;
+    right: -6px;
+    margin: -6px 0 0 0;
+    top: 50%;
+    z-index: -1;
+  }   
+}
+
+ 
+// The dropdown menu (ul)
+.dropdown-menu {
+  display: none; 
+  .opacity(0);  
+  position: absolute;
+  left: 0;
+  z-index: @zindex-dropdown;
+  float: left;
+  min-width: 160px;
+  margin: 0; // override default ul
+  list-style: none;
+  font-size: 16px;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  background-color: @white;
+  padding: @dropDownPadding;
+  border-radius: @boxBorderRadius;
+  border: solid 3px lighten(@grayLighter, 4%);
+  background-clip: padding-box;
+  &.top-drop {
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    top: 48px;
+    .chip-up;
+    &.centered-dd {
+      left: 50%;
+      margin-left: -110px;
+    }
+    &.logout {
+      right: 0;
+      left: initial;
+      top: 58px;
+      width: 140px;   
+      min-width: 140px;
+    }
+    &.story-status {
+      top: 48px;
+      right: initial;
+      left: -93px;
+    }
+    &.create-it {
+      top: 64px;
+      left: initial;
+      right: -36px;
+    }
+    &.main-drop {
+        left: 50%;
+        margin-left: -110px;
+        top: 36px;
+
+    }
+    }
+    &.flat-menu {
+      top: initial;
+      bottom: 48px;
+      left: 50%;
+      width: 240px;
+      margin-left: -120px;
+      right: initial;
+      .chip-down;
+        &.suite-story-add {
+          left: 50%;
+          width: 180px;
+          margin-left: -90px;
+          bottom: 58px;
+          .linklike {
+             &:last-child {  
+              &:before {
+                margin-left: -9px;
+              }
+              &:after {
+                margin-left: -8px;
+              }
+            }
+          }
+        }
+    .flat-head {
+        .box-sizing(border-box);
+        padding: 8px 12px;
+        text-align: center;
+        border-bottom: solid 1px @grayLight;
+        font-size: 1em;
+        line-height: 1em;
+    }
+}
+
+  // Aligns the dropdown menu to right
+  //
+  // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  > .text-item {
+    background-color: @mushroom;
+    border-bottom: solid 1px lighten(@grayLighter, 3%);
+    padding: 12px 18px;
+    font-size: 1em;
+    line-height: 1.05em;
+    &:hover {
+      cursor: pointer;
+    }
+    .label {
+      display: block;
+      font-weight: 600;
+      color: @grayLight;
+    }
+    .link {
+      background-color: transparent;
+      width: 100%;
+    }
+  }
+  // Links within the dropdown menu
+  > li > a, .linklike {
+    display: block;
+    padding: 0;
+    border-bottom: solid 1px lighten(@grayLighter, 3%);
+    color: darken(@gray, 4%);
+    font-size: 1em;
+    clear: both;
+    font-weight: 400;
+    height: 34px;
+    line-height: 34px;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    .hoverAnimate;
+    &.reading {
+      color: @blue;
+    }
+    i {
+      width: 36px;
+      text-align: center;
+    }
+    &.last {
+      // border-bottom: none;
+      // margin-bottom: @dropDownPadding;
+    }
+    &.light {
+      color: @grayLight;
+      &:hover {
+        color: @grayDark;
+      }
+    }
+  }
+}
+.main-drop-toggle {
+  cursor: pointer;
+}
+// Hover/Focus state
+.dropdown-menu > li > a, .linklike {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color: @black;
+    background-color: @mushroom;
+                &.reading {
+                  color: @blue;
+                }
+                &.twitter {
+                  background-color: @twitter;
+                  color: @white;
+                }
+                &.facebook {
+                  background-color: @facebook;
+                  color: @white;
+                }
+                &.reddit {
+                  background-color: @reddit;
+                  color: @white;
+                }
+  }
+}
+
+.dropdown-menu > .active > a {
+  &,
+  &:hover,
+  &:focus {
+    color: @grayDark;
+    text-decoration: none;
+    outline: 0;
+    font-weight: 900;
+    background-color: @whiteTranslucent;
+  }
+}
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.dropdown-menu > .disabled > a {
+  &,
+  &:hover,
+  &:focus {
+    color: @grayLighter;
+  }
+
+  // Nuke hover/focus effects
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none; // Remove CSS gradient
+    .reset-filter();
+  }
+}
+
+// Open state for the dropdown
+.open {
+  // Show the menu
+  > .dropdown-menu {
+    display: block;
+          visibility: visible;
+  }
+
+  // Remove the outline when :focus is triggered
+  > a {
+    outline: 0;
+  }
+}
+
+// Menu positioning
+//
+// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
+// menu with the parent.
+.dropdown-menu-right {
+  left: auto; // Reset the default from `.dropdown-menu`
+  right: 0;
+}
+// With v3, we enabled auto-flipping if you have a dropdown within a right
+// aligned nav component. To enable the undoing of that, we provide an override
+// to restore the default dropdown menu alignment.
+//
+// This is only for left-aligning a dropdown menu within a `.navbar-right` or
+// `.pull-right` nav component.
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+
+// Dropdown section headers
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: @baseFontSize;
+  line-height: @line-height-base;
+  color: @grayDark;
+  white-space: nowrap; // as with > li > a
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: (@zindex-dropdown - 10);
+}

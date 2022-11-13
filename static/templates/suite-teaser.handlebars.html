@@ -1,0 +1,34 @@
+<div class="suite-teaser suiteTeaser full {{#unless image}}no-image{{else}} image{{/unless}} {{#if subSuites}}parent{{/if}} {{#if open}}open{{/if}}"> 
+    <div class="suite-teaser-main suiteTeaserMain">
+        <div class="teaser-img-wrapper">
+            <div class="teaser-img" {{#if image}}style="background-image: url('{{image.largeImageUrl}}');"{{/if}}>
+            </div>
+        </div>
+        <div class="content-wrapper contentWrapper">
+            {{#if private}}
+            <div class="btn is-private overlay square circle btn-transparent"><i class="io io-locked"></i></div>
+            {{/if}}
+            <a class="suiteTeaserLink wrapping-anchor" href="{{absoluteUrl}}" data-suite-id="{{id}}" data-navigate>
+                <div class="content"> 
+                    <h3 class="suite-name">
+                        {{truncate name 80}}
+                    </h3>                
+                    <div class="description centered">
+                {{#if stats.stories}}<span class="stat">{{stats.stories}} post{{pluralize stats.stories "" "s"}}</span>{{/if}}
+                {{#if stats.followers}}<span class="stat">{{stats.followers}} follower{{pluralize stats.followers "" "s"}}</span>{{/if}}                    
+<!--                         <div class="feat-mem-heads centered featMemHeads">
+                            {{#each featuredMembers}}<a href="{{absoluteUrl}}" class="wrapping-anchor" data-navigate><span style="background-image: url('{{mainImageUrl}}');" title="{{fullName}}" class="profile-image small profileImage"></span></a>{{/each}}
+                            <div class="auth suite-owner centered suiteAuth">{{owner.fullName}}{{#if otherMembers }}<span class="contribs"> + {{otherMembers}}</span>{{/if}}</div>                                           
+                        </div> -->
+                    </div>
+                </div>
+            </a>
+            <div class="teaser-follow">
+                <button class="btn btn-blueTranslucent follow-button followButton" data-actionbind data-action="followSuite" data-following="{{#if viewerFollowing }}1{{else}}0{{/if}}" data-suite="{{id}}"><span class="followText">{{#if viewerFollowing }}Following{{else}}Follow{{/if}}</span></button>
+            </div>       
+        </div>
+    </div>
+    <div class="suite-teaser-more suiteTeaserMore">
+    </div>
+
+</div>

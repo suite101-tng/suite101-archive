@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block meta-robots %}noindex, follow, noodp, noydir{% endblock %}
+{% block meta-description %}{{link_description}}{% endblock meta-description %}
+
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block shell %}
+    {{link_detail_rendered|safe}}
+{% endblock %}
+
+{% block script-application %}
+    require(['LinkDetail', 'jquery'], function(LinkDetail, $) {
+        $(function() {
+            var linkDetail = new LinkDetail({
+            });
+            linkDetail.loadLinkView({
+            	model: JSON.parse('{{link_json_str|safe|addslashes}}'),  
+	            skipRender: true
+            })
+        });
+    });
+{% endblock %}

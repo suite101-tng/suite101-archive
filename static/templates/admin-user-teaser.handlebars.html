@@ -1,0 +1,44 @@
+<div class="user-admin-card userAdminCard" data-id="{{id}}">
+	<div class="user-inner">
+	    <div class="card-element user-id">
+		    <a href="{{absoluteUrl}}" class="wrapping-anchor" data-navigate>
+	            <div class="profile-image small" style="background-image: url('{{mainImageUrl}}');">
+	            </div>
+	            <div class="texty">
+		            <h4 class="user-name">{{truncate fullName 20}}</h4>
+		            <div class="card-byline">{{#if byLine}}{{truncate byLine 40}}{{else}}---{{/if}}</div>
+	            </div>
+            </a>
+        </div>
+       
+        <div class="card-element tags">
+            <button class="tag-label btn btn-transparent" data-actionbind data-action="modAction" data-type="user" data-id="{{id}}"><i class="io io-ios-pricetag-outline"></i></button>
+            <ul class="modTags mod-tags story-tags active">
+                {{#if modTags}}
+                    {{#each modTags}}
+                        {{>tag-list-item}}
+                    {{/each}}
+                {{/if}}
+            </ul>   
+        </div>
+		<div class="card-element last-seen">
+			<div class="seen">Last seen {{timeAgo dateJoined}}</div>
+			<div class="joined">Joined {{timeAgo dateJoined}}</div>
+		</div>  
+		<div class="card-element pull-right status">
+			<button class="btn btn-sm {{#if app}}btn-blue{{else}}btn-subdued{{/if}}" data-actionbind data-action="toggleApproved" data-id="{{id}}">{{#if app}}Approved{{else}}Probation{{/if}}</button>
+			<div class="little-funcs">
+				<button class="btn btn-sm btn-transparent {{#if fea}}checked{{/if}}" data-id="{{id}}" data-type="user" data-actionbind data-action="toggleFeatured"><i class="io io-android-star"></i></button>
+				<button class="btn btn-sm btn-transparent btn-subdued dropdown-toggle icon-swap" data-toggle="dropdown"><i class="io io-more one"></i><i class="io io-android-close two"></i></button>
+                <ul class="flat-menu dropdown-menu">
+                    <li class="report linklike light" data-id="{{id}}" data-type="suite" data-actionbind data-action="flagSuite">
+                        <i class="io io-trash-a"></i>Delete account
+                    </li>
+                    <li class="report linklike light" data-id="{{id}}" data-type="suite" data-actionbind data-action="talkTo">
+                        <i class="io io-trash-a"></i>Chat with {{firstName}}
+                    </li>                    
+                </ul>   				
+			</div>
+		</div>        
+    </div>
+</div>

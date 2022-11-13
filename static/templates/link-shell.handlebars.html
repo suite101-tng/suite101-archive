@@ -1,0 +1,97 @@
+<div class="page-container pageContainer" id="link-{{id}}" data-view-bind="linkView">
+    <div class="link-main">               
+
+            <div class="link-stage linkStage">
+                <div class="center-column">
+                    <div class="link-stage-body linkStageBody" data-id="{{id}}">
+                    
+                         <div class="link-ident linkIdent">
+                            <img class="link-ident-icon" src="{{provider.imageUrl}}" />
+                            From <span class="provider-title providerTitle">{{provider.name}}</span>
+                        </div>
+
+                        {{#if htmlObject}}
+                            {{{htmlObject}}}
+                        {{else}}
+                            {{title}}
+                            {{description}}
+
+                        <div class="link-normal linkNormal">
+                            <a href="{{linkUrl}}" target="_blank" rel="nofollow" class="wrapping-anchor">
+                                <h2 class="link-title">{{c}}</h2>
+                                <div class="link-author">
+                                    {{linkMediaAuthor}}
+                                </div>
+                                <div class="link-description">
+                                {{#if linkImage}}
+                                <div class="link-teaser-image" style="background-image: url('{{linkImage}}');"></div>
+                                {{/if}}
+                                
+                                {{{linkDesc}}}
+                                </div>
+                            </a>
+                        </div>
+
+                        {{/if}}
+                         <div class="link-ident linkIdent">
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+                     <div class="story-rollin storyRollin">
+                    
+                            <div class="end-actions centered endActions">    
+
+                            <div class="share-actions">
+                            <button class="btn circle btn-transparent ours tip act add-to" data-type="link" data-id="{{id}}" data-actionbind data-action="openSuiteSelector" title="Add to a Suite"><i class="io io-android-add"></i></button><a class="act btn btn-transparent circle twitter tip" href="http://twitter.com/intent/tweet?{{tweetParamsEncoded}}" title="Tweet"><i class="io io-twitter"></i></a><a class="act btn btn-transparent circle facebook tip" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsuite.io/{{hash}}" title="Share on Facebook"><i class="io io-social-facebook"></i></a><div class="share-links-container"><div class="act dropdown-toggle tip btn circle btn-transparent icon-swap" data-toggle="dropdown" title="More"><i class="io io-ios-more one"></i><i class="io io-android-close two"></i></div><ul class="flat-menu dropdown-menu"><li><a class="mail" href="mailto:?subject=Suite: {{title}} by {{author.fullName}}&amp;body=https://suite.io/{{hash}}%0A%0A{{bodyExcerptNoTags}}" target="_blank"><i class="io io-paper-airplane"></i>Send via email</a></li><li><a class="print" onclick="window.print();"><i class="io io-printer"></i>Print</a></li><li class="report linklike light" data-id="{{id}}" data-type="link" data-actionbind data-action="flagLink" title="Report"><i class="io io-ios-flag"></i>Report to moderators</li><li class="text-item storyPermalink"><span class="label">Share link:</span><input class="link shareAct" readonly="true" value="https://suite.io/{{hash}}" /></li></ul></div>
+                            </div>   
+                                        
+                            </div> <!-- /end actions -->
+
+                </div>
+
+                <section class="response-band responseBand" id="responses-{{id}}">   
+                    <div class="main-response-block mainResponseBlock">
+                    </div>
+                    
+<!--                     <div class="respond-action respondActions centered">
+                        <div class="btn-group">
+                            <button class="respond-to-it tip btn btn-blue" data-main="true" data-id="{{id}}" data-type="story" data-actionbind data-action="fromParentMiniCreate" title="Respond"><i class="io io-ios-undo"></i>Respond</button>   
+                            {{#if numResponses}}<button class="btn btn-blue counter responses-counter responsesCounter">{{numResponses}}</button>{{/if}}
+                        </div>
+                    </div> -->
+
+                    <div class="responses-list responsesList">
+                        <div class="stories-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                            {{#if responses}}
+                                {{#each responses}}
+                                    {{>story-teaser}}
+                                {{/each}}
+                                {{#if moreResponses}}
+                                <div class="centered resp-trail respTrail">
+                                    <button class="btn btn-subdued showMoreResponses" data-actionbind data-action="showMoreResponses">Show more</button>
+                                </div>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+
+                </section>            
+
+            {{#if suites}}
+            <aside class="moreSuites more-suites-footer centered noprint">
+            <div class="core-subhead flow centered">
+                <div class="subhead">Featured in {{numSuites}} Suite{{pluralize numSuites "" "s"}}  </div>
+            </div>
+            <div class="center-column wide">
+                {{#each suites}}
+                    {{>suite-teaser}}
+                {{/each}}
+            </div>
+
+            </aside>
+            {{/if}}            
+
+    </div>
+</div>

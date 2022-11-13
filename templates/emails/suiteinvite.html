@@ -1,0 +1,21 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+
+{% block email-image %}
+    <img src="{{other_user.get_profile_image|add_http}}" height="32" width="32"/>
+{% endblock email-image %}
+
+
+{% block email-summary %}
+    <strong>{{other_user.get_full_name}}</strong><br />
+    has invited you to join their suite "{{obj.suite.name}}"
+{% endblock email-summary %}
+
+
+{% block email-content %}
+
+    {{obj.message|linebreaksbr}}
+
+    <a href="{{site_url}}{% url 'inbox_list_threads_detail' extra_object.pk %}">View invitation</a>
+
+{% endblock email-content %}

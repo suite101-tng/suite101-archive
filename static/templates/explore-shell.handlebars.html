@@ -1,0 +1,142 @@
+ <div class="page-container pageContainer" id="explore-{{exploreType}}">
+
+     <nav class="sub-nav subNav ">
+        <ul class="nav-items userContentNav">
+            <li class="nav-tab exploreTab {{#if explore}}active{{/if}}" data-tab="explore">Explore</li>
+            <li class="nav-tab exploreTab {{#if latestType}}active{{/if}}" data-tab="latest">Latest</a></li>
+            <li class="nav-tab exploreTab {{#if discusssedType}}active{{/if}}" data-tab="discussed">Discussed</li>
+            <li class="nav-tab more-toggle pull-right dropdown-toggle" data-toggle="dropdown">More<i class="io io-ios-arrow-down"></i></li>
+            <ul class="nav-tab dropdown-menu more-actions actions top-drop">
+                <li><a href="/suites" data-navigate><i class="io io-grid2"></i>Featured Suites</a></li>
+                <li><a href="/people" data-navigate><i class="io io-android-person"></i>Featured members</a></li>
+                <li><a href="/staff-picks" data-navigate><i class="io io-android-star"></i>Staff picks</a></li>
+            </ul>
+        </ul>
+    </nav>
+
+    <div class="pageWrapper page-wrapper">
+                
+        <div class="main-panel mainPanel">
+            
+            {{#if explore}}
+            <section class="exploreFeaturedSuites suites">
+                <h4 class="centered inline-sub">Featured Suites</h4>
+                <div class="center-column wide centered">
+                    <div class="stories-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                        {{#each suites}}
+                        {{>suite-teaser}}
+                        {{/each}}
+                    </div>
+                </div>
+            </section>
+
+            <section class="explore-tags exploreTags">
+                <div class="tag-container tagContainer center-column">
+                    <h4 class="centered inline-sub">Trending tags</h4>
+                    {{#if topTags}}
+                        <div class="tag-label"><i class="io io-ios-pricetag-outline"></i></div>
+                        <ul class="storyTags story-tags storyTags">
+                            {{#topTags}}
+                                {{>tag-list-item}}
+                            {{/topTags}}
+                        </ul>                   
+                    {{/if}}
+                </div>
+            </section>
+
+            <section class="explorePeople members">
+                <div class="center-column wide centered">
+                    <div class="{{#unless exploreMembers}}isEmpty{{/unless}} members-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                        {{#if exploreMembers}}
+                            {{#exploreMembers}}
+                                {{>user-teaser}}
+                            {{/exploreMembers}}
+                        {{/if}}
+                    </div>
+                </div>
+            </section>             
+
+            <section class="exploreMainLatestStories stories">
+                <h4 class="centered inline-sub">Trending posts</h4>
+                <div class="article-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                    {{#if trendingPosts}}
+                        {{#each trendingPosts}}
+                            {{>story-teaser}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </section>   
+
+            {{/if}}
+
+            {{#if longReads}}
+            <section class="exploreLongReads">
+                <div class="stories-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                    {{#each stories}}
+                        {{>story-teaser}}
+                    {{/each}}
+                </div>
+            </section>
+            {{/if}}
+
+            {{#if featuredMembers}}
+            <section class="explorePeople members">
+                <div class="center-column wide centered">
+                    <div class="{{#unless people}}isEmpty{{/unless}} members-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                        {{#if members}}
+                            {{#each members}}
+                                {{>user-teaser}}
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+            </section>   
+            {{/if}}
+
+            {{#if latestStories}}
+            <section class="exploreLatestStories stories">
+                <div class="{{#unless stories}}isEmpty{{/unless}} article-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                    {{#if stories}}
+                        {{#each stories}}
+                            {{>story-teaser}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </section>   
+            {{/if}}
+
+
+            {{#if topStories}}
+            <section class="explorePopularStories stories">
+                <div class="{{#unless stories}}isEmpty{{/unless}} article-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                    {{#if stories}}
+                        {{#each stories}}
+                            {{>story-teaser}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </section>   
+            {{/if}}
+
+            {{#if discussedStories}}
+            <section class="exploreDiscussedtStories stories">
+                <div class="{{#unless stories}}isEmpty{{/unless}} article-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                    {{#if stories}}
+                        {{#each stories}}
+                            {{>story-teaser}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </section>     
+            {{/if}}       
+
+            {{#if nextPage}}
+                <a href="{{currentUrl}}?page={{nextPage}}" class="loadMore" rel="next">Next</a>
+            {{/if}}
+            {{#if prevPage}}
+                <a href="{{currentUrl}}?page={{prevPage}}" class="loadMore" rel="prev">Prev</a>
+            {{/if}}
+
+        </div> <!-- /.main-panel -->
+    </div>
+</div>

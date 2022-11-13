@@ -1,0 +1,112 @@
+// Notifications
+@notifVerticalPadding: 24px;
+.no-notifs {
+    padding: 24px 0;
+    font-size: 1.1em;
+    max-width: 340px;
+    line-height: 1.1em;
+    color: @grayLight;
+    margin: 0 auto;
+}
+.ed-msg-author {
+    margin: 24px 0 12px;
+    .profile-image {
+        left: 0;
+    }
+    .ed-msg-name {
+        padding: 0 0 0 24px;
+        font-weight: 600;
+        color: @gray;
+        &:hover {
+            color: @grayDark;
+        }
+    }
+}
+.notification-item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 6px;
+    .linearAnimate;
+    padding: @notifVerticalPadding 0;
+    font-size: 1em;
+    line-height: 1.15em;
+    border-bottom: solid 1px @mushroom;
+    position: relative;
+    &.is-unread {
+        &:before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            .border-radius(32px);
+            top: @notifVerticalPadding + 11px;
+            background-color: @red;
+            width: 12px;
+            height: 12px;
+
+        }
+    }
+    .mod-msg {
+        display: block;
+        margin: 14px 0 0;
+        padding-left: 24px;
+        color: @gray;
+        position: relative;
+        &:after {
+            font-family: @ioIcon;
+            content: "\e91a";
+            position: absolute;
+            left: 0;
+            font-size: .9em;
+            top: 0;
+            margin: 0;
+            color: @grayLight;
+        }        
+    }
+    .target{
+        &.inline-profile {
+            margin-left: 26px;
+        }
+    }
+    .actor {
+        font-weight: 600
+    }
+    .profile-image {
+        position: absolute;
+    }
+    .texty {
+        margin: 0 24px 0 48px;
+        font-size: 1.05em;
+        line-height: 1.15em;
+        .trailing-date {
+            margin: 4px 0 0;
+            color: @grayLight; 
+        }
+        .verb {
+            &.parent {
+                color: @grayLight;
+                font-weight: 600;
+            }
+            &.response {
+                color: @grayDark;
+                font-weight: 600;
+            }
+        }
+    }
+    .request-message {
+        margin: 8px 0 12px;
+        color: @grayLight;
+    }
+    .alert-icon {
+        position: absolute;
+        text-align: center;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        background-color: @blue;
+        .border-radius(@baseBorderRadius);
+        color: @white;
+        i {
+            font-size: 16px;
+        }
+    }
+}

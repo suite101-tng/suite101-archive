@@ -1,0 +1,23 @@
+<header class="static-header">
+    <div class="center-column">
+        <div class="static-crumb">
+            <h1 class="crumb-current">
+                Delete account
+            </h1>
+             
+
+        </div>
+    </div>
+</header>
+
+<div class="center-column">
+    <div class="article-body static-body">
+              <p>We've got a good thing going here, but we understand it won't be right for everyone. No hard feelings. Maybe we'll see each other again sometime soon.</p>
+            
+            <p>If you've not already done so, <a href="{% url 'story_export' request.user.pk %}" target="_blank">download a backup copy of your stories</a>.</p>
+
+            <p>Clicking the button below will close your account and remove your stories. Note, whether you choose to stay or go, you always retain full ownership of everything you post at Suite.</p>
+
+            <button class="btn btn-red" data-actionbind data-action="closeAccount">Delete my account</button>
+    </div>
+</div>

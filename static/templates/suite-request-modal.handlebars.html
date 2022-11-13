@@ -1,0 +1,33 @@
+<div class="suiteRequestModal modal normal request-to-join" style="display: none;" tabindex="-1">
+    <div class="modal-card center-column suite-create">       
+                
+        <div class="mini-card-header centered">
+            Join {{name}}
+        </div>
+
+        <div class="m-card-container">
+            <div class="m-card-body">
+            {{#if alreadyInvited}}
+            You've been invited to join this Suite! Accept and you'll be free to contribute
+            <div class="request-action-buttons centered requestActionButtons">
+                <span class="btn btn-blue btn-sm acceptRejectInvite" data-accept="true">Accept</span>   
+                <span class="btn btn btn-sm acceptRejectInvite" data-accept="false">Reject</span>
+            </div>
+            {{else}}
+                {{#if alreadyRequested}}
+                Your invitation is pending. Once {{owner.fullName}} or another editor has approved your request, you'll receive a notification.
+                {{else}}
+                <div class="suite-request-form suiteRequestForm">
+                    <div class="request-preamble centered">Ask <a href="{{owner.absoluteUrl}}" class="owner wrapping-anchor"><span class="profile-image inline tiny" style="background-image: url('{{owner.mainImageUrl}}');"></span> <span class="owner-name">{{owner.fullName}}</span></a> for permission to contribute to this Suite.</div>
+                    <textarea class="msg" name="msg" placeholder="{{placeholder}}"></textarea>
+                    <div class="submit-butts centered">
+                        <div class="btn btn-blue submitRequest">Send request</div>
+                    </div>
+                </div>
+                {{/if}}
+            {{/if}}
+            </div>
+        </div>
+    
+    </div>
+</div>

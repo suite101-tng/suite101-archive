@@ -1,0 +1,17 @@
+<div class="provider-edit-form providerEditForm">
+	<div class="upper-deck">
+		<div class="provider-image-container pull-left">
+			<div class="provider-image providerImage" style="background-image: url('{{imageUrl}}');"></div>
+			<button class="btn btn-sm btn-subdued genericModalAction" data-persist="true" data-actionbind data-action="uploadProviderIcon">Change icon</button>
+		</div>		
+	</div>
+	<div class="field-wrapper">
+	    <input class="providerName min-form-field" placeholder="Provder name" type="text" autocomplete="off" value="{{name}}" />
+    </div>    	
+	<div class="field-wrapper">
+	    <input class="providerUrl min-form-field" placeholder="Provder link" type="text" autocomplete="off" value="{{link}}" />
+		<button class="pull-right btn btn-sm btn-transparent {{#if banned}}banned{{/if}} ban-provider banProvider">Ban this provider</button>    	    
+    </div>
+    <div class="providerimgdrop uploadProviderImage"></div>
+</div>
+                       

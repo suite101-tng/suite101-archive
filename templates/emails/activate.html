@@ -1,0 +1,39 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+
+{% block email-summary %}Please confirm your email address.{% endblock email-summary %}
+
+{% block email-content %}
+
+    {% block email-title %}
+        Please confirm you are you.
+    {% endblock %}
+
+    {% block message-main-body %}
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: solid 24px #fff;">
+            <tbody>
+                <tr>
+                    <td align="center">
+						<p>To confirm your email address and activate your account just click the button below.<p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    {% endblock %}
+
+    {% block email-action-button %}
+        <a href="{{ activation_url }}?ref=email&tp=activateemail" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #1a8bba; text-decoration: none; -webkit-border-radius: 34px; -moz-border-radius: 34px; border-radius: 34px; padding: 8px 18px; border: 1px solid #1a8bba; display: inline-block;">Activate my Suite account</a>
+    {% endblock %}
+
+    {% block trailing-body-blurb %}
+		<td align="center" style="border-top: solid 24px #fff; color: #ccc; font-size: 13px; line-height: 14px;">
+			<p>Having trouble? Reply to this message and we'll swoop!<p>
+        </td>
+	{% endblock %}
+
+
+
+{% endblock %}

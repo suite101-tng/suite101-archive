@@ -1,0 +1,25 @@
+{% extends 'emails/base.html' %}
+
+{% block email-summary %}Suite Weekly Digest{% endblock email-summary %}
+
+{% block email-content %}
+
+<p>Hi {{user.first_name}}</p>
+
+{% if total_reads %}
+<p>You've been read a total of {{total_reads}} times! Congrats</p>
+{% endif %}
+
+{% if responses_rendered %}
+<p>Check out the latest responses to your stories</p>
+{{responses_rendered|safe}}
+{% endif %}
+
+{% if missed_stories %}
+<p>Here are some stories you may have missed.</p>
+{{missed_stories|safe}}
+{% endif %}
+
+<p>Thanks!<br />The Suite team</p>
+
+{% endblock %}

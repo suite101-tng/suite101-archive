@@ -1,0 +1,31 @@
+<li class="chat-message chatMessage {{#if msgOwnerViewing}}my-message{{/if}}" data-id="{{id}}">
+<div class="msg-head">
+    <a class="user-name" href="{{user.absoluteUrl}}" tab-index="-1">
+        <div class="profile-image auth-head small {{#if user.isStaff}}staff{{/if}}" style="background-image: url({{user.mainImageUrl}})"></div>
+        <span class="msg-auth">{{user.fullName}}</span>
+    </a>
+    <span class="date-time">{{timeAgo createdTuple}}</span>
+
+    <div class="msg-actions pull-right">
+
+        <div class="act dropdown-toggle tip btn circle btn-transparent icon-swap" data-toggle="dropdown" title="More">
+            <i class="io io-ios-more one"></i><i class="io io-android-close two"></i>
+        </div>
+
+        <ul class="flat-menu dropdown-menu">
+            <li data-type="message" data-id="{{id}}" data-actionbind data-action="flagMessage">
+                <i class="io io-flag"></i>Report to moderators
+            </li>
+        </ul>
+    </div>   
+</div>
+    <div class="chat-text">
+        <div class="msg-body">
+            <div class="message">{{{message}}}</div>
+            <div class="msg-footer">
+                
+            </div>
+        </div>
+    </div>
+    <div class="chatReplyAttach" data-msg-id="{{id}}"></div>
+</li>

@@ -1,0 +1,291 @@
+<div class="page-container pageContainer" id="settings-view">
+    <div class="pageWrapper page-wrapper">
+
+            <!-- List/start -->
+            <div class="notifications-container notifsContainer">
+                <header class="static-header centered">
+                    <div class="static-crumb">
+                        <h1 class="static-title tip"  data-toggle="tab" data-target="#profile" title="Profile settings">
+                            Settings
+                        </h1>
+                    </div>
+                    <div class="primary-tabs primaryTabs">
+                        <ul class="tab-items tabItems">
+                            <li class="tab active" data-toggle="tab" data-target="#profile">Profile</li>
+                            <li class="tab" data-toggle="tab" data-target="#privacy">Privacy</li>
+                        </ul>
+                    </div>
+                </header>          
+
+                <div class="tab-content">
+                    <div class="center-column">
+                    <div class="tab-pane active unreadNotifs" id="profile">
+                        <div class="profile-settings profileSettings">
+
+                            <div class="profile-img-setting profileImgSetting">
+                                <div class="profile-image medium profile-settings-image profileSettingsImage" data-actionbind data-action="uploadImage" style="background-image: url('{{mainImageUrl}}');"></div>
+                            </div>
+
+                            <div class="profile-core-settings profileCoreSettings">
+                                <div class="setting-user-name setting-user-name profileField settingUserName" data-field="fullName" data-placeholder="Your name">{{fullName}}</div>                            
+                                <div class="setting-user-byline  setting-user-byline profileField settingUserByline" data-field="byline" data-placeholder="Byline">{{byLine}}</div>
+
+                                <div class="secondary-settings">
+                                    <div class="setting-text-naked setting-user-location profileField settingUserLocation" data-field="location" data-placeholder="Where are you?">{{location}}</div>
+                                    <div class="setting-text-naked setting-user-website profileField settingUserWebsite" data-field="website" data-placeholder="Your primary home on the web">{{personalUrl}}</div>
+                                </div>
+                                <div class="reg-bottom">
+                                    <button class="btn  btn-subdued login-button" data-actionbind data-action="saveProfileEdit">Update</button>
+                                </div>
+                            </div>
+                            <div class="profileimgdrop story-image-uploader uploadProfileImage"></div>
+                        </div>
+
+
+                        <div class="setting-section">
+
+                            <div class="setting-intro">
+                            <h4>Connected social accounts</h4> 
+                            <p>This will make it easier to connect with friends from your other circles. We'll never post anything on your behalf.</p>
+                            </div>
+
+                            <div class="soc-profile twitter">
+                            {{#if social.twitter}}
+                            <a class="soc-out-link" href="https://twitter.com/{{social.twitter}}">
+                            <i class="io io-twitter"></i>
+                            <span class="social-blurb">
+                            <span class="twitter-linked">@{{social.twitter}}</span>
+                            </span>
+                            </a>
+                            <a class="unlink" href="/u/api/disconnect/twitter">
+                            <span class="twitter-unlink">Disconnect</span>
+                            </a>
+                            {{else}}
+                            <a class="soc-out-link not-connected linkTwitter twitter-connect" href="/social/begin/twitter">
+                            <i class="io io-twitter"></i>
+                            <span class="social-blurb">
+                            <span class="twitter-linked">Connect your Twitter account</span>
+                            </span>
+                            </a>
+                            {{/if}}
+                            </div>
+
+                            <div class="soc-profile facebook">
+                            {{#if social.facebook}}
+                            <a class="soc-out-link" href="{{social.facebook}}">
+                            <i class="io io-social-facebook"></i>
+                            <span class="social-blurb">
+                            <span class="soc-subhead">{{social.facebook}}</span>
+                            <span class="twitter-linked"></span>
+                            </span>
+                            </a>
+                            <a class="unlink" href="/u/api/disconnect/facebook">
+                            <span class="facebook-unlink">Disconnect</span>
+                            </a>
+                            {{else}}
+                            <a class="soc-out-link not-connected linkFacebook facebook-connect" href="/social/begin/facebook">
+                            <i class="io io-social-facebook"></i>
+                            <span class="social-blurb">Connect your Facebook account</span>
+                            </a>
+                            {{/if}}
+                            </div>
+
+                        </div>
+
+                        <!-- Change my slug -->
+                        <div class="setting-section set-my-slug setMySlug">
+                            <div class="setting-intro">
+                                <h4>Profile address</h4>
+                                <p>Customize your Suite profile slug – your profile page address and the first part of all links to your posts.</p>
+                            </div>
+
+                            <div class="slug-change-form slugChangeForm">
+                                <span class="site-slug-label">suite.io/</span>
+                                <div class="setting-text setting-user-slug settingUserSlug" data-placeholder="">{{mySlug}}</div>
+                                <div class="btn  btn-subdued" data-actionbind data-action="changeMySlug">Update</div>
+                                <div class="form-alert-container slugAlert"></div>
+                            </div>
+                        </div>  
+
+                        <!-- Email -->
+                        <div class="setting-section">
+                            <div class="setting-intro">
+                                <h4>Email</h4> 
+                                <p>Your Suite login, and the address we'll use to reach you on the outside.</p>                             
+                            </div>
+
+                            <div class="email-change-form emailChangeForm">
+                            <div class="setting-text setting-user-email settingUserEmail" data-placeholder="Your email address">{{email}}</div>
+                            <div class="btn btn-subdued" type="submit">Update</div>
+
+
+                            <div class="suite-radio email-privacy-radio suiteRadio toggleEmailRadio">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if showEmail}}checked{{/if}}" data-actionbind data-action="toggleEmailPrivacy"></button>
+                                </div>
+                                <div class="radio-label">Show your email address on your profile page.</div>
+                            </div>                            
+
+                            </div>
+                        </div>
+
+                        <!-- Password reset -->
+                        <div class="setting-section">
+                            <div class="setting-intro">
+                                <h4>Password</h4> 
+                                <p>Please look after your password, make it strong, change it often.</p>
+                            </div>
+                            <div class="password-change-form passwordChangeForm">
+                                <input class="min-form-field" id="settings_pw" name="pw" placeholder="Choose a new password" type="password" autocomplete="off">
+                                <div class="profile-field-sub-label">New password</div>
+                                
+                                <input class="min-form-field padded" id="settings_pw2" name="pw2" placeholder="Type it again" type="password" autocomplete="off">
+                                <button class="btn  btn-subdued" data-actionbind data-action="submitPasswordChange">Update</button>
+                            </div>
+                        </div>
+
+
+                        <!-- Google Analytics -->
+                        <div id="analytics" class="setting-section">
+                            <div class="setting-intro">
+                            <h4>Google Analytics tracking</h4>
+                            <p>We track views, reads and many other things <a href="/stats" data-navigate>for you</a> – but if you still want more data, you can add your own Google Analytics ID to your Suite profile. (<a href="https://support.google.com/analytics/answer/1032385?hl=en" rel="nofollow" target="_blank">Here's help</a>.)</p>
+                            </div>
+                            <div class="ga-form gaForm">
+                                <div class="setting-text setting-user-ga-code settingsTextField settingUserGaCode" data-field="gaCode" data-placeholder="eg UA-12345678-1">{{gaCode}}</div>
+                                <button class="btn  btn-subdued" data-actionbind data-action="setGACode">Update</button>
+                                <div class="form-alert-container gaAlert"></div>
+                            </div>
+                        </div>
+
+                        <!-- Account status -->
+                        <div class="setting-section settings-account-status accountStatus">
+                            <div class="setting-intro">
+                                <h4>Account status</h4>
+                                {{#if active}}
+                                <p class="active-account">Your account is active. You've been a member since {{dateJoined}}.</p>
+                                {{else}}
+                                <p class="inactive-account">Your account is currently inactive.</p>
+                                {{/if}}
+                            </div>
+
+                            {{#if active}}
+                            <button class="btn  btn-subdued" tab-index="-1" data-actionbind data-action="deactivateAccount">Deactivate my account</button>
+                            {{else}}
+                            <button class="btn btn-subdued" tab-index="-1" data-actionbind data-action="reactivateAccount">Activate my account</button>
+                            {{/if}}
+                            <button class="btn btn-subdued" tab-index="-1" data-actionbind data-action="closeAccount">Close my account</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane msgNotifs" id="privacy">
+                        <div class="setting-section settings">
+                            <div class="setting-intro">
+                            <h4>Contacting you</h4> 
+                            <p>Choose who can send you messages on Suite:</p>
+                            </div>
+
+                            <div class="suite-radio email-privacy-radio suiteRadio privSetting">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if priv2}}checked{{/if}}" data-setting="2" data-actionbind data-action="setPrivacy"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>Anyone</h4>
+                                    <span class="details">Anyone with a Suite account can contact you.</span>
+                                </div>
+                            </div>  
+
+                            <div class="suite-radio email-privacy-radio suiteRadio privSetting">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if priv1}}checked{{/if}}" data-setting="1" data-actionbind data-action="setPrivacy"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>People you follow</h4>
+                                    <span class="details">Only people you follow on Suite can send you private messages.</span>
+                                </div>                                
+                            </div>  
+
+                            <div class="suite-radio email-privacy-radio suiteRadio privSetting">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if priv0}}checked{{/if}}" data-setting="0" data-actionbind data-action="setPrivacy"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>Nobody</h4>
+                                    <span class="details">No one (except Suite staff) can send you private messages. Ouch.</span>
+                                </div>                                
+                            </div> 
+
+                        </div>
+
+                    <!-- Notifications -->
+
+                        <div class="setting-section settings" id="notifications">
+
+                            <div class="setting-intro">
+                            <h4>Inbound email settings</h4> 
+                            <p>Select the emails you'd like us to send you (we'll send no others).</p>
+                            </div>
+
+                            <div class="suite-radio email-prefs-radio suiteRadio emailPrefs">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if emailSettings.daily}}checked{{/if}}" data-actionbind data-action="setEmailPreferences" data-setting="daily_summary"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>Daily summary</h4>
+                                    <span class="details">A daily summary of recent activity in your feed.</span>
+                                </div>
+                            </div> 
+
+                            <div class="suite-radio email-prefs-radio suiteRadio emailPrefs">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if emailSettings.stories}}checked{{/if}}" data-actionbind data-action="setEmailPreferences" data-setting="new_posts"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>New posts</h4>
+                                    <span class="details">Every time someone you follow posts a new story.</span>
+                                </div>
+                            </div> 
+
+                            <div class="suite-radio email-prefs-radio suiteRadio emailPrefs">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if emailSettings.notifs}}checked{{/if}}" data-actionbind data-action="setEmailPreferences" data-setting="notifications"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>Alerts</h4>
+                                    <span class="details">Short, focused, little alerts whenever someone responds to one of your stories, follows you...</span>
+                                </div>
+                            </div>                             
+
+                            <div class="suite-radio email-prefs-radio suiteRadio emailPrefs">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if emailSettings.weekly}}checked{{/if}}" data-actionbind data-action="setEmailPreferences" data-setting="weekly_digest"></button>
+                                </div>
+                                <div class="radio-label">
+                                    <h4>Weekly Suite</h4>
+                                    <span class="details">Our picks of the week's top stories plus recommendations tailored to you.</span>
+                                </div>
+                            </div>   
+
+                        </div> 
+
+                        <!-- Ads? -->
+                        <div class="setting-section">
+                            <div class="setting-intro">
+                                <h4>Advertising</h4> 
+                                <p>Allow us to show ads on your posts?</p>                             
+                            </div>
+
+                            <div class="suite-radio email-privacy-radio suiteRadio toggleEmailRadio">
+                                <div class="radio-but-container">
+                                    <button class="btn circle btn-radio {{#if showEmail}}checked{{/if}}" data-actionbind data-action="toggleEmailPrivacy"></button>
+                                </div>
+                                <div class="radio-label">OK to show ads</div>
+                            </div>                            
+                        </div>  
+                                             
+                    </div>                     
+            </div>
+        </div>
+    </div>
+</div>
+</div>

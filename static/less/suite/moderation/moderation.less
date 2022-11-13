@@ -1,0 +1,942 @@
+.monitor-list-view {
+    .paged-list-filter {
+        margin: 0 0 48px;
+    }
+}
+.mod-tab {
+    display: inline-block;
+    padding: 0 12px;
+    height: 34px;
+    line-height: 34px;
+    position: fixed;
+    right: 0;
+    top: 64px;
+    background-color: @red;
+    .border-radius(@boxBorderRadius);
+
+}
+.mod-func {
+    .btn {
+        &.featured {
+            background-color: @blue;
+            border-color: darken(@blue, 2%);
+            color: @white;
+        }
+    }
+}
+.moderateThisModal {
+    .modTags, .modTagEdit {
+        display: none;
+        &.active {
+            display: inline-block;
+        }
+    }
+}
+.flat-menu {
+    &.mod-action-menu {
+        left: 0;
+        .linklike {
+            color: @grayLight;
+            .unselectable;
+            &:hover {
+                color: @grayDark;
+            }
+            .io {
+                &:before {
+                    content: "\f3a8";
+                }
+            }
+            &.active {
+                color: @blue;
+                .io {
+                    &:before {
+                        content: "\f120";
+                    }
+                }
+                &:hover {
+                    color: darken(@blue, 2%);
+                }
+            }
+            &:last-child {
+                &:before {
+                    margin-left: 6px;
+                }
+                &:after {
+                    margin-left: 7px;
+                }                
+            }
+        }
+    }
+}
+.accruals-admin {
+    position: relative;
+    .suite-check-box {
+        right: 0;
+        left: initial;
+    }
+}
+.suffix {
+    display: none;
+}
+.deferred {
+    .defer {
+        background: @gray;
+        color: @white;
+    }
+    .suffix {
+        display: inline;
+    }
+}
+.icon-num {
+    .io {
+        font-size: 26px;
+        font-weight: 900;
+    }
+}
+.level-subhead {
+    padding: 8px 0;
+    color: @white;
+    font-weight: 600;
+    background-color: @grayDark;
+    .border-radius(@boxBorderRadius @boxBorderRadius 0 0);
+}
+.defer-functions {
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    .btn {
+        width: 100%;
+    }
+}
+.sec-stat {
+    .inner-tab-shifter {
+        list-style: none;
+        li {
+            &.active {
+                .num, .the-label {
+                    color: @blue;
+                }
+            }
+        }
+    }
+}
+.mod-flag-teaser {
+    padding: 0 0 16px;
+    margin: 0 0 16px;
+    border-bottom: solid 1px @grayLighter;
+    .flag-head {
+        position: relative;
+        padding: 0 80px 0 42px;
+        .profile-image {
+            position: absolute;
+            left: 0; 
+        }
+        .flag-user-name {
+            font-weight: 600;
+        }
+    }
+    .flag-actions {
+        position: absolute;
+        right: 0;
+        top: 0;
+        .btn {
+            .opacity(.4);
+        }
+    }
+    .flag-object-title {
+        font-weight: 600;
+    }
+    .flag-body {
+        margin-left: 42px;
+    }
+    .flag-message {
+        margin: 12px 0 0;
+        color: darken(@grayLight, 4%);
+        font-size: 1.1em;
+        line-height: 1em;
+    }
+    .flag-teaser-created {
+        color: lighten(@grayLight, 6%);
+    }
+}
+.mod-table {
+    .side-by-side-butts {
+        .btn {
+            margin-left: 4px;
+        }
+    }
+    .righty {
+        text-align: right;
+    }
+}
+.inline-mod-profile {
+    padding-left: 34px;
+    .profile-image {
+        position: absolute;
+        top: -4px;
+        left: -34px;
+    }
+}
+.feature-toggle {
+    .did-feature {
+        display: none;
+    }
+    &.active {
+        .did-feature {
+            display: inline;
+        }
+        .io {
+            color: @white;
+        }
+        border: solid 1px darken(@green, 4%);
+        background-color: @green;
+        color: @white;
+        font-weight: 600;
+    }
+}
+.mod-story-actions {
+    margin: 16px 0;
+    padding: 16px 0;
+    border-top: dotted 1px @grayLighter;    
+    .suite-radio {
+        margin: 0 0 18px;
+    }
+}
+.mod-story-created-modified {
+    margin: 12px 0 0;
+    color: @grayLight;
+}
+.mod-story-title {
+    font-weight: 700;
+    font-size: 1.35em;
+    color: @gray;
+}
+.mod-member-byline {
+    margin: 0 0 12px;
+    color: @grayLight;
+}
+.ads-radio {
+    .ads-off, .ads-on, .ads-auto {
+        display: none;
+    }
+    &.ads-on {
+        .ads-on {
+            display: block;
+        }
+        .btn-radio {
+            background-color: @green;
+        }
+    }
+    &.ads-off {
+        .ads-off {
+            display: block;
+        }
+        .btn-radio {
+            background-color: @red;
+        }        
+    }    
+    &.ads-auto {
+        .ads-auto {
+            display: block;
+        }
+        .btn-radio {
+            background-color: @blue;
+        }        
+    }
+}
+.mod-tag-edit {
+    .taggle_list {
+        padding-left: 6px; // alignment hack
+    }    
+}
+.mod-note-form {
+    margin: 18px 0;
+    padding: 18px 0;
+    border-bottom: dotted 1px @grayLighter;
+    border-top: dotted 1px @grayLighter;
+    .submit-msg {
+        margin: 12px 0 0 42px;
+    }
+}
+.mod-notes-list {
+    padding-bottom: 64px;
+}
+.mod-note {
+    margin: 0 0 20px;
+    padding: 0 6px;
+    font-size: .95em;
+    &.entry {
+        padding: 0;
+        margin: 0 0 0 42px;
+        &:hover {
+            cursor: text;
+        }
+    }
+    .message {
+        display: block;
+    }
+    .msg-body {
+        margin: 0 0 0 36px;
+    }
+    .mod-note-modpic {
+        position: relative;
+        display: inline-block;
+    }
+    .datetime {
+        color: @grayLight;
+    }
+    .mod-note-modname {
+        margin: 0 0 0 10px;
+        color: @gray;
+        font-weight: 600;
+    }
+}
+.mod-note-label {
+    position: absolute;
+    width: 34px;
+    text-align: center;
+    display: block;
+    .io {
+        font-size: 20px;
+        color: lighten(@grayLight,8%);
+    }
+}
+.mod-context-block {
+    float: left;
+    width: 100%;
+    .intro {
+        color: @grayLight;
+    }
+    h3 {
+        margin: 12px 0 6px;
+    }
+    .mod-body {
+        font-weight: 300;
+        font-size: 1.35em;
+        line-height: 1.15em;
+        border-bottom: dotted 1px @grayLight;
+        padding: 0 0 24px;
+        margin: 0 0 24px;
+    }
+}
+.side-one {
+    border-right: dotted 1px @grayLighter;
+    text-align: left;
+    padding: 0 36px 0 0;
+    width: 200px;
+    position: relative;
+float: left;
+.full-btn, .btn-group {
+    width: 100%;
+    margin: 0 0 8px;
+    position: relative;
+}
+.btn-group {
+    display: table;
+    .btn {
+        display: table-cell;
+        border: none;
+    }
+}
+.mod-byline {
+    font-size: 1.15em;
+    line-height: 1.15em;
+}
+.function-subhead {
+    font-size: 1.15em;
+    color: @grayLight;
+}
+}
+.toggle-approval {
+    .not {
+        display: inline;
+    }
+    .is {
+        display: none;
+    }
+    &.active {
+        text-transform: capitalize;
+        .not {
+            display: none;
+        }
+        .is {
+            display: inline;
+        }
+    }
+}
+.user-mod-header {
+    float: left;
+    margin: 0 0 24px;
+}
+.side-two {
+    padding: 0 0 0 36px;
+    .box-sizing(border-box);
+    float: left;
+    text-align: left;
+    .mod-intro {
+        font-size: 1.45em;
+        line-height: 1.15em;
+        font-weight: 300;
+    }
+}
+.mod-primary-buttons {
+    // position: fixed;
+    // bottom: 20px;
+    // left: 20px;
+    // z-index: 20;
+    .func {
+        margin-right: 6px;
+        display: inline-block;
+    }
+}
+.heading-tab {
+    margin-right: 24px;
+    &.active {
+            color: @grayDark;
+            font-weight: 600;
+        }
+    a {
+        color: @gray;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &:last-child {
+        margin: 0;
+    }
+}
+
+.tab-bit {
+    padding: 9px 18px;
+    display: inline-block;
+    font-size: 1.35em;
+    color: @grayLight;
+    &.featured {
+        color: @green;
+    }
+}
+.admin-func {
+    font-size: 1.15em;
+    color: @gray;
+    text-align: center;
+    padding: 0 8px;
+}
+.moderation-body {
+    margin-top: 24px;
+}
+.table {
+    td {
+        &.right-funcs {
+            text-align: right;
+            padding-right: 24px;
+            .mod-actions {
+                a {
+                    color: @grayLight;
+                    &:hover {
+                        color: @grayDark;
+                    }
+                }
+            }
+        }
+    }
+}
+.mod-info-block {
+    padding: 36px 0;
+    border-bottom: solid 1px @grayLighter;
+    .num {
+        font-weight: 900;
+        color: @grayLight;
+
+    }
+    &:first-child {
+        padding-top: 0;
+    }
+}
+.mod-menu {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: @backgroundColor;
+    background: rgba(249,248,247,.96);
+    .border-radius(0);
+    border: none;
+    padding: 120px 20px 20px 20px;
+    .auth-name {
+        font-size: 1.6em;
+        line-height: 1.15em;
+    }
+    .auth-byline {
+        font-size: 1.25em;
+        line-height: 1.15em;
+    }
+    .auth-since {
+        font-size: 1.25em;
+        line-height: 1.15em;
+        padding: 6px 0;
+        margin-top: 12px;
+        width: 100%;
+        border-top: dotted 1px @grayLight;
+        border-bottom: dotted 1px @grayLight;
+        color: @gray;
+    }
+}
+.mod-auth-card {
+    padding: 12px;
+    width: 280px;
+    right: initial;
+    left: 0;
+    top: initial;
+    bottom: 42px;
+    &:before { left: 40px; }
+    &:after { left: 41px;}
+    .user-link {
+        font-size: 1.15em;
+        line-height: 1.15em;
+        font-weight: 400;   
+        float: left;
+        margin-top: 16px;
+        width: 100%;
+        a {
+            color: darken(@grayLight,6%);
+            &:hover {
+                color: @grayDark;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.mod-user-upper {
+    position: relative;
+    .profile-image {
+        position: absolute;
+        left: 0;
+    }
+    .texty {
+        margin-left: 64px;
+    }
+}
+.mod-user-status {
+    margin: 0 0 12px -10px;
+    .status {
+        font-size: 1.05em;
+        padding: 3px 9px;
+        border: solid 1px darken(@mushroom, 12%);
+        .border-radius(@boxBorderRadius);
+    }
+    .mod-is-mod {
+        &.active {
+            border-color: @blue;
+            color: @blue;
+        }
+    }
+    .mod-is-royal {
+        &.active {
+            color: @white;
+            border-color: darken(@green, 2%);
+            background-color: @green;
+        }
+    } 
+
+}
+.mod-user-stats {
+    display: table;
+    width: 100%;
+
+    .stat {
+        display: table-cell;
+        padding: 0 8px;
+        position: relative;
+        float: left;
+        color: @grayLight;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+        &:after {
+            content: "";
+            width: 1px;
+            height: 12px;
+            background-color: @grayLight;
+            right: 0;
+            top: 2px;
+            position: absolute;
+        }
+    }
+}
+.mod-author-detail {
+    position: relative;
+}
+
+.view-func {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.user-status-list {
+    margin: 24px 0;
+    .user-mod {
+        &.approved, &.full {
+            background: @green;
+            color: @white;
+            border-color: darken(@green,8%);
+        }
+    }
+}
+
+.mod-user-card {
+
+    .profile-image {
+        position: absolute;
+    }
+    .auth-text {
+        margin-left: 42px;
+        h4 {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: @grayDark;
+        }
+        .byline {
+            font-size: 1.45em;
+            line-height: 1.15em;
+            color: darken(@gray, 12%);
+            font-weight: 300;
+            margin: -6px 0 0 0;
+        }
+    }
+}
+.account-actions {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        margin-left: 3px;
+        vertical-align: middle;
+    }
+}
+
+.mod-counts {
+    list-style-type: none;
+    margin: 12px 0;
+    padding: 0;
+    li {
+            display: block;
+            padding: 0;
+            font-size: 1.25em;
+            color: @gray;
+            i {
+                margin-right: 12px;
+                width: 20px;
+                text-align: center;
+
+            }
+    }
+}
+.mod-actions {
+    .item {
+        font-size: 1.15em;
+        font-weight: 600;
+        color: @grayLighter;
+        &:hover {
+            color: @grayDark;
+        }   
+    }
+}
+.mod-user-detail {
+    position: relative;
+}
+.feature-check {
+  height: 28px;
+  line-height: 28px;
+  padding: 0 0 0 28px;
+    position: relative;
+    color: @grayLight;
+    font-size: 1.1em;
+    font-weight: 600;
+    &:hover {
+        color: @grayDark;
+        cursor: pointer;
+    }
+    &.active {
+            color: @grayDark;
+        &:before {
+            content: "\f120";
+            color: @grayDark;
+        }
+    }
+    &:before {
+        content: "\f401";
+        color: @grayLight;
+        font-family: @ioIcon;
+        font-size: 22px;
+        position: absolute;
+        left: 0;
+    }
+}
+.mod-user {
+    float: left;
+    width: 100%;
+}
+.mod-user-actions {
+    position: relative;
+    margin: 0 4px;
+    &:first-child {
+        margin-left: 0;
+    }
+}
+.mod-user-status-actions {
+    clear: both;
+    width: 100%;
+    float: left;
+    height: auto;
+    padding: 18px 0 18px 64px;
+    display: block;
+    position: relative;
+}
+.mod-user-score {
+    clear: both;
+    margin: 12px 0 18px;
+    padding: 24px 0;
+    border-bottom: solid 1px @grayLighter;
+    border-top: solid 1px @grayLighter;
+    position: relative;
+    .score-label {
+        font-size: .9em;
+        color: @grayLight;
+    }
+    .score-legend {
+        font-size: .9em;
+        color: @gray;
+    }    
+    .score-container {
+        padding: 8px 0;
+    }
+    .score-it {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        line-height: 30px;
+        padding: 0;
+        vertical-align: middle;
+        text-align: center;
+        background: darken(@backgroundColor,3%);
+        font-weight: 600;
+        margin: 0 2px;
+        border: solid 1px @grayLighter;
+        .border-radius(@baseBorderRadius);
+        font-size: .9em;
+        .the-num {
+            color: @gray;
+        }
+        .the-label {
+            display: none;
+            color: @gray;
+            background-color: @mushroom;
+            position: absolute;
+            bottom: 5px;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            z-index: 4;
+        }
+        &:hover, &.active {
+            background-color: @gray;
+            border-color: darken(@gray, 3%);
+            color: @white;
+            cursor: pointer;
+            .the-label {
+                display: block;
+            }
+            .the-num {
+                color: @white;
+            }
+        }
+        &:hover {
+            .the-label {
+                z-index: 5;
+            }
+        }
+    }
+}
+.stats-widget {
+    float: left;
+    &.w33 {
+        width: 33.33%
+    }
+    &.w67 {
+        width: 66.67%
+    }
+}
+.widget-stat {
+    font-weight: 600;
+    &.failed {
+        color: @red;
+    }
+    &.success {
+        color: @green;
+    }
+}
+.title-label {
+position: absolute;
+  top: 200px;
+  color: rgba(255,255,255, 0.13);
+  font-weight: 700;
+  font-size: 3.2em;
+  margin: 0 auto;
+    text-align: center;
+  width: 100%;
+  .unselectable;
+  &:hover {
+    cursor: default;
+  }
+}
+.mod-action-butts {
+    margin: 12px 0 0 36px;
+    .btn {
+        margin: 0 2px 0 0;
+    }
+}
+.provider-edit-form {   
+    .field-wrapper {
+        margin: 0 0 12px;
+    }
+    .upper-deck {
+        min-height: 34px;
+        line-height: 34px;
+        margin: 0 0 12px;        
+    }
+    .provider-image {
+        display: inline-block;
+        width: 28px;
+        padding-bottom: 28px;
+        .border-radius(@baseBorderRadius);
+        .cover-background;
+    }
+    .ban-provider {
+        color: darken(@grayLighter, 6%);
+        &.banned {
+            color: @red;
+            border: dotted 1px @red;
+        }
+    }
+}
+.user-admin-card {
+    display: block;
+    .user-inner {
+        display: table;
+        width: 100%;
+        border-bottom: solid 1px @grayLighter;
+        padding: 8px 20px;   
+        line-height: 34px;
+        .hoverAnimate;
+        &:hover {
+            background-color: @whiteTranslucent;
+        }
+        .card-element {
+            display: table-cell;
+            vertical-align: middle;
+            .little-funcs {
+                margin-left: 6px;
+                display: inline-block;
+                position: relative;
+                .btn {
+                    position: relative;
+                    padding: 0;
+                    color: darken(@grayLighter, 12%);
+                    &.checked {
+                        color: @blue;
+                    }
+                }
+            }
+            .btn {
+                vertical-align: middle;
+                &.faint {
+                    color: @grayLighter;
+                }
+            }
+            &.tags {
+                width: 30%;
+                .mod-tags {
+                    display: inline-block;
+                }
+            }
+            &.last-seen {
+                width: 20%;
+                line-height: 1em;
+                .joined {
+                    color: @grayLight;
+                }
+            }
+            &.user-id {
+                width: 30%;
+                padding-right: 12px;
+                padding-top: 6px;
+                .profile-image {
+                    display: inline-block;
+                    position: absolute;
+                    vertical-align: top;
+                }
+                .texty {
+                    margin-left: 42px;
+                    display: inline-block;
+                    line-height: 1em;
+                }
+                .user-name {
+                    margin: 0;
+                    font-weight: 600;
+                }
+                .card-byline {
+                    color: @grayLight;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }             
+    }
+}
+
+.link-item {
+    display: block;
+    .link-inner {
+        display: table;
+        width: 100%;
+        border-bottom: solid 1px @grayLighter;
+        padding: 8px 20px;   
+        line-height: 34px;
+        .hoverAnimate;
+        &:hover {
+            background-color: @whiteTranslucent;
+        }
+        .link-attr {
+            display: table-cell;
+            &.provider {
+                width: 160px;
+                padding-right: 12px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .provider-name {
+                display: inline-block;
+            }
+            .provider-icon {
+                display: inline-block;
+                margin-right: 8px;
+                padding: 0;
+                .icon-img {
+                    width: 28px;
+                    .border-radius(@baseBorderRadius);
+                }
+            }
+        }
+    }
+}

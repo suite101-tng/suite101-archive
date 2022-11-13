@@ -1,0 +1,15 @@
+<div class="user-teaser suiteRequest small" data-id="{{id}}" data-user-id="{{user.id}}">
+    <a class="wrapping-anchor" href="{{user.absoluteUrl}}">
+    <img class="profile-image small" src="{{user.mainImageUrl}}" style="background-image: url('{{user.mainImageUrl}}');" alt="{{fullName}}"/>
+    <h4 class="author-name">{{user.fullName}} (Request <span class="statusText">{{status}}</span>)</h4></a>
+    <div class="byline">{{{user.byLine}}}</div>
+    <div class="status">
+        <p>Request message: {{message}}</p>
+        {{#unless actedUpon}}
+        <div class="pull-right">
+            <button class="btn btn-small btn-success" data-actionbind data-action="acceptRequest" data-id="{{id}}">Accept</button>
+            <button class="btn btn-small" data-actionbind data-action="ignoreRequest" data-id="{{id}}">Ignore</button>
+        </div>
+        {{/unless}}
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<li class="teaser article-teaser storyTeaser afItem" data-score="{{score}}" data-key="{{key}}" data-href="{{absoluteUrl}}" data-slug="{{slug}}" data-id="{{id}}" itemscope itemtype="http://schema.org/Article">
+   
+    <div class="media-heading">
+        <div class="title-container">
+        {{#if isLove}}<span class="feed-item-pre"><i class="io io-android-star"></i>{{favedBy}} favorited this {{timeAgo favedOn}}</span>{{/if}}
+            <h3 class="title{{#if draft}} draft-title{{/if}}"><a href="{{absoluteUrl}}" class="titleLink wrapping-anchor" title="{{title}}" data-navigate> {{title}}</a></h3>
+        </div>
+    </div> 
+    <div class="media-body story-teaser-body storyTeaserBody">
+            {{#if mainImage}}   
+                <img class="teaser-img-wrapper" src="{{mainImage}}" style="background-image: url('{{mainImage}}');"/>
+            {{/if}}
+            <p class="excerpt">{{{excerpt}}}</p>
+    </div>
+    <div class="auth-top teaser">
+        
+        {{#if parentTitle}}
+        <div class="parent-head parentHead">
+            <a href="{{parentUrl}}" data-navigate class="parent-head-link parentHeadLink">
+                <div class="profile-image small" style="background-image: url('{{parentAuthorImg}}');"></div>
+            </a>
+        </div>
+        {{/if}}
+
+        <div class="auth-top-main authTopMain">
+
+            <a href="{{authorUrl}}" data-slug-type="user" title="{{authorName}}" class="topProfileLink img-top" data-navigate data-slug-type="user" tabindex="-1">
+                <div class="profile-image small" style="background-image: url('{{authorImg}}');"></div>
+                <span class="name">{{authorName}}</span>
+            </a>
+
+            {{#if parentTitle}}
+            <span class="response-teaser responseTeaser">in response to </span>
+                <span class="link-provider linkProvider ownProvider with-author" data-slug="{{parentUrl}}">
+                    <span class="provider-title providerTitle">{{parentAuthorName}}'s </span>
+                </span>
+                <a href="{{parentUrl}}" itemprop="url" data-navigate class="parent-link storyParentLink"><span class="parent-title" itemprop="name">{{parentTitle}}</span> </a>
+            {{/if}}
+
+            <span class="date-stamp {{#unless parent}}{{#if hideUser}}bare{{/if}}{{/unless}}">{{#if yearOld}}{{createdShort}}{{else}}{{timeAgo created}}{{/if}}</span>
+
+        </div>
+
+        <div class="story-teaser-actions teaserActions">
+                                         
+            <div class="action-item">
+                <a class="tip btn circle btn-transparent discussThis" data-id="{{id}}" data-actionbind data-action="showStoryDiscussions" title="Discuss this story">
+                    <i class="io io-ios-chatbubble-outline"></i>
+                    <span class="action-count discussionCount">8{{numPubChats}}</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</li>

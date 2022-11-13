@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+
+{% block title %}{{title}}{% endblock %}
+{% block meta-robots %}{{index_properties}}{% endblock %}
+{% block meta-description %}{{description}}{% endblock meta-description %}
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block body-class %}static{% endblock %}
+
+{% block meta %}
+{% endblock %}
+{% block container-class %}static-detail{% endblock %}
+{% block shell %}
+    {{static_rendered|safe}}
+{% endblock %}
+{% block script-application %}
+    require(['StaticDetail', 'jquery'], function(StaticDetail, $) {
+        $(function() {
+            var staticDetail = new StaticDetail({
+            });
+            staticDetail.loadStaticView({
+            	skipRender: true,
+            	viewType: '{{view_type}}',
+                subType: '{{auth_type}}',
+
+            });
+        });
+    });
+{% endblock script-application %}

@@ -1,0 +1,55 @@
+<div class="new-story-modal newStoryModal modal normal {{#if loadDirect}}chat{{else}}list{{/if}} discussions-modal" style="display: none;" tabindex="-1">
+  <div class="modal-card center-column collapsed newStoryModalCard"> 
+    <div class="modal-header logged-in">
+        <button class="btn circle pull-left btn-transparent startOver" style="display: none;"><i class="io io-ios-arrow-back"></i></button> 
+        <h2 class="newStoryMoHeader">Start a new post</h2>
+        <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent"><i class="io io-android-close"></i></button>       
+    </div>
+    <div class="modal-body-container">
+        
+        <div class="modal-body modal-body modalBody start">
+
+            <div class="story-create-options storyCreateOptions {{#if preloaded}}hidden{{/if}}">
+
+                <div class="option response-option responseOption">
+                    <div class="option-icon">
+                        <i class="io io-earth"></i>                   
+                    </div>
+                    <div class="option-label">
+                        Respond to something
+                    </div>
+                </div>
+
+                <div class="option clean-option cleanOption doCreateStory">
+                    <div class="option-icon">
+                        <i class="io io-edit"></i>
+                    </div>
+                    <div class="option-label">
+                        Start from scratch
+                    </div>
+                </div> 
+
+            </div>      
+
+            <div class="parent-search {{#if preloaded}}active{{/if}} parentSearch">
+                <div class="add-something-actions addSomethingActions">
+                    <div class="something-list find-parent-list findParentList">
+                        <div class="paged-list-filter pagedListFilter">
+                            <div class="ctxt-filter ctxtFilter">
+                                <div class="q-wrapper">
+                                    <input type="text" class="ctxt-search-input ctxtSearchInput" placeholder="Paste a link or type to search"/>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="paginatedList">
+                            <div class="orbitalloader initial-loader blue"><i class="io io-load-c io-spin"></i></div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+        </div>
+        {{#if stats.drafts}}<div class="centered draft-alert draftAlert"><a href="{{draftsLink}}" class="wrapping-anchor" data-navigate>You have <strong>{{stats.drafts}}</strong> unpublished draft{{pluralize stats.drafts "" "s"}}</a></div>{{/if}}
+    </div>
+ </div>
+ </div>

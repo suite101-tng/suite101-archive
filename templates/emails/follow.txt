@@ -1,0 +1,13 @@
+{{other_user.get_full_name}}
+
+{% if obj.content_type.model == 'suiteuser' %}
+    is now following you!
+{% else %}
+    is now following your suite "{{obj.content_object.name}}"!
+{% endif %}
+
+{% if obj.content_type.model == 'suiteuser' %}
+{{site_url}}{% url 'profile_detail' other_user.slug %}
+{% else %}
+{{site_url}}{% url 'suite_detail' obj.content_object.slug %}
+{% endif %}

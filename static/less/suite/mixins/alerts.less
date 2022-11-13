@@ -1,0 +1,34 @@
+// Alerts
+
+.alert-variant(@background; @border; @text-color) {
+  background-color: @background;
+  border-color: @border;
+  color: @text-color;
+
+  hr {
+    border-top-color: darken(@border, 5%);
+  }
+  .alert-link {
+    color: darken(@text-color, 10%);
+  }
+}
+
+.base-alert {
+	position: relative;
+	z-index: @zindex-dropdown;
+	display: none; // none by default, but block on "open" of the menu
+	width: 480px;
+	min-width: 320px;
+	padding: 24px;
+	margin: 0 auto;
+	list-style: none;
+	font-size: 1.15em;
+	color: @gray;
+	line-height: 1.15em;
+	text-align: center; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+	background-color: @white;
+	border: 1px solid @grayLighter;
+	border-radius: @boxBorderRadius;
+	.box-shadow(0 0 6px rgba(0,0,0,.175));
+	background-clip: padding-box;
+	}

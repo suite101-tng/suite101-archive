@@ -1,0 +1,20 @@
+<div class="suite-teaser mini suiteTeaser full {{#unless image}}no-image{{else}} image{{/unless}} {{#if subSuites}}parent{{/if}} {{#if open}}open{{/if}}">
+    
+    <a class="wrapping-anchor suiteTeaserLink" href="{{absoluteUrl}}" data-suite-id="{{id}}" data-navigate>    
+        <div class="suite-cover suiteCover" {{#if image}}style="background-image: url('{{image.largeImageUrl}}');"{{/if}}></div>
+        <div class="texty">
+
+            {{#if private}}
+            <div class="btn is-private overlay square circle btn-transparent"><i class="io io-locked"></i></div>
+            {{/if}}
+                       
+            <h3 class="suite-name">
+                {{truncate name 80}}
+            </h3>              
+            
+            <div class="description">
+                {{#if stats.stories}}<span class="stats">{{stats.stories}} post{{pluralize stats.stories "" "s"}}</span>{{/if}}
+            </div>
+        </div>
+    </a>
+</div>

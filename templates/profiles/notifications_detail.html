@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+
+{% block title %}Notifications{% endblock %}
+{% block meta-robots %}noindex, nofollow, noodp, noydir{% endblock %}
+{% block meta-description %}My notifications feed{% endblock meta-description %}
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block body-class %}notifs{% endblock %}
+
+{% block meta %}
+{% endblock %}
+{% block container-class %}notifs-detail{% endblock %}
+{% block shell %}
+    {{notifs_rendered|safe}}
+{% endblock %}
+{% block script-application %}
+    require(['UserDetail', 'jquery'], function(UserDetail, $) {
+        $(function() {
+            var userDetail = new UserDetail({
+            });
+            userDetail.loadNotificationsView({
+	            skipRender: true
+            });
+        });
+    });
+{% endblock script-application %}

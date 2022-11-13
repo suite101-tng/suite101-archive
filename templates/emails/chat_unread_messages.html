@@ -1,0 +1,53 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+
+{% block email-summary %}You have new, unread chat messages{% endblock email-summary %}
+
+{% block email-content %}
+
+	{% block email-title %}
+		{%if chat.private %}You have received a new message{% else %}A new message has been posted{% endif %} on Suite
+	{% endblock %}
+
+	{% block message-main-body %}
+
+	    <table class="messageTable" border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#fff">
+	        <tbody>
+	            <tr>
+	                <td style="width: 72px; vertical-align: top;">
+	                    <div class="msg-head" style="text-align: center;"><a class="use r-name wrapping-anchor" href="/michael">
+	                    {% block email-image %}
+		                    <a href="{{site_url}}{{message.user.get_absolute_url}}">
+			                    <img src="{{message.user.get_profile_image|add_http}}" height="34" width="34" style="width: 34px; height: 34px; text-align: center; border-radius: 34px;" alt="{{message.user.get_full_name}}"/>
+		                    </a>
+	                    {% endblock email-image %}
+	                    </div>
+	                </td>
+
+	                <td>
+
+	                    <div class="chat-message chatMessage">
+	                        	
+	                    	<a class="user-name wrapping-anchor" href="{{message.user.get_absolute_url}}" style="font-size: 16px; font-weight: bold; line-height: 18px; color: #333; text-decoration: none;"><span class="msg-auth">{{message.user.get_full_name}}</span></a>
+							<span class="date" style="font-size: 16px; font-weight: normal; margin-left: 6px; line-height: 18px; color: #bbb;">{{message.user.created|strtotimesince}}</span>
+
+	                    </div>
+	                    
+	                    <div class="message" style="font-family: 'Times New Roman'; font-size: 21px; font-weight: normal; line-height: 26px; color: #666;">
+	                        {{message.message|safe|linebreaksbr|bleach_filter}}
+	                    </div>
+	                    
+	                </td>
+
+	            </tr>
+	        </tbody>
+	    </table>
+
+	{% endblock %}
+
+	{% block email-action-button %}
+		<a href="{{site_url}}{{chat.get_absolute_url}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #1a8bba; text-decoration: none; -webkit-border-radius: 34px; -moz-border-radius: 34px; border-radius: 34px; padding: 8px 18px; border: 1px solid #1a8bba; display: inline-block;">View the conversation</a>
+	{% endblock %}
+
+{% endblock %}

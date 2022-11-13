@@ -1,0 +1,12 @@
+{% extends 'emails/base.html' %}
+
+{% block email-content %}
+
+<p>Content Flagged!</p>
+
+<p>{{user_name}} ({{user_email}}) has flagged the following content</p>
+<p>{{url}}</p>
+<p>Reason - {{reason}}</p>
+<p>Message - {{message}}</p>
+
+{% endblock %}

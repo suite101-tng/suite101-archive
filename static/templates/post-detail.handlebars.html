@@ -1,0 +1,134 @@
+
+<article class="story {{#if topBanner}}top-banner{{/if}}" data-id="{{id}}" itemscope itemtype="http://schema.org/Article">
+    
+     <header>
+
+            <div class="header-block headerBlock" data-light="">
+                <div class="center-column">
+                    <!-- Title/intro -->
+                        {{#if storyParent}}
+                            <div class="parentHeader">
+                            {{#with storyParent}}
+                                {{>story-teaser isParent=true micro=true}}
+                            {{/with}}
+                            </div>
+                        {{/if}}
+
+                        <div class="auth-top authTop">
+                            <a href="{{author.absoluteUrl}}" data-slug-type="user" title="{{author.fullName}}" class="topProfileLink img-top" data-navigate data-slug-type="user" tabindex="-1"><div class="profile-image small" style="background-image: url('{{author.mainImageUrl}}');"></div></a>
+                            <div class="texty">
+                                <div class="lower-deck">
+                                    <span class="author-name authorName">{{author.fullName}}</span>
+                                    
+                                </div>
+                                <div class="lower-deck">
+                                    <span class="author-byline authorByline">{{truncate author.byLine}}</span>
+                                </div>
+                            </div>
+                        </div>                                
+
+                    <h1 itemprop="name" name="title" content="{{titleEscaped}}" class="post-title article-title storyTitle">{{ title }}</h1>
+                    <div class="article-byline articleByline {{subtitleClass}}">{{subtitle}}</div>
+
+                    
+                    </div> <!-- /center-column -->
+            </div>
+        </header>  
+
+        {{#if ownerViewing}}
+        <div class="publishing-controls publishingControls" style="display: none;">
+            <!-- <input class="uploader" type="file" name="image" style="display: none;" /> -->
+        </div>
+        <div class="storyMediaDropZone story-image-uploader"></div>
+        {{/if}}
+
+        <div class="story-main articleCenterColumn">
+                       
+
+            <div class="article-body center-column body-copy storyBody" itemprop="articleBody">{{{ body }}}</div>
+
+                {{#if suites}}
+                <aside class="moreSuites more-suites-footer noprint">
+                  <div class="center-column">
+                    <div class="core-subhead flow">
+                        <div class="subhead">Featured in {{numSuites}} Suite{{pluralize numSuites "" "s"}}  </div>
+                    </div>
+                        {{#each suites}}
+                            {{>suite-mini-teaser}}
+                        {{/each}}
+                    </div>
+                </aside>
+                {{/if}}
+
+            <div class="dot-marker dotMarker"></div>          
+        <div class="story-teaser-actions teaserActions">
+
+                {{#unless draft}}
+                <div class="action-item">
+                    <div class="tip btn circle btn-transparent" data-id="{{id}}" data-type="story" data-actionbind data-action="respondTo" title="Respond">
+                        <i class="io io-ios-undo"></i>
+                    </div>
+                </div>
+
+                <div class="action-item">
+                    <a class="tip btn circle btn-transparent" data-type="story" data-id="{{id}}" data-actionbind data-action="openSuiteSelector" title="Add to a Suite">
+                        <i class="io io-android-add"></i>
+                    </a>
+                </div>           
+
+                <div class="action-item icon-swap">
+                    <button class="dropdown-toggle tip btn btn-transparent circle " data-toggle="dropdown" title="Share">
+                        <i class="io io-ios-upload-outline one"></i><i class="io io-android-close two"></i>
+                    </button>
+                    <ul class="flat-menu dropdown-menu">
+                        <li class="text-item storyPermalink">
+                            <span class="label">Share link:</span>
+                            <input class="link shareAct" readonly="true" value="https://suite.io/{{hash}}" />
+                        </li>
+
+                        <li>
+                            <a class="wrapping-anchor twitter" href="http://twitter.com/intent/tweet?{{tweetParamsEncoded}}">
+                                <i class="io io-twitter"></i>Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a class="wrapping-anchor facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsuite.io/{{hash}}">
+                                <i class="io io-social-facebook"></i>Facebook
+                            </a>
+                        </li>                    
+                        <li>
+                            <a class="wrapping-anchor mail" href="mailto:?subject=Suite: {{title}} by {{author.fullName}}&amp;body=https://suite.io/{{hash}}%0A%0A{{bodyExcerptNoTags}}" target="_blank">
+                                <i class="io io-paper-airplane"></i>Send via email
+                            </a>
+                        </li>
+                        <li class="last report linklike light" data-actionbind data-action="flagStory" title="Report">
+                            <i class="io io-flag"></i>Report to moderators
+                            </li>
+                    </ul>      
+                </div>
+
+                <div class="action-item pull-right">
+                    <a class="tip btn circle btn-transparent" data-type="story" data-id="{{id}}" data-actionbind data-action="openGutter" title="Start a new discussion">
+                        <i class="io io-android-arrow-forward"></i>
+                    </a>
+                </div>   
+
+                {{/unless}}
+
+                            {{#if ownerViewing}}
+                <div class="action-item pull-right">
+                    <a class="tip btn circle square btn-subdued" data-type="story" data-id="{{id}}" data-actionbind data-action="editArticleAction" title="Edit">
+                        <i class="io io-edit"></i>
+                    </a>
+                </div>  
+            {{/if}}
+
+                {{#if isMod}}
+                <div class="action-item pull-right">
+                    <button class="btn btn-transparent" data-actionbind data-action="modAction" data-type="story" data-id="{{id}}"><i class="io io-android-star"></i></button>
+                </div>
+                {{/if}}
+
+       
+            </div>                       
+        </article>

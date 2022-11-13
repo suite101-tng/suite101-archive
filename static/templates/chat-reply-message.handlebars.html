@@ -1,0 +1,14 @@
+<div class="reply-container replyBox replyTo-{{msgId}}" style="display: none;">
+    <div class="chat-form reply">
+        <div class="msg-head">
+            <div class="profile-image auth-head small" style="background-image: url({{currentUser.mainImageUrl}})"></div>
+            <span class="msg-auth">{{currentUser.fullName}}</span>
+        </div>
+        <div class="chatMessage iownthis">
+            <div class="chat-text new-msg">
+                <div class="replyMsgBox msg-body chat-message-box" data-placeholder="Type a reply..."></div>
+            </div>
+            <button class="btn btn-blueline submit-msg sendMessageBtn" data-actionbind data-action="sendMessageReply" data-msg-id="{{msgId}}">Submit</button>
+        </div>
+    </div>
+</div>

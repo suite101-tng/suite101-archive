@@ -1,0 +1,20 @@
+{% extends 'emails/base.html' %}
+
+{% block email-content %}
+
+<p>Hi {{user.first_name}},</p>
+
+<p>{{author.get_full_name}} has just posted a new story:</p>
+
+<div style="border-bottom: solid 1px #ccc; padding: 12px 0 24px 0; margin-bottom: 8px;">
+
+	<a style="display: block; text-decoration: none; width: 100%;" href="{{site_url}}{{story.get_absolute_url}}">
+		<h3>{{story.title}}</a></h3>
+		<p>{{story.subtitle}}</p>
+	</a>
+</div>
+
+<p class="font-size: .9em; color: #bbb;">You are receiving this because you are following <a href="{{author.get_absolute_url}}">{{author.first_name}}</a> on Suite.</p>
+
+
+{% endblock %}

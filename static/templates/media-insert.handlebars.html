@@ -1,0 +1,20 @@
+<div class="media-insert mediaInsert" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="media-insert-container">
+        <div class="tab-pane active" id="inline-{{id}}">
+            <div class="insert-options insertOptions">
+                <div class="i-option">
+        		    <button class="btn btn-grayLight upload-media insertUploadImage"><i class="io io-upload-to-cloud"></i>Upload image</button>
+                </div>
+                <div class="i-option split">or</div>
+    		    <div class="i-option embedLink embed-link-wrapper">
+    		        <input type="text" name="embed" class="media-embed-input mediaEmbedInput" placeholder="Paste a link or embed code"/>
+    		        <button class="pull-right btn circle square btn-transparent embed-submit embedSubmit">
+                        <i class="io io-android-arrow-forward"></i>
+                    </button>
+    		    </div>  
+            </div>
+	    </div>
+        <div class="insert-error insertError"></div>
+    </div>
+    <button class="btn btn-transparent close-insert" data-actionbind data-action="closeMediaInsert" aria-hidden="true"><i class="io io-android-close"></i></button>   
+ </div>

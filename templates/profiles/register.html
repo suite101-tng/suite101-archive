@@ -1,0 +1,50 @@
+{% extends "profiles/login_base.html" %}
+{% block title %}Create an account{% endblock %}
+
+{% block inner-content %}
+<div class="registration-wrapper">
+     <div class="registration-wrapper" data-view-bind="LoginView">
+
+
+                  <div class="brand-modal centered">
+
+                    <div class="floating-subhead centered login-nav loginNav">
+                      <h3 class="bare-label">
+                        <a href="/login" class="showLogin forgot-password" title="Log in">Log in</a> 
+                        or 
+                        <a href="/register" class="showReg forgot-password active" data-target="#regPane" data-toggle="tab" title="Sign up">Create an account</a>
+                      </h3>
+                    </div>
+
+                  </div>
+
+   <div class="tab-content">       
+
+<!-- Registration -->
+<section class="regPane tab-pane active" id="regPane">
+  <div class="centered connect-header"><div class="soc-logins"><a class="btn twitter whitelineBlue faded  twitterRegister" target="_blank" href="/login/twitter/"><i class="io io-social-twitter"></i>Twitter</a><a href="/login/facebook/" class="btn facebook whitelineBlue faded"><i class="io io-social-facebook"></i>Facebook</a></div><span class="inner-option"><span class="option-label">or email:</span></span></div>
+
+<form class="register-form" action="" method="POST">{% csrf_token %}<div class="field-wrapper"><input id="id_name" maxlength="255" name="name" placeholder="Full name" type="text"></div><div class="field-wrapper"><input autocapitalize="off" autocorrect="off" id="id_email" maxlength="255" name="email" placeholder="Email" type="text"></div><div class="field-wrapper"><input id="id_password" maxlength="128" name="password" placeholder="Password" type="password"></div><div class="field-wrapper website"><input id="id_website" name="website" type="text"></div><div class="reg-bottom centered"><p class="reg-disclaimer">Signing up means you agree to our <a href="/terms">terms</a>.</p><button type="submit" class="btn whitelineBlue">Sign up</button></div></form>
+
+  <div class="registration-bottom">
+  <!-- <p>New here?  <a href="{% url 'register' %}{% if next %}?next={{next}}{% endif %}" class="fordgot-password" title="Sign up">Create an account!</a></p> -->
+  </div>
+</section>
+
+
+              <div class="sec-links white centered">
+                    <a class="h-link" href="/about"><span class="suite-icon"></span>About Suite</a></a>
+                    <a class="h-link" href="/terms">Terms</a>
+                    <a class="h-link" href="/support">Support</a>
+                  </div>
+
+</div>
+
+    
+
+</div>
+
+
+
+</div><!-- /.registration-wrapper -->
+{% endblock %}

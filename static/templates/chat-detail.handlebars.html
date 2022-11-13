@@ -1,0 +1,100 @@
+<div class="page-container pageContainer" id="chat-{{id}}">
+    <div class="pageWrapper page-wrapper">
+        <div class="chat-detail-pane chatDetail static-main {{#unless id}}new{{/unless}}">      
+            <div class="center-column">
+                <header class="static-header chat-header chatHeader centered">
+
+                <div class="chat-info-band chatInfoBand"> 
+                    <div class="chat-info-el pull-left membersWrapper members-wrapper">
+                        {{#with topMembers}}
+                            {{>chat-members}}
+                        {{/with}}
+                    </div>      
+                    <div class="chat-info-el pull-right stats-actions">                        
+                        <div class="pull-right share-act icon-swap moreActions">
+                            <button class="dropdown-toggle btn circle btn-transparent tip" title="Options" data-toggle="dropdown">
+                                <i class="io io-ios-more"></i><i class="io io-android-close two"></i>
+                            </button>
+                            <ul class="flat-menu dropdown-menu more-chat-options">
+                                {{#if ownerViewing}}
+                                <li class="linklike" data-actionbind data-action="deleteChat"><i class="io io-trash-a"></i>Delete</li>                                                            
+                                {{else}}
+                                <li class="linklike" data-actionbind data-action="leaveChat"><i class="io io-trash-a"></i>Leave this discussion</li> 
+                                {{/if}}
+                            </ul>    
+                        </div>
+                    </div>
+
+                </div>
+                <div class="chat-mems-text chatMemsText"><a class="chat-crumb chatCrumb" href="/chat" data-navigate>Private discussion</a> with {{chatMembers.0.name}}...</div>
+                <div class="members-meta membersMeta">
+                    {{#if memberViewing}}
+                    <div class="mini-card-header centered">
+                        <h3 class="card-title">Invite people to the discussion</h3>
+                        <div class="header-search-input headerSearchInput">
+                            <span class="search-chip searchChip"><i class="io io-ios-search-strong"></i></span>
+                            <input class="naked-input quickSearchInput" data-placeholder="Search by name or email" placeholder="Search by name or email" />
+                            <div class="quick-search-results inviteSearchResults">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invited-container invitedContainer chatMemberList">
+                    </div>
+                    {{/if}}
+                    <div class="bottom-utility-butts centered">
+                    <div class="btn btn-fineline doneInviting" data-actionbind data-action="toggleMembersMeta">Done</div>
+                    </div>
+                </div> 
+
+                <div class="subject-meta subjectMeta">
+                    <!-- Chat title -->
+                    <h1 class="titleInput title-input {{#if ownerViewing}}titleEdit{{/if}} {{#unless title}}none{{/unless}}" placeholder="Add an optional title">{{title}}</h1>
+                    <div class="titleUpdateControls title-edit-controls" style="display:none">
+                        <span class="btn btn-sm titleUpdate" data-actionbind data-action="updateTitle">Save</span>
+                        <span class="btn btn-sm titleCancel" data-actionbind data-action="cancelTitleUpdate">Cancel</span>
+                    </div>
+                </div>
+
+                    <div class="primary-tabs primaryTabs">
+                        <ul class="tab-items tabItems">
+                        </ul>
+                    </div>
+                </header>   
+
+                <div class="chat-messages-container chatMessageContainer">
+
+                        {{#if moreMessages}}
+                            <div class="btn btn-fineline" data-actionbind data-action="loadMoreMessages">Load older messages</div>
+                        {{/if}}
+                    <ul class="messageList message-list">
+                        {{#each messages}}
+                            {{>chat-message}}
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="chat-form chatForm">
+                    <div class="chatMessage iownthis">
+                        <div class="msg-poster profile-image auth-head small posterHead" title="{{currentUser.fullName}}" style="background-image: url({{currentUser.mainImageUrl}})"></div>
+                        <div class="chat-text new-msg">
+                            <div class="chatMessageBox msg-body chat-message-box"></div>
+                        </div>
+                        <div class="chat-msg-actions">
+                            <button class="pull-left btn btn-sm btn-subdued submit-msg sendMessageBtn" data-actionbind data-action="sendMessage" tabindex="0">Submit</button>
+                            <button class="pull-right btn btn-sm btn-transparent" data-actionbind data-action="clearMessage" tabindex="0">Clear</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.chat-detail -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

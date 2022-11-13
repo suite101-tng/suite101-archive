@@ -1,0 +1,5 @@
+{{ object.followers_count }}
+{{ object.full_name }}
+{{ object.by_line }}
+{{ object.tag_list }}
+

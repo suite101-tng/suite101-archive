@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+{% block title %}Create a new Suite{% endblock %}
+
+{% block shell %}
+{% endblock %}
+{% block script-application %}
+    require(['SuiteDetail', 'jquery'], function(SuiteDetail, $) {
+        $(function() {
+            suiteController = new SuiteDetail({});
+            suiteController.createSuite();
+        });
+    });
+{% endblock script-application %}

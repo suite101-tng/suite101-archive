@@ -1,0 +1,19 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+
+{% block email-image %}
+    <img src="{{other_user.get_profile_image|add_http}}" height="32" width="32"/>
+{% endblock email-image %}
+
+
+{% block email-summary %}
+    <strong>{{other_user.get_full_name}}</strong><br />
+    just loved your suite "{{obj.suite.name}}"
+{% endblock email-summary %}
+
+
+{% block email-content %}
+
+    <a href="{{site_url}}{% url 'suite_detail' obj.suite.slug %}">View suite</a>
+
+{% endblock email-content %}

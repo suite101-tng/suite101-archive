@@ -1,0 +1,255 @@
+@cardWidth: 480px;
+@cardHeight: 540px;
+@modalHeaderHeight: 48px;
+.overlay-on {
+  overflow: hidden;
+}
+.modal-open {
+  overflow: hidden;
+      .navbar-fixed-top {
+          &.anon {
+              display: none;
+          }
+      }
+  }
+.scrim {
+    font-family: @sansFontFamily;
+    position: fixed;
+    overflow: hidden;
+    top: 0; 
+    left: 0;
+    right: 0;
+    background: @backgroundColor;
+    z-index: @zindexModalBackdrop;
+    height: 500%;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    // background-color: @backgroundColor;
+    // .opacity(.86);
+    background-color: @black;
+    .opacity(.36);    
+    z-index: -1;
+}
+.modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @zindex-modal;
+    outline: 0;
+}
+.modal-card {
+    width: @cardWidth;
+    height: @cardHeight;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -@cardHeight/2 0 0 -@cardWidth/2;
+    background-color: @white;
+    .border-radius(@boxBorderRadius);
+    padding: 0;
+    .box-shadow(0 0 16px rgba(0, 0, 0, 0.185));
+    overflow: hidden;
+    &.collapsed {
+        height: 270px;
+        margin: -135px 0 0 -@cardWidth/2;
+    }
+    .modal-header { 
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        height: @modalHeaderHeight;
+        line-height: @modalHeaderHeight;    
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 0 24px;
+        .btn {
+            line-height: @modalHeaderHeight;
+            &.close-modal-card {
+                position: absolute;
+                right: 8px;
+                top: 0;
+                color: @grayLight;
+                outline: none;
+                .io {
+                    margin: 0;
+                    font-weight: 900;
+                }
+            }
+        }
+        h2 {
+            margin: 0;
+            font-size: 1.15em;
+            font-weight: 400;
+            color: @gray;
+            line-height: @modalHeaderHeight;
+        }
+    }
+    .modal-footer {
+        clear: both;
+        text-align: center;
+        height: 48px;
+        line-height: 48px;
+        padding: 0;
+        background-color: @mushroom;
+        border-top: solid 1px darken(@mushroom, 4%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        .btn-footer-white {
+            font-weight: 600;
+            line-height: @modalHeaderHeight - 2px;
+            color: @whiteTranslucent;
+            border: none;
+            background-color: transparent;;
+        }
+    }
+    .modal-subhead {
+        font-weight: 400;
+        color: @gray;
+        font-size: 1.15em;
+        line-height: 1.15em;
+    }
+    .modal-body {
+        position: absolute;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: auto;
+        height: auto;
+        padding: 0 24px;
+        margin: @modalHeaderHeight -24px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9;    
+        &.text-entry {
+            background-color: @backgroundColor;
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        &.dark {
+            background-color: @grayDarkTranslucent;
+        }
+        &.padded {
+            padding: 24px;   
+        }
+    }
+}
+.generic-body-content {
+    padding: 36px;
+    color: @gray;
+}
+.suite-setting-element {
+    padding: 12px 24px;
+    &.soupy {
+        background-color: darken(@mushroom, 4%);
+    }
+}
+// login modal
+.pleaseLoginModal {
+  .modal-backdrop {
+    background-color: @avo4;
+    &.in { opacity: .94; }
+    &:before, &:after {
+      display: none;
+    }
+  }
+}
+.trailing-disclaimer {
+  margin: 12px auto 0;
+  width: 260px;
+  color: @grayLight;
+  font-size: .95em;
+}
+.major-modal-butts {
+  margin: 32px 0 0;
+}
+
+.modal-close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    cursor: pointer;
+    color: @grayLight;
+    &:hover {
+        color: @grayDark;
+    }
+}
+.modal-message {
+    padding: 0;
+    margin: 12px 24px;
+    font-family: @sansFontFamily;
+    font-size: 1.05em;
+    line-height: 1.05em;
+    color: @grayDark;
+    display: block;
+}
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}
+
+// special styles
+.modal-body {
+    .suite-member-search {
+        &.suite-create {
+            margin: 16px 24px 0;
+            .paginated-list-filter {
+                margin: 0 0 12px;
+            }
+        }
+        text-align: center;
+        .ctxt-filter {
+            width: 300px;
+        }
+        .paginated-list {
+            text-align: left;
+        }
+    }
+}
+.suite-user-settings-tab {
+    .slideFromRight {
+        left: @cardWidth;
+    }
+    &.active {
+        .slideFromRight {
+            // left: 0;
+        }
+    }
+}
+.card-tabs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        font-weight: 600;
+        color: @grayLight;
+        margin: 0 10px;
+        display: inline-block;
+        &:hover {
+            cursor: pointer;
+        }
+        &.active {
+            color: @blue;
+            font-weight: 600;
+        }
+    }
+}

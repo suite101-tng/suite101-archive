@@ -1,0 +1,8 @@
+Hello, {{ user.get_full_name }}
+
+Your account has been deleted by our moderation/editorial team.
+
+{{message}}
+
+Thanks!
+The Suite101 team

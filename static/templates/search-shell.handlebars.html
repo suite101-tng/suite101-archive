@@ -1,0 +1,47 @@
+
+<!--     <div class="structured-options quickSearchLinks">
+<ul class="options">   
+<li><a class="wrapping-anchor" href="/explore" data-navigate><i class="io io-compass"></i>Explore</a></li>
+</ul>                            
+</div>  -->
+<!-- <div class="trending-tags trendingTags">
+<div class="orbitalloader initial-loader"><i class="io io-load-c io-spin"></i></div>
+</div> -->     
+
+<div class="search-controls searchControls">
+    <ul class="nav-items userContentNav">
+        <li class="searchTab" data-filter="stories">Posts</li>
+        <li class="searchTab" data-filter="suites">Suites</li>
+        <li class="searchTab" data-filter="people">People</li>
+    </ul>
+</div> 
+{{#if relatedTags}}
+    <div class="related-tags relatedSearchTags">        
+        {{>search-related-tags}}
+    </div>
+{{/if}}
+
+{{#if suites}}
+    <div class="search-suites searchSuites paginatedList">
+        {{#each suites}}
+            {{>suite-mini-teaser}}
+        {{/each}}
+    </div>
+{{/if}}   
+{{#if users}}
+    <div class="search-users searchUsers paginatedList">
+        {{#each users}}
+            {{>user-teaser}}
+        {{/each}}
+    </div>
+{{/if}}   
+{{#if stories}}
+    <div class="search-stories searchStories paginatedList">
+        {{#each stories}}
+            {{>story-teaser}}
+        {{/each}}
+    </div>
+    {{#if moreStories}}
+    There are more stories!
+    {{/if}}
+{{/if}}               

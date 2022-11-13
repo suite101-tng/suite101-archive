@@ -1,0 +1,148 @@
+<div class="moderateThisModal modal normal" style="display: none;" tabindex="-1">
+    <div class="modal-card center-column moderation-card">       
+
+        <div class="modal-header opaque white">
+            {{#if userType}}
+            <h2>{{user.fullName}}</h2>
+            {{else}}
+            <div class="card-tabs cardTabs centered">
+                <ul class="tab-items tabItems">
+                    <li class="cardTab active" data-toggle="tab" data-target="#mod-{{#if storyType}}story{{/if}}{{#if suiteType}}suite{{/if}}">
+                        This {{#if storyType}}story{{/if}}{{#if suiteType}}Suite{{/if}}
+                    </li>
+                    <li class="cardTab" data-toggle="tab" data-target="#mod-user">
+                        {{user.fullName}}
+                    </li>
+                </ul>
+            </div>
+            {{/if}}
+            <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent"><i class="io io-android-close"></i></button>       
+        </div>
+
+
+        <div class="modal-body padded">
+            <div class="tab-content">
+
+                {{#if storyType}}
+                <!-- story tab -->
+                <div class="tab-pane active modStoryTab" id="mod-story">
+                    <div class="mod-story-teaser modStoryTeaser">
+                        <h3 class="mod-story-title">{{object.title}}</h3>
+                        <div class="mod-story-description">{{object.excerpt}}</div>
+                        <div class="mod-story-created-modified">Posted {{timeAgo object.created}}</div>
+                    </div>
+
+                    <div class="mod-story-actions">
+
+                        <div class="suite-radio feature-this-radio suiteRadio featureThis">
+                            <div class="radio-but-container">
+                                <button class="btn circle btn-radio {{#if object.featured}}checked{{/if}}" data-id="{{object.id}}" data-type="story" data-actionbind data-action="toggleFeatured"></button>
+                            </div>
+                            <div class="radio-label">
+                                <h4>{{#if object.featured}}Featured{{else}}Feature this{{/if}}</h4>
+                                <span class="details">Add to the homepage and other promotional slots.</span>
+                            </div>
+                        </div>                     
+                        <div class="suite-radio ads-radio {{#if object.adsOn}}ads-on{{else}}{{#if object.adsOff}}ads-off{{else}}ads-auto{{/if}}{{/if}} suiteRadio adsToggle">
+                            <div class="radio-but-container">
+                                <button class="btn circle btn-radio" data-id="{{object.id}}" data-actionbind data-action="toggleAds"></button>
+                            </div>
+                            <div class="radio-label">
+                                <h4><span class="ads-on">Ads enabled</span><span class="ads-off">Ads disabled</span><span class="ads-auto">Auto-configure ads ({{#if object.adsEnabled}}<span class="adsEnabledStatus">Enabled</span>{{else}}Disabled{{/if}})</span></h4>
+                                <span class="details">Toggle advertising settings for this story</span>
+                            </div>
+                        </div>                     
+                    </div>
+
+                    {{#unless user.approved}}
+                    <div class="mod-content-approve">
+                        <button class="btn btn-subdued" data-action data-actionbind="contentToggleApprove">Approve</button>
+                        <button class="btn btn-subdued" data-action data-actionbind="deferApproval">Defer approval</button>
+                    </div>
+                    {{/unless}}
+
+                </div>
+                {{/if}}
+
+                {{#if suiteType}}
+                <!-- suite tab -->
+                <div class="tab-pane active modStoryTab" id="mod-story">
+                    <div class="feature-check featureSuite {{#if featured}}active{{/if}}" data-id="{{itemId}}" data-actionbind data-action="toggleFeaturedSuite">Featured Suite?</div>
+                </div>         
+                {{/if}}   
+
+                <!-- User tab -->
+                <div class="tab-pane {{#if userType}}active{{/if}} modUserTab" id="mod-user" data-id="{{user.id}}">
+                    <div class="mod-user">
+                        <div class="mod-user-upper">                              
+                            <a href="{{user.absoluteUrl}}" data-tre="Profile Link" title="View {{user.fullName}}'s profile" class="wrapping-anchor" data-navigate data-slug-type="user">
+                                <div class="profile-image medium-small" style="background-image: url('{{user.mainImageUrl}}');" title="{{user.fullName}}"></div>
+                            </a>
+                            <div class="texty">
+                                <h4 class="author-name" itemprop="owner"><a href="{{user.absoluteUrl}}" data-tre="Profile Link" title="View {{user.fullName}}'s profile" class="wrapping-anchor" data-navigate data-slug-type="user">{{user.fullName}}</a></h4>
+                                <div class="mod-member-byline">{{user.byLine}}</div>
+                                <div class="member-joined-data"><span class="stat">Joined {{timeAgo user.dateJoined}} | last seen {{timeAgo user.lastSeen}}</span></div>
+                                <div class="mod-user-stats">
+                                    <span class="stat">{{user.stats.stories}} post{{pluralize user.stats.stories "" "s"}}</span>
+                                    <span class="stat">{{user.stats.followers}} follower{{pluralize user.stats.followers "" "s"}}</span>
+                                </div>                            
+                            </div>
+                        </div>
+
+                        <div class="mod-user-status-actions">
+
+                            <div class="mod-status-item pull-left mod-user-actions">
+                                <div class="act dropdown-toggle tip btn btn-sm btn-subdued" data-toggle="dropdown" title="Settings">Actions</div>
+                                <ul class="flat-menu dropdown-menu">
+                                    <li class="linklike" data-actionbind data-action="chatWithUser"><i class="io io-speech-bubble"></i>Chat with {{user.firstName}}</li>
+                                    <li><a href="/hijack/{{user.id}}/"><i class="io io-android-person"></i>Be {{user.firstName}}</a></li>
+                                    <li class="linklike" data-actionbind data-action="deleteSpammy"><i class="io io-trash-b"></i>Delete</li>                                    
+                                </ul>   
+                            </div>
+
+                            <div class="mod-status-item pull-right">
+                                <div class="status-funcs">
+                                    <button class="btn btn-sm {{#if user.approved}}btn-subdued{{else}}btn-red{{/if}} func" data-actionbind data-action="toggleApproved">{{#if user.approved}}Approved{{else}}Probation{{/if}}</button>
+                                </div>
+                            </div>
+
+                        </div> 
+                    </div>                           
+
+                    <div class="tag-container tagContainer">
+                        <div class="tag-label"><i class="io io-ios-pricetag-outline"></i></div>
+                        <ul class="modTags mod-tags story-tags active">
+                            {{#if user.modTags}}
+                                {{#each user.modTags}}
+                                    {{>tag-list-item}}
+                                {{/each}}
+                            {{/if}}
+                        </ul>   
+                        <div class="mod-tag-edit modTagEdit">            
+                            <!-- <input class="edit-story-tags editModTags" style="display: none;" name="tags" id="tags" placeholder="Moderators' tags" value="" /> -->
+                        </div>
+                    </div>
+
+                    <div class="mod-notes-container modNotesContainer">
+                        <div class="mod-note-form modNoteForm">
+                            <div class="mod-note-label"><i class="io io-asterisk2"></i></div>
+                            <div class="modNoteEntry mod-note entry" data-id="{{user.id}}" data-type="user"></div>
+                            <button class="btn btn-subdued btn-sm submit-msg postModNote" data-actionbind data-action="postModNote" tabindex="0">Submit</button>
+                        </div>                        
+                        <div class="mod-notes-list modNotesList">
+                            {{#if user.modNotes}}
+                                {{#each user.modNotes}}
+                                    {{>mod-note}}
+                                {{/each}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div> <!-- /.tab-pane -->
+            </div> <!-- /.tab-content -->
+        </div> <!-- /.modal-body -->
+        <div class="modal-footer centered butts">
+            <div class="btn btn-blue btn-sm" data-dismiss="modal" aria-hidden="true">Done</div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,6 @@
+{{ object.title }}
+{{ object.tag_list }}
+{{ object.get_story_suite_names }}
+{{ object.created }}
+{{ object.author.get_full_name }}
+{{ object.body.content|striptags|escape }}

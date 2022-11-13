@@ -1,0 +1,46 @@
+    <div class="parent-crumb parentEditCrumb storyParent storyTeaser" data-id="{{id}}" data-type="{{#if storyType}}story{{else}}link{{/if}}">
+    <div class="the-parent theParent">
+        <div class="link-teaser linkTeaser" data-id="{{id}}" itemprop="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
+        {{#if storyType}}
+            {{#unless author.active}}
+                <div class="missing-parent">
+                    <div class="profile-image small" style="background-image: url('{{author.mainImageUrl}}');"></div>
+                    <div class="texty">In response to a post that is no longer published</div>
+                </div>
+            {{else}}
+                {{#unless published}}
+                <div class="missing-parent">
+                    <div class="profile-image small" style="background-image: url('{{author.mainImageUrl}}');"></div>
+                    <div class="texty">In response to a post that is no longer published</div>
+                </div>
+                {{else}}
+                    <div class="micro-header center-column">
+                        <a href="{{author.absoluteUrl}}" itemprop="url" data-navigate class="wrapping-anchor">
+                            <div class="profile-image small" style="background-image: url('{{author.mainImageUrl}}');"></div>
+                        </a>
+                        <div class="texty">
+                            <div class="upper-deck">
+                                <span class="parent-author-name parentAuthorName">{{author.fullName}}</span>
+                            </div>
+                            <div class="lower-deck">
+                                <a href="{{absoluteUrl}}" itemprop="url" data-navigate class="wrapping-anchor">
+                                    <span class="micro-heading microHeading">{{heading}}</span>
+                                </a>
+                                <!-- {{#if numResponses}}<span class="micro-resp-count">{{numResponses}} response{{pluralize numResponses "" "s"}}</span>{{/if}} -->
+                            </div>
+                        </div>
+                    </div> 
+                {{/unless}}
+            {{/unless}}
+        {{else}}
+            <a href="{{absoluteUrl}}" itemprop="url" data-navigate class="wrapping-anchor">
+                <img class="link-ident-icon" src="{{provider.imageUrl}}" />
+                <div class="texty">
+                <span class="parent-title" itemprop="name">{{truncate title 80}}</span>
+                <span class="provider-title providerTitle">from <span class="provider-name">{{provider.name}}</span>
+                 </div>
+             </a>
+        {{/if}}
+        </div>  
+    </div>
+</div>

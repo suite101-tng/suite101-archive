@@ -1,0 +1,28 @@
+{{#if posts}}
+<div class="sum-block sumBlock" data-series="pageviews">
+    <div class="num">{{pageviews}}</div>
+    <div class="sum-label">view{{pluralize pageviews "" "s"}}</div>
+</div>
+<div class="sum-block sumBlock" data-series="retention">
+    <div class="num">{{repeats}}%</div>
+    <div class="sum-label">repeat</div>
+</div> 
+<div class="sum-block sumBlock" data-series="retention">
+    <div class="num">{{rentention}}%</div>
+    <div class="sum-label">retention</div>
+</div>
+<div class="sum-block">
+    <div class="num">{{responses}}</div>
+    <div class="sum-label">responses</div>
+</div>    
+{{/if}}
+{{#if activity}}
+<div class="sum-block">
+    <div class="num">{{wordsAdded}}</div>
+    <div class="sum-label">added</div>
+</div>    
+<div class="sum-block">
+    <div class="num">{{wordsRemoved}}</div>
+    <div class="sum-label">removed</div>
+</div>    
+{{/if}}

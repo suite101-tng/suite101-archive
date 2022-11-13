@@ -1,0 +1,3 @@
+{{other_user.get_full_name}} responded to your story "{{obj.parent_obj.title}}"
+
+{{site_url}}{{obj.get_absolute_url}}

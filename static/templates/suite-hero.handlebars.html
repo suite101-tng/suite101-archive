@@ -1,0 +1,5 @@
+{{#if largeImageUrl}}
+<div class="hero-img heroImg" style="background-image: url('{{largeImageUrl}}')" data-caption="" data-credit="" data-credit-link="" data-caption="{{caption}}" data-credit="{{credit}}" data-credit-link="{{creditLink}}"></div>
+{{else}}
+<div class="hero-img hero-img heroImg" style="{{#if origImageUrl}}background-image: url('{{origImageUrl}}'{{/if}})" data-caption="" data-credit="" data-credit-link="" data-caption="{{caption}}" data-credit="{{credit}}" data-credit-link="{{heroImage.creditLink}}"></div>
+{{/if}}

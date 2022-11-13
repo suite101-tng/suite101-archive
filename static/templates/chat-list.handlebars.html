@@ -1,0 +1,36 @@
+<div class="page-container pageContainer" id="chat-list">
+    <div class="pageWrapper page-wrapper">
+
+            <div class="chat-list-container chatListContainer">
+                <header class="static-header centered">
+                    <div class="static-crumb">
+                        <h1 class="static-title">
+                            Private chats
+                        </h1>
+                    </div>
+                    <div class="primary-tabs primaryTabs">
+                        
+                    </div>
+                </header>   
+
+            <div class="center-column">
+                                <div class="paged-list-filter pagedListFilter centered">
+                        <div class="ctxt-filter ctxtFilter centered">
+                            <div class="q-wrapper">
+                                <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                            </div>
+                            <ul class="named-filters">
+                                <li class="namedFilter {{#if supportFilter}}active{{/if}}" data-filter="support">Support</li>
+                            </ul>
+                        </div>
+                        <button class="action-button btn btn-subdued" data-actionbind data-action="startNewDiscussion">New</button>
+                    </div>  
+                <div class="paginatedList">
+                    {{#each chats}}
+                        {{>chat-teaser}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

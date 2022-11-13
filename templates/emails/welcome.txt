@@ -1,0 +1,7 @@
+Hi {{ user.get_full_name }} – thanks for signing up to Suite.
+
+We built Suite to offer an easier, more conversational alternative to blogging – a place to share and explore our experiences, learn from, debate, and inspire each other with our stories. We're glad to have you with us!
+
+If you ever get lost, want to talk, or have suggestions for the service, feel free to peep anytime.
+
+The Suite team

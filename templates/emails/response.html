@@ -1,0 +1,69 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+
+{% block email-summary %}{{other_user.get_full_name}} posted a story in response to {{obj.parent_obj.title}}{% endblock email-summary %}
+
+{% block email-content %}
+
+	{% block email-title %}
+
+	{% endblock %}
+
+	{% block message-main-body %}
+
+	    <table class="messageTable" border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#fff">
+	        <tbody>
+	            <tr>
+	                <td style="width: 54px; vertical-align: top;">
+	                    <div class="msg-head" style="text-align: left;"><a class="use r-name wrapping-anchor" href="/michael">
+		                    {% block email-image %}
+			                    <a href="{{site_url}}{{other_user.get_absolute_url}}">
+				                    <img src="{{other_user.get_profile_image|add_http}}" height="34" width="34" style="width: 34px; height: 34px; text-align: center; border-radius: 34px;" alt="{{other_user.get_full_name}}"/>
+			                    </a>
+		                    {% endblock email-image %}
+						</div>
+	                </td>
+
+	                <td>
+
+	                    <div class="summary-blurb">
+	                        <strong>{{other_user.get_full_name}}</strong> posted a story in response to <a href="{{site_url}}{{obj.parent_obj.get_absolute_url}}">{{obj.parent_obj.title}}</a>:
+						</div>
+	                    	                    
+	                </td>
+
+	            </tr>
+
+            </tbody>
+        </table>
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: solid 48px #fff;">
+	        <tbody>
+	            <tr>
+	            	<td>
+	
+				        <div class="media-body storyTeaserBody">
+								<h3>{% if obj.title %}{{obj.title}}{% else %}Untitled{% endif %}</h3>
+				                {% if obj.get_main_image_url %}
+				                <img src="{{obj.get_main_image_url}}" width="100%" style="width: 100%;" alt="{% if obj.title %}{{obj.title}}{% else %}Untitled{% endif %}"/>
+				                    <div class="teaser-img-wrapper" style="background-image: url('{{site_url}}{{obj.get_main_image_url}}');"></div>
+				                
+				                {% endif %}
+				                <p class="excerpt">{{obj.body.excerpt|striptags|truncatewords:40}}</p>
+
+				        </div>
+
+            		</td>
+        		</tr>
+
+	        </tbody>
+	    </table>
+
+	{% endblock %}
+
+	{% block email-action-button %}
+		<a href="{{site_url}}{{obj.get_absolute_url}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #1a8bba; text-decoration: none; -webkit-border-radius: 34px; -moz-border-radius: 34px; border-radius: 34px; padding: 8px 18px; border: 1px solid #1a8bba; display: inline-block;">Read the full story</a>
+	{% endblock %}
+
+{% endblock %}

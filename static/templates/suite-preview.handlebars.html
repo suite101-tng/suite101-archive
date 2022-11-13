@@ -1,0 +1,64 @@
+<div class="secondaryPanel">
+    <div class="inner-drawer lefty innerDrawerScroller">
+<!--         <div class="suite-preview-img suitePreviewImg" {{#if suites.0.largeBlur}}style="background-image: url('{{suites.0.largeBlur}}');"{{else}}{{#if suites.0.image}}style="background-image: url('{{suites.0.image}}');"{{else}}style="background-color: #{{suites.0.color}}"{{/if}}{{/if}}></div> -->
+        <div class="suite-preview-img suitePreviewImg" style="background-image: url('http://localhost:8000/media/suite_images/large_blur/f4422ae1-bc50-406c-b9d3-0a9f63f8df58.jpg');"></div>
+              
+        <!-- Contents of drawer -->
+        <div class="drawer-contents scrollme">  
+            <div class="suite-preview-header centered suitePreviewHeader">
+                <h2 class="suite-name"><a class="wrapping-anchor" href="{{suites.0.absoluteUrl}}" data-navigate>{{suites.0.name}}</a></h2>
+                <div class="description suiteDescription">{{suites.0.shortDescription}}</div>
+                <div class="featured-suite-follow centered featuredSuiteFollow">
+                    <div class="btn btn-blueTranslucent followButton followSuite" data-id="{{suites.0.id}}" data-following="{{#if followingSuite }}1{{else}}0{{/if}}"><span class="followText">{{#if followingSuite}}Following{{else}}Follow{{/if}}</span></div>
+                </div>
+            </div>
+            {{#if relatedSuiteStories}}
+                <div class="related-suite-stories relatedSuiteStories">
+                <div class="centered">
+                    <div class="overlay-label">Recent posts</div>
+                </div>
+                {{#each relatedSuiteStories}}
+
+                <div class="drawer-story-teaser overlay storyTeaser">
+                    
+                        <div class="d-teaser-text">
+                            <a href="{{absoluteUrl}}" class="wrapping-anchor" data-navigate>
+                                <h3 class="title storyTitle">{{title}}</h3>
+                                <!-- <div class="excerpt">{{truncate excerpt 64}}</div> -->
+                            </a>
+                            <div class="teaser-foot {{#if hideUser}}hide-author{{/if}}">
+                                {{#unless hideUser}}
+                                    <a href="{{authorUrl}}" class="d-story-auth-link" data-navigate>
+                                        <div style="background-image: url({{authorImg}})" class="profile-image tiny"></div>
+                                        <span class="auth-name">{{authorName}}</span>
+                                    </a>
+                                {{/unless}}
+                                {{#if draft}}
+                                <div class="draft-badge">Draft</div>
+                                {{/if}}
+                                <span class="d-teaser-created">{{#if hideUser}}<span class="updated-label">Updated</span> {{/if}}{{timeAgo updated}}</span>
+
+                            </div>
+                        </div>
+
+                </div>
+                {{/each}}
+            </div>                   
+            {{/if}}
+            {{#if otherSuites}}
+            <div class="other-suites-preview otherSuites centered">
+            <div class="overlay-label">Also featured in</div>
+                <div class="other-suites-list otherSuitesList"> 
+                    {{#each otherSuites}}
+                        <div class="other-suite otherSuite">
+                             <a class="wrapping-anchor suiteTeaserLink" href="{{absoluteUrl}}" data-suite-id="{{id}}" data-navigate>
+                                {{truncate name 32}}
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

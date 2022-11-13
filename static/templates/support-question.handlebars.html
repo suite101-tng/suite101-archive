@@ -1,0 +1,37 @@
+<div class="support-question supportQuestion {{#if create}}newSupportQuestion{{/if}}" data-id="{{id}}">
+	<h3 class="title">{{title}}</h3>
+	<div class="answer">{{{answer}}}</div>
+	{{#if modViewing}}		
+        <div class="tag-container tagContainer">
+            <div class="tag-label"><i class="io io-ios-pricetag-outline"></i></div>
+            <ul class="questionTags story-tags">
+                {{#tagList}}
+                    {{>tag-list-item}}
+                {{/tagList}}
+            </ul>                   
+            <div class="story-tag-edit question-tag-edit questionTagEdit {{#if create}}active{{/if}}">            
+            </div>
+        </div>
+
+		<div class="question-mod-actions modActions">
+			<button class="btn btn-sm btn-subdued" data-actionbind data-action="startEdit">Edit</button>
+		</div>
+		<div class="support-question-controls supportQuestionControls">
+			{{#unless published}}
+			<button class="pull-left btn-sm btn btn-blue publishMiniStory" data-actionbind data-action="togglePublish">Publish</button>
+			{{/unless}}
+			<button class="pull-left btn-sm btn {{#if published}}btn-blue{{else}}btn-subdued{{/if}} publishMiniStory" data-actionbind data-action="saveIt">{{#if published}}Done{{else}}Save draft{{/if}}</button>
+			<button class="pull-left btn-sm btn btn-subdued stopInlineEditor" data-actionbind data-action="cancelSupportEdit">Cancel</button>
+
+			{{#unless create}}
+			<div class="pull-right question-options questionOptions">
+				<button class="btn circle btn-transparent icon-swap" data-toggle="dropdown" title="More"><i class="io io-ios-more one"></i><i class="io io-android-close two"></i></button>
+                <ul class="flat-menu dropdown-menu">
+                    {{#if published}}<li class="linklike" data-actionbind data-action="togglePublish"><i class="io io-android-arrow-down"></i>Unpublish</li>{{/if}}
+                    <li class="linklike" data-actionbind data-action="deleteQuestion"><i class="io io-trash-b"></i>Delete</li>
+                </ul>   
+            </div>
+            {{/unless}}
+		</div>
+	{{/if}}	
+</div>

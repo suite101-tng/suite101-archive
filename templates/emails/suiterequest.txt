@@ -1,0 +1,5 @@
+{{other_user.get_full_name}} has asked to join your suite "{{obj.suite.name}}"
+
+{{obj.message|linebreaksbr}}
+
+{{site_url}}{{site_url}}{% url 'suite_detail' obj.suite.pk %}

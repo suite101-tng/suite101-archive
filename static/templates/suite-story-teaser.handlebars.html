@@ -1,0 +1,26 @@
+<div class="story-admin-teaser storyAdminTeaser {{#if included}}included{{/if}}" data-pk="{{id}}">
+    <div class="admin-story-actions adminStoryActions">
+        <div class="btn btn-blueTranslucent btn-sm add-it addIt">Add</div>
+        <div class="btn btn-whiteline btn-sm remove-it removeIt">Remove</div>
+    </div> 
+    <div class="teaser-body storyAdminTeaserBody">
+        {{#if mainImage}}   
+            <div class="teaser-img-wrapper" style="background-image: url('{{mainImage}}');"></div>
+        {{/if}}
+        <div class="media-heading">
+            <div class="title-container">
+                <h3 class="title{{#if draft}} draft-title{{/if}}">{{title}}</h3>
+            </div>
+        </div>
+        <p class="excerpt">{{{excerpt}}}</p>
+    </div>
+    <div class="media-footer {{#unless hideUser}}with-author{{/unless}}">
+        <div class="teaser-sub">
+            {{#unless hideUser}}
+            <div style="background-image: url({{authorImg}})" class="profile-image teaser-main small"></div>
+            <span class="auth-name">{{authorName}} </span>
+            {{/unless}}
+        </div>
+    </div>
+
+</div>

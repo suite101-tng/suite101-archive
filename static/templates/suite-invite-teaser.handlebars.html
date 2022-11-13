@@ -1,0 +1,12 @@
+<div class="user-teaser suiteInvite small" data-id="{{id}}" data-user-id="{{userInvited.id}}">
+    <a class="wrapping-anchor" href="{{userInvited.absoluteUrl}}">
+    <img class="profile-image small" src="{{userInvited.mainImageUrl}}" style="background-image: url('{{userInvited.mainImageUrl}}');" alt="{{fullName}}"/>
+    <h4 class="author-name">{{userInvited.fullName}} (Invite <span class="statusText">{{status}}</span>)</h4></a>
+    <div class="byline">{{{userInvited.byLine}}}</div>
+    <div class="status">
+        <p>Invitation message: {{message}}</p>
+        <div class="pull-right">
+            <button class="btn btn-small" data-id="{{id}}" data-actionbind data-action="deleteInvite"><i class="fa fa-times"></i> Revoke</button>
+        </div>
+    </div>
+</div>

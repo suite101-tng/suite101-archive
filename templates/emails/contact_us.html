@@ -1,0 +1,11 @@
+{% extends 'emails/base.html' %}
+
+{% block email-summary %}Contact Form Message{% endblock email-summary %}
+
+{% block email-content %}
+
+<p>From - {{email}}</p>
+<p>Subject - {{subject}}</p>
+<p>{{message}}</p>
+
+{% endblock %}

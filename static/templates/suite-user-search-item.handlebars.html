@@ -1,0 +1,32 @@
+{{#if email}}
+<div class="suite-member-item pending invited pendingMember" data-email="{{email}}" data-pk="{{id}}">
+    <div class="user-cell">
+        <div class="btn circle btn-fineline email-avatar"><i class="io io-paper-airplane"></i></div>
+        <div class="user-name email">{{email}}</div>
+        <div class="user-byline">Invite by email</div>
+    </div>
+    <div class="user-action">
+        <span class="light-inline-label dropdown-toggle" data-toggle="dropdown" title="Options">Invited</span>
+        <ul class="dropdown-menu top-drop feed-options-menu">
+            <li class="linklike revokeInvite" data-id="{{id}}" data-name="{{fullName}}"><i class="io io-ios-close-empty"></i>Remove</li>
+        </ul>
+    </div>
+</div>
+{{else}}
+    <div class="suite-member-item pending invited pendingMember" data-resource="{{resourceUri}}" data-email="" data-pk="{{id}}">
+        <div class="user-cell">
+            <div style="background-image: url('{{mainImageUrl}}');" class="profile-image small profileImage"></div>
+            <div class="user-name">{{fullName}}</div>
+            <div class="user-byline">{{truncate byLine 80}}</div>
+        </div>
+        <div class="user-action">
+        {{#unless isYou}}
+            {{#if active}}
+                <span class="light-inline-label" data-id="{{id}}" data-actionbind data-action="removeThis">Remove</span>
+            {{/if}}
+            {{else}}
+            <span class="light-inline-label">This is you!</span>
+        {{/unless}}
+        </div>
+    </div>
+{{/if}}

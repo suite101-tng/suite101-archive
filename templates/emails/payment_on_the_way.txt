@@ -1,0 +1,6 @@
+Hi {{ user.first_name }} – thought you'd like to know we've just sent a payment of ${{payment|floatformat:2}} to your PayPal account ({{user.paypal_email}}) for Suite royalties accrued to date.
+
+Suite distributes 70% of its revenue to participating members according to their share of the overall readership. Check your stats dashboard at suite.io/stats to track your progress.
+
+Thanks and congrats!
+The Suite team

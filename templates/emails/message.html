@@ -1,0 +1,26 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+{% block email-image %}
+    {% if obj.mod_status == 'none' %}
+        <img src="{{other_user.get_profile_image|add_http}}" height="32" width="32"/>
+    {% endif %}
+{% endblock email-image %}
+
+
+{% block email-summary %}
+
+<strong>{{other_user.get_full_name}}</strong><br/>
+has sent you a message on Suite:
+   
+{% endblock email-summary %}
+
+
+{% block email-content %}
+{{obj.message|safe|linebreaksbr|bleach_filter}}
+
+    <br /><br /><br />
+    <a href="{{site_url}}{% url 'inbox_list_threads_detail' obj.thread.pk %}">View this message</a>
+
+{% endblock email-content %}
+

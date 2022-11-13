@@ -1,0 +1,91 @@
+<div class="page-container stats-view pageContainer" id="stats-view">
+    <div class="pageWrapper page-wrapper">
+
+         <div class="stats-header adminStatsHeader"> 
+            <div class="clipped-stats-plot userStatsPlot"></div> 
+        </div>
+
+
+        <div class="stats-belt statsBelt">
+            <div class="chart-controls chartControls">
+                <button class="btn btn-sm btn-dark chart-reset-zoom resetZoom">Reset zoom</button>      
+                <div class="range-control">
+                    <button class="btn btn-transparent selector-toggle active-range activeRange dropdown-toggle" data-toggle="dropdown">Select a date range</button>
+                    <ul class="flat-menu dropdown-menu range-selector rangeSelector">
+                        <li class="range1W" data-time-period="7">Last 7 days</li>
+                        <li class="range1M" data-time-period="30">Last 30 days</li>
+                        <li class="range3M" data-time-period="90">Last 3 months</li>
+                        <li class="rangeAT active" data-time-period="all">All time</li>
+                    </ul>                      
+                </div>
+                <div class="series-control">
+                    <button class="btn btn-transparent selector-toggle series-selector seriesSelector dropdown-toggle" data-toggle="dropdown"><i class="io io-android-person"></i>Users</button>
+                    <ul class="flat-menu dropdown-menu series-change seriesChange">
+                        <li class="statsTab tab active" data-toggle="tab" data-target="#users">Users</li>
+                        <li class="statsTab tab" data-toggle="tab" data-target="#globalposts">New posts</li>
+                        <li class="statsTab tab" data-toggle="tab" data-target="#globalreads">Reads</li>
+                        <li class="statsTab tab" data-toggle="tab" data-target="#globalroyalties">Royalties</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stats-summary statsSummary">
+            </div>
+        </div>
+
+        <div class="drawer-stats-blocks">
+
+            <div class="container content tab-content">  
+
+                <section class="tab-pane stats-tab reads stories" id="globalreads"> 
+                    <div class="globalTopStoriesList top-stories tab-pane active" data-type="mostread" id="mostread">
+                        <div class="table center-column table-striped table-bordered table-hover">
+                            <div class="table-body">    
+                                <div class="stageScrollable stage-scrollable paginatedList">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tab-pane stats-tab users active" id="users"> 
+                    <div class="activeUserList active-users tab-pane active">
+                        <div class="table center-column table-striped table-bordered table-hover">
+                            <div class="table-body">    
+                                <div class="stageScrollable stage-scrollable paginatedList">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tab-pane stats-tab activity-stats" id="activitystats">              
+                        <div class="stats-summary statsSummary">
+                        <h4>activity stats</h4>
+                        <div class="sum-heading sumHeading">Summary ({{summary.range}} 30 days)</div>
+
+                            <div class="sum-block">
+                                <div class="num numReads">17</div>
+                                <div class="sum-label">reads</div>
+                            </div>
+
+                            <div class="sum-block">
+                                <div class="num numReads">34</div>
+                                <div class="sum-label">views</div>
+                            </div>
+
+                            <div class="sum-block">
+                                <div class="num numReads">50%</div>
+                                <div class="sum-label">rate</div>
+                            </div>      
+
+                        </div>
+                </section>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

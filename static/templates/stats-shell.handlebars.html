@@ -1,0 +1,65 @@
+<div class="page-container stats-view pageContainer" id="stats-view">
+    <div class="pageWrapper page-wrapper">
+
+         <div class="stats-header adminStatsHeader"> 
+            <div class="clipped-stats-plot userStatsPlot"></div> 
+        </div>
+
+
+        <div class="stats-belt statsBelt">
+            <div class="temporal-funcs">
+                <div class="btn-group range-selector rangeSelector">
+                    <button class="btn btn-subdued btn-sm rangeItem" data-time-period="7">7 days</span></button>
+                    <button class="btn btn-subdued btn-sm rangeItem selected" data-time-period="30">30 days</span></button>
+                    <button class="btn btn-subdued btn-sm rangeItem" data-time-period="all">All-time</span></button>
+                </div>                      
+                <button class="btn btn-sm btn-red chart-reset-zoom resetZoom">Reset zoom</button>
+            </div>            
+            <div class="chart-controls chartControls">
+                <div class="series-control">
+                    <button class="btn btn-subdued btn-sm seriesItem" data-toggle="tab" data-target="#posts">Posts</span></button>
+                    <button class="btn btn-subdued btn-sm seriesItem" data-toggle="tab" data-target="#activity">Activity</span></button>
+                </div>
+            </div>
+            <div class="stats-summary statsSummary">
+            </div>
+        </div>
+
+        <div class="main-stats-blocks mainStatsBlocks">
+
+            <div class="container content tab-content">  
+
+                <section class="tab-pane stats-tab reads stories active" id="posts"> asf
+                    <div class="readArticleList top-stories tab-pane active" data-type="mostread" id="mostread">
+                        <div class="center-column">
+                            <h4 class="centered inline-sub">Your most read posts <span class="top-stories-subhead topStoriesSubhead">(<span class="range">last 30d</span>)</span></h4>
+                            <div class="stageScrollable stage-scrollable paginatedList">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="tab-pane stats-tab suite-stats" id="suites">              
+                </section>
+
+                <section class="tab-pane stats-tab activity-stats" id="profile">              
+                </section>
+
+                <section class="tab-pane stats-tab activity-stats" id="activity">       
+                   <div class="acitvityStoryList tab-pane active">
+                        <div class="center-column">
+                            <h4 class="centered inline-sub">Activity by post <span class="top-stories-subhead topStoriesSubhead">(<span class="range">last 30d</span>)</span></h4>
+                            <div class="stageScrollable stage-scrollable paginatedList">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="sec-stats-container secStatsContainer"></div>
+
+        </div>
+    </div>
+</div>
+
+

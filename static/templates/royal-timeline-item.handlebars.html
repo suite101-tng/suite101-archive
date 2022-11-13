@@ -1,0 +1,21 @@
+{{#if accrualType}}
+    <div class="accrualEntry table-row">
+       <div class="inner-row accrual-row accrualRowInner" data-date="{{date}}" data-actionbind data-action="toggleAccrualDetails">
+            <div class="table-cell lefty">{{date}}</div>
+            <div class="table-cell righty">{{accrued}}</div>
+            <div class="table-cell righty">{{balance}}</div>
+        </div>
+        <div class="daily-royal-container dailyRoyalContainer">
+        </div>
+    </div>
+{{/if}}
+{{#if paymentType}}
+    <div class="paymentEntry table-row payment-entry" data-date="{{date}}">
+        <div class="inner-row payment-note">
+            <div class="table-cell lefty">{{date}}</div>
+            <div class="table-cell righty"><i class="io io-checkmark-circled"></i>Paid <span class="amount">{{paid}}</span></div>
+        </div>
+        <div class="daily-royal-container dailyRoyalContainer">
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,49 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+
+{% block email-summary %}Welcome to Suite{% endblock email-summary %}
+
+{% block email-content %}
+
+    {% block email-title %}
+    {% endblock %}
+
+    {% block message-main-body %}
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: solid 24px #fff;">
+            <tbody>
+                <tr>
+                    <td align="left">
+						<p>Hi {{ user.get_full_name }} – thanks for signing up to Suite.</p>
+
+						<p>We built Suite to offer an easier, more conversational alternative to blogging – a place to share and explore our experiences, learn from, debate, and inspire each other with our stories. We're glad to have you with us!</p>
+
+						<p>If you ever get lost, want to talk, or have suggestions for the service, feel free to peep anytime.</p>
+
+						<p>The Suite team</p>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    {% endblock %}
+
+    {% block email-action-button %}
+
+    {% endblock %}
+
+    {% block trailing-body-blurb %}
+	{% endblock %}
+
+
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+Hi {{user.first_name}},
+
+{{author.get_full_name}} has just posted a new story:
+
+{{story.title}}
+{{site_url}}{{story.get_absolute_url}}
+{{story.subtitle}}
+
+You are receiving this because you are following {{author.first_name}} on Suite.

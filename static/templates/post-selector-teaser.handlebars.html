@@ -1,0 +1,34 @@
+<div class="post-selector-item postSelectorItem {{#if active}}active{{/if}}" data-id="{{id}}" data-type="{{objType}}">
+    {{#if linkType}}
+        <div class="micro-header">
+            <div class="profile-image small" style="background-image: url('{{provider.imageUrl}}');"></div>
+            <div class="texty">
+                <div class="lower-deck">
+                    <span class="author-name authorName">{{provider.name}}</span>
+                </div>
+                <div class="lower-deck">
+                    <span class="micro-heading microHeading">{{title}}</span>
+                    {{#if numResponses}}<span class="micro-resp-count">{{numResponses}} response{{pluralize numResponses "" "s"}}</span>{{/if}}
+                </div>
+            </div>
+        </div> 
+    {{/if}} 
+    {{#if storyType}}
+        <div class="micro-header">
+            <div class="profile-image small" style="background-image: url('{{author.mainImageUrl}}');"></div>
+            <div class="texty">
+                <div class="lower-deck">
+                    <span class="author-name authorName">{{author.fullName}}</span>
+                    <span class="date-time dateTime">{{#if yearOld}}{{createdShort}}{{else}}{{timeAgo created}}{{/if}}</span>
+                </div>
+                <div class="lower-deck">
+                    <span class="micro-heading microHeading">{{heading}}</span>
+                    {{#if numResponses}}<span class="micro-resp-count">{{numResponses}} response{{pluralize numResponses "" "s"}}</span>{{/if}}
+                </div>
+            </div>
+        </div>   
+    {{/if}}  
+    <div class="selector-tools selectorTools">
+        <button class="btn btn-sm btn-subdued active somethingToggle"><span class="remove">Remove</span><span class="add">Add</span></button>
+    </div>
+</div>

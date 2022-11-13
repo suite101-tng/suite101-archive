@@ -1,0 +1,250 @@
+<div class="page-container pageContainer" id="user-detail-{{id}}" {{#if contactable}} data-contact="true"{{/if}}>                
+    <div class="page-wrapper">        
+        <div class="hero user detail-hero {{#unless hero}}no-image{{/unless}} detailHero">
+            <div class="hero-image-wrapper heroImageWrapper">
+                <div class="suite-image-container suiteImageContainer">
+                    {{#with image}}
+                        {{>suite-hero}}
+                    {{/with}}
+                </div>
+
+                <header class="profile-header profileHeader">
+                    <div class="profile-card centered detailCenter" itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+                        <div class="profile-text center-column centered profileText">                                                       
+                            <h1 class="user-name fullName">{{fullName}}</h1>
+
+    <!--                             {{#if tagList}}
+                                we have a taglist
+                                    {{#tagList}}
+                                    <li class="tag"><a class="wrapping-anchor" href="/search/{{tag}}" data-navigate>{{tag}}</a></li>
+                                    {{/tagList}}
+                                {{/if}} -->
+
+                            <div class="byline-container">
+                            <span class="byline byLine" data-placeholder="Tell us a little about yourself">{{byLine}}</span>
+                            </div>
+                        </div> <!-- /.profile-text -->
+
+                        <div class="profile-image-container profileImageContainer {{#unless mainImageUrl}}no-image{{/unless}}" data-toggle="tab" data-target="#home-{{id}}">
+                            <img src="{{mainImageUrl}}" style="background-image: url('{{mainImageUrl}}');" alt="{{fullName}}" title="{{fullName}}" class="profile-image profileImage"/>
+                        </div>
+
+                        <div class="suite-action-butts">
+                            <div class="suite-action">
+                            {{#unless ownerViewing}}
+                                <div class="follow-button btn btn-red followButton" data-actionbind data-action="followUser" data-user="{{id}}" data-following="{{#if viewerFollowing }}1{{else}}0{{/if}}"><span class="followText">{{#if viewerFollowing }}Following{{else}}Follow{{/if}}</span></div>
+                            {{/unless}}
+                            </div>
+                        </div>
+
+                            <div class="profile-links profileLinks">
+                                <div class="contact-member contactMember">
+
+                                    <ul class="contact-member-links">
+                                        {{#if showEmail}}<li class="contact-link my-site"><a class="wrapping-anchor tip" title="Email {{firstName}}" href="mailto:{{email}}">{{email}}</a></li>{{/if}}
+                                        {{#if twitterUsername}}<li class="contact-link twitter"><a class="wrapping-anchor tip twitter" href="https://twitter.com/{{twitterUsername}}" title="Twitter"><i class="io io-twitter"></i></a></li>{{/if}}
+                                        {{#if facebookConnected}}<li class="contact-link facebook"><a class="tip facebook" href="{{facebookUrl}}" title="Facebook"><i class="io io-social-facebook"></i></a></li>{{/if}}
+                                        <li class="contact-link discuss tip talkToMe" data-actionbind data-action="createChat" data-id="{{id}}" data-type="user" title="Chat with {{firstName}}"><i class="io io-speech-bubble"></i></li>
+
+
+
+                                     <li class="contact-link dropdown-toggle tip icon-swap" data-toggle="dropdown" title="More">
+                                            <i class="io io-ios-more one"></i><i class="io io-android-close two"></i>
+                                        </li>
+                                        <ul class="flat-menu dropdown-menu">
+                                            {{#if ownerViewing}}
+                                            <li class="report light">
+                                                <a class="wrapping-anchor" href="/settings" data-navigate>
+                                                    <i class="io io-gear-a"></i>Settings  
+                                                </a>
+                                            </li>
+                                            {{else}}
+                                            <li class="report linklike light" data-id="{{id}}" data-type="story" data-actionbind data-action="flagStory" title="Report">
+                                                <i class="io io-ios-flag"></i>Report to moderators
+                                            </li>
+                                            {{/if}}
+                                            <li class="text-item storyPermalink">
+                                                <span class="label">Share link:</span>
+                                                <input class="link shareAct" readonly="true" value="https://suite.io{{absoluteUrl}}" />
+                                            </li>
+                                        </ul>      
+       
+                                       </ul>  
+
+                                </div>
+                            </div>
+
+                    </div> <!-- /.profile-card -->
+
+                </header>
+            </div>
+        </div>
+
+        <nav class="sub-nav subNav centered">
+            <ul class="nav-items userContentNav">
+                    {{#if stats.suites}}
+                        <li class="nav-tab profileTab suitesTab {{#if suitesView}}active{{/if}}" data-toggle="tab" data-target="#suites-{{id}}">
+                            <span class="counter">{{stats.suites}}</span>
+                            <span class="nav-label"> Suites</span>
+                        </li>
+                        {{/if}}
+                        {{# if stats.stories}}
+                        <li class="nav-tab profileTab {{#if postsView}}active{{/if}}" data-toggle="tab" data-target="#posts-{{id}}">
+                            <span class="counter">{{stats.stories}}</span>
+                            <span class="nav-label"> Post{{pluralize stats.stories "" "s"}}</span>
+                        </li>  
+                        {{/if}}                                          
+                        {{#if stats.followers}}
+                        <li class="nav-tab profileTab {{#if followersView}}active{{/if}}" data-toggle="tab" data-target="#followers-{{id}}">
+                            <span class="counter">{{stats.followers}}</span>
+                            <span class="nav-label"> Follower{{pluralize stats.followers "" "s"}}</span>
+                        </li>
+                        {{/if}}
+                        {{#if stats.folusers}}
+                        <li class="nav-tab profileTab {{#if followingView}}active{{/if}}" data-toggle="tab" data-target="#following-{{id}}">
+                            <span class="counter">{{stats.folusers}}</span>
+                            <span class="nav-label"> Following</span>
+                        </li>
+                        {{/if}}           
+                    </ul>
+                </nav>
+
+
+                <div class="tab-content main-pane-content mainPaneContent"> 
+                    <div class="dot-marker dotMarker"></div>
+                    <section class="home-state homeState {{#if homeView}}active{{/if}} content-list tab-pane" id="home-{{id}}">
+
+                            <div class="center-column centered home-suites-feature suites wide">
+                                <div class="home-featured homeFeatured">
+                                    {{#if featuredSuites}}                                        
+                                        {{>profile-featured-suites}}
+                                    {{/if}}
+                                </div>
+                            </div>
+   
+                            <div class="article-list profile-feed-list paginatedList">
+                                {{#each posts}} 
+                                    {{>post-teaser}}
+                                {{/each}}
+                            </div>
+                    </section>
+
+                    <section class="posts-state postsState {{#if postsView}}active{{/if}} content-list tab-pane" id="posts-{{id}}">
+
+                            <div class="paged-list-filter pagedListFilter centered">
+                                <div class="ctxt-filter ctxtFilter centered">
+                                    <div class="q-wrapper">
+                                        <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                                    </div>
+                                    {{#if ownerViewing}}
+                                    <ul class="named-filters">
+                                        <li class="namedFilter {{#unless draftFilter}}active{{/unless}}" data-filter="published">Published</li>
+                                        <li class="namedFilter {{#if draftFilter}}active{{/if}}" data-filter="draft">Drafts</li>
+                                    </ul>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="article-list profile-feed-list paginatedList">
+                                {{#each posts}} 
+                                    {{>post-teaser}}
+                                {{/each}}
+                            </div>
+                    </section>
+
+                    <section class="suite-state suiteState {{#if suitesView}}active{{/if}} content-list tab-pane" id="suites-{{id}}">
+                        <div class="paged-list-filter pagedListFilter centered">
+                            <div class="ctxt-filter ctxtFilter centered">
+                                <div class="q-wrapper">
+                                    <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="center-column centered suites wide">
+                            <div class="suite-list profile-feed-list paginatedList">
+                                {{#if suites}}
+                                    {{#each suites}}{{>suite-teaser}}{{/each}}
+                                {{/if}}
+                            </div>
+                        </div>
+
+                    </section>
+
+                        <!-- Followers section -->
+                        <section class="tab-pane content-list followers followersState {{#if followersView}}active{{/if}}" id="followers-{{id}}">
+                            <div class="paged-list-filter pagedListFilter centered">
+                                <div class="ctxt-filter ctxtFilter centered">
+                                    <div class="q-wrapper">
+                                        <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                                    </div>
+                                </div>
+                            </div>                        
+                            <div class="center-column wide centered">                           
+                                <div class="user-list profile-feed-list followerList {{#unless followers}}isEmpty{{/unless}} paginatedList">
+                                    {{#each followers}}
+                                        {{>user-teaser}} 
+                                    {{/each}}
+                                    {{#unless stats.followers}}
+                                    <div class="cta centered"><p class="nothing">{{#if ownerViewing}}You don't have{{else}}{{firstName}} doesn't have{{/if}} any followers yet</p></div>
+                                    {{/unless}}
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <!-- Following section -->
+                        <section class="tab-pane content-list following followingState {{#if followingView}}active{{/if}}" id="following-{{id}}">
+                            
+                            <div class="paged-list-filter pagedListFilter centered">
+                                <div class="ctxt-filter ctxtFilter centered">
+                                    <div class="q-wrapper">
+                                        <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                                    </div>
+                                    <ul class="named-filters">
+                                        <li class="namedFilter {{#if draftFilter}}active{{/if}}" data-filter="suite">Suites</li>
+                                        <li class="namedFilter {{#if draftFilter}}active{{/if}}" data-filter="user">People</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="center-column wide centered">                           
+                                <div class="following-list profile-feed-list followingList {{#unless following}}isEmpty{{/unless}} paginatedList">
+                                    {{#if followingUsers}}
+                                        {{#followingUsers}}
+                                            {{>user-teaser}} 
+                                        {{/followingUsers}}
+                                    {{/if}}
+                                    {{#if followingSuites}}
+                                        {{#followingSuites}}
+                                            {{>suite-teaser}} 
+                                        {{/followingSuites}}
+                                    {{/if}}
+                                    {{#unless stats.folusers}}
+                                    <div class="cta centered"><p class="nothing">{{#if ownerViewing}}You aren't{{else}}{{firstName}} isn't{{/if}}  following anyone yet</p></div>
+                                    {{/unless}}
+                                </div>
+
+                            </div>
+                        </section>
+
+                        {{#if nextLink}}
+                            <a href="{{nextLink}}" class="loadMore" rel="next">Next</a>
+                        {{/if}}
+                        {{#if prevLink}}
+                            <a href="{{prevLink}}" class="loadMore" rel="prev">Prev</a>
+                        {{/if}}
+
+                    </div>
+
+                            {{#if isMod}}
+                                <div class="edit-toggle editToggle">
+                                    <button class="btn btn-fineline circle square" data-actionbind data-action="modAction" data-mod-action="card" data-userid="{{id}}" title="Mod">2</button>
+                                </div>
+                            {{/if}}
+
+        </div><!-- /.main.container --> 
+        {{#if ownerViewing}}
+        <input type="file" name="image" class="uploadProfileImage" style="display: none; visibility: hidden"/>
+        {{/if}}
+    </div>
+</div>

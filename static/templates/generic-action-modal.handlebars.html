@@ -1,0 +1,27 @@
+<div class="generic-modal genericModal modal normal" style="display: none;" tabindex="-1">
+  <div class="modal-card center-column collapsed genericModalCard"> 
+    <div class="modal-header logged-in">
+        <h2 class="genericModalTitle">{{title}}</h2>
+        <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent"><i class="io io-android-close"></i></button>       
+    </div>
+    <div class="modal-body-container">
+        
+        <div class="modal-body modal-body modalBody start">
+            <div class="generic-body-content centered genericModalBodyContent">
+                {{{mainContent}}}
+            </div>      
+        </div>
+        <div class="modal-footer">
+            {{#if act1}}
+            <button class="btn btn-naked bluish save-suite-settings genericModalAction" {{#if act1.persist}}data-persist="true"{{/if}} data-action="{{act1.action}}">{{act1.text}}</button>
+            {{/if}}
+            {{#if act2}}
+            <button class="btn btn-naked grayish save-suite-settings genericModalAction" data-action="{{act2.action}}">{{act2.text}}</button>
+            {{/if}}
+            {{#if act3}}
+            <button class="btn btn-naked grayish save-suite-settings genericModalAction" data-action="{{act3.action}}">{{act3.text}}</button>
+            {{/if}}            
+        </div>  
+    </div>
+ </div>
+ </div>

@@ -1,0 +1,7 @@
+{% load others %}
+{{other_user.get_full_name}}
+has sent you a message on Suite:
+
+{{obj.message|striptags}}
+
+{{site_url}}{% url 'inbox_list_threads_detail' obj.thread.pk %}

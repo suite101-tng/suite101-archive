@@ -1,0 +1,16 @@
+User-agent: *
+
+Disallow: /*/edit$
+Disallow: /admin/
+Disallow: /plurl/
+Disallow: /c/*/
+Disallow: /maintenance$
+Disallow: /stats$
+Disallow: /status$
+Disallow: /password$
+Disallow: /github/
+
+Disallow: /*.xml$
+Allow: /sitemap.xml
+
+Sitemap: https://suite.io/sitemap.xml

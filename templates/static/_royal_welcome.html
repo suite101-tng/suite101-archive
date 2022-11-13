@@ -1,0 +1,32 @@
+<header class="static-header">
+	<div class="center-column">
+		<div class="crumb-head">
+		<span class="crumb-title" itemprop="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
+		<a itemprop="url" data-navigate href="/about" class="feature-suite-anchor" title="About Suite"><span itemprop="name">About Suite</span></a>
+		</span>
+		</div>
+		<h1>Welcome to Suite's royalties program</h1>
+		<span class="article-byline">We're building an ethical, sustainable company at Suite – one that puts its community first. Participating members can earn royalties from their stories while helping to fund continuing development.</span>
+	</div>
+</header>
+
+<div class="article-body">
+
+	<div class="static-block">
+	<p>Running a business can be expensive. Aside from salaries and benefits, we have costs that span hosting and security, software licensing, rent, insurance, lawyers, internet connections, conferences, meetups, field trips.</p>
+	<p>In order to sustainably pay for ourselves, and to grow the business only ethically, with our community in stride, Suite couples advertising revenue with a royalties program that actually gives away most of what we earn to contributors.</p>
+	<p>We distribute 70% of Suite's revenue to participating members in the form of royalties. Members' individual share is determined by their proportion of Suite's overall readership.</p>
+	</div>
+</div>
+
+<section class="landing-section">
+
+{% if request.user.is_authenticated %}
+{% if not request.user.royal %}
+<div class="butts centered">
+<a href="/royalties/apply" class="btn btn-blueline">Apply</a>
+<a class="right-icon btn btn-transparent" href="/support/royalties">or learn more<i class="io io-android-arrow-forward"></i></a>
+</div>
+{% endif %}
+{% endif %}
+</section>

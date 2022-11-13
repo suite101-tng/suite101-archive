@@ -1,0 +1,312 @@
+// Forms
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+  // so we reset that to ensure it behaves more like a standard block element.
+  // See https://github.com/twbs/bootstrap/issues/12359.
+  min-width: 0;
+}
+
+// hack chrome's yellow input background back to white
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+// Normalize form controls
+//
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  .box-sizing(border-box);
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9; // IE8-9
+  line-height: normal;
+}
+
+// Set the height of file controls to match text inputs
+input[type="file"] {
+  display: block;
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Focus for file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  .tab-focus();
+}
+
+.form-error {
+  .inner-error {
+    .coreAnimate;
+    background-color: @mushroom;
+    padding: 6px 24px;
+    .border-radius(@boxBorderRadius);
+    color: @red;
+    margin: 0 0 12px;
+  }
+}
+.suite-setting-element {
+  border-bottom: solid 1px @grayLighter;
+  padding: 0 0 24px;
+  margin: 0;
+
+  .setting-label {
+    display: block;
+    margin: 6px 0 24px;
+    &.title-desc {
+      margin: 0 0 4px;
+    }
+  }
+}
+.suite-privacy-options {
+  display: table;
+  width: 100%;
+  &.private {
+      .desc-body {
+        &.private {
+          display: block;
+        }
+      }
+      .p-option {
+        .check {
+          .io {
+            &.private {
+              display: inline-block;
+            }
+          }
+        }
+      }
+  }
+  &.public {
+      .desc-body {
+        &.public {
+          display: block;
+        }
+      }
+      .p-option {
+        .check {
+          .io {
+            &.public {
+              display: inline-block;
+            }
+          }
+        }
+      }      
+  }  
+  .check {
+      position: absolute;
+      .border-radius(34px);
+      line-height: 34px;
+      background-color: @grayLighter;
+      text-align: center;
+      width: 34px;
+      left: 0;
+      .io {
+        color: @white;
+        display: none;
+      }
+  }
+  .desc-head {
+    height: 1em;
+    position: relative;
+    display: block;
+    font-weight: 600;
+    color: @gray;
+    font-size: .95em;
+  }
+  .desc-body {
+    font-weight: 400;
+    font-size: .9em;
+    color: @grayLight;
+    display: none;
+  }  
+  .p-option {
+    position: relative;
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+    .option-name {
+      position: absolute;
+      left: 0;
+    }
+    .second {
+      .opacity(.2);
+      left: 52px;
+    }
+    &.checked {
+      .io {
+        .opacity(1);
+        color: @blue;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .btn {
+        .opacity(.6);
+        }
+      }
+    .p-option-desc {
+      margin: 3px 0 0 42px;
+      line-height: .95em;
+      .unselectable;
+    }
+  }
+}
+.form-field-container {
+  position: relative;
+}
+.wee-form-label {
+font-size: 1em;
+font-weight: 600;
+color: @grayLight;
+
+  .wordcount {
+    margin-left: 4px;
+    .opacity(.3);
+    &.over {
+      .opacity(.8);
+      color: @red;
+    }
+  }
+}
+.suite-manage-form-field {
+      width: 100%;
+  display: block;
+  color: @gray;
+  margin: 0 0 18px;
+  padding: 0 0 3px;
+  background-color: transparent;
+  border: none;
+  .hoverAnimate;
+  font-size: 1.15em;
+  &.title, &.description {
+    color: @gray;
+    font-weight: 600;
+  }
+}
+.min-form-field {
+      width: 100%;
+  display: block;
+  border-bottom: solid 1px @grayLighter;
+  color: @gray;
+  margin: 0;
+  padding: 0 0 3px;
+  background-color: transparent;
+  .hoverAnimate;
+  &.lowercase {
+    text-transform: lowercase;
+  }
+  &.main-body {
+    font-size: 1.15em;
+    line-height: 1.15em;
+    margin: 0 0 24px;
+  }
+  &.padded {
+    margin-bottom: 24px;
+  }
+  &#drFullName {
+    font-weight: 600;
+  }
+  &:focus {
+    border-bottom: solid 1px lighten(@gray,3%) !important;
+  }
+}
+.form-field-footer {
+  height: 32px;
+  position: relative;
+  .submit {
+    margin-top: 6px;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+  }
+}
+.profile-field-sub-label {
+  font-size: 14px;
+  color: @grayLight;
+  margin: 0 0 6px;
+}
+.field-wrapper {
+  position: relative;
+  input {
+    z-index: 10;
+  }
+  .placeholder-label {
+    z-index: 9;
+  }
+}                        
+.placeholder-label {
+    position: absolute;
+    z-index: 99;
+    top: 14px;
+    font-size: 1.1em;
+    color: @grayLighter;
+    text-align: center;
+    left: 50%;
+    width: 120px;
+    margin-left: -60px;
+  }
+
+  .suite-radio {
+    display: table;
+    width: 100%;
+    .radio-but-container {
+      display: table-cell;
+      vertical-align: middle; 
+      width: 44px;
+    }
+    .radio-label {
+      display: table-cell;
+      line-height: 1em;
+      vertical-align: middle;
+      h4 {
+        margin: 0;
+        font-weight: 600;
+        color: @grayLight;
+      }
+    }
+    .btn-radio {
+      outline: none;
+      background-color: @white;
+      background-color: @whiteTranslucent;
+      &:active, &:focus {
+          text-decoration: none;
+      }
+       &:after {
+              font-family: @ioIcon;
+              content: "\f122";
+              line-height: 32px;
+              font-size: 12px;
+              color: @grayLighter;
+          }
+      &:hover {
+          text-decoration: none;
+              &:after {
+              color: @grayLighter;
+            }
+      }
+
+}
+}

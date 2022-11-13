@@ -1,0 +1,418 @@
+.login-frame {
+    max-width: 320px;
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    // height: 400px;
+    // margin-top: -200px;
+}
+.inner-option {
+    display: block;
+    position: relative;
+    font-weight: 400;
+    color: @gray;
+    font-size: 1em;
+    line-height: 1em;
+    .option-label {
+        display: inline-block;
+        text-align: center;
+        z-index: 10;
+        position: relative;
+        padding: 0 12px;
+        color: @grayLighter;
+        color: rgba(255,255,255,.8);
+    }
+}
+.firstPass {
+    height: 0;
+    min-height: 0;
+    display: none;
+    &.active {
+        height: 46px;
+        min-height: 46px;        
+        display: block;
+    }
+}
+.regExtras {
+    height: 0;
+    min-height: 0;
+    display: none;
+    &.active {
+        display: block;      
+        &.open {
+            height: 46px;
+            min-height: 46px;  
+        }
+    }
+}
+.loginFoot, .regFoot, .resetFoot {
+    display: none;
+    .opacity(0);
+    &.active {
+        display: block;
+        .opacity(1);
+    }
+}
+.connect-header {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+.reset-thanks {
+    margin: 0 0 24px;
+}
+.reset-blurb {
+    position: absolute;
+    top: 42px;
+    color: @grayLighter;
+    display: none;
+    &.rel {
+        position: relative;
+        top: 0;
+    }
+    &.active {
+        display: block;
+    }
+}
+.login-button {
+    margin: -1px 0 0 0;
+    .border-radius(0 0 @boxBorderRadius @boxBorderRadius);
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.registration-wrapper {
+  width: 400px;
+  margin: -250px 0 0 -200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+    .lonely-preamble {
+        p {
+            .smallReadingText;
+            color: @white;
+        }
+    }
+    .login-container {
+        top: 150px;
+        }
+        .connect-header {
+            margin: 0;
+        }
+        .reg-disclaimer {
+    line-height: 1.15em;
+    color: @white;
+    color: rgba(255,255,255,.8);
+    margin: 0 auto;
+    max-width: 280px;
+    a {color: @white; font-weight: 600;}
+    }
+    h2, p {
+        text-align: center;
+        color: @gray;
+    }
+    .instructions {
+        line-height: 1.25em;
+        margin: 0 5%;
+        font-size: 1.2em;
+    }
+    .main.container {
+        width: 360px;
+        background: transparent;
+        h2, p {
+            text-align: center;
+        }
+    }
+    &.page-container {
+    }
+    .field-wrapper {
+        position: relative;
+        &.website {
+            display: none;
+        }
+    }
+    .forgot-password-link {
+        bottom: 12px;
+        color: @grayLight;
+        font-size: 1.4em;
+        display: block;
+        position: absolute;
+        right: 16px;
+        .io {
+            font-size: 21px;
+        }
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .signup-email {
+        margin: 25px 0;
+    }
+    .btn-submit,
+    .btn-login {
+         margin-top: 22px;
+         padding: 12px 16px;
+         font-size: 19px;
+         font-weight: 600;
+    }
+    .register-twitter {
+        .twitter-user-info {
+            padding: 0 0 0 17px;
+            .clearfix;
+            .profile-image {
+                float: left;
+                margin-right: 15px;
+            }
+        }
+    }
+    .login-tab {
+        margin: 0 0 12px;
+    }
+    .static-nav {
+        margin: 0;
+        z-index: @zindexFixedNavbar;
+        position: absolute;
+    }
+    .spc {margin-top: 12px;}
+}
+.reg-footer {
+    margin: 0;
+    padding: 12px 0 0;
+    a {
+        color: @white;
+        .opacity(.7);
+        text-decoration: none;
+    }
+    .link {
+        padding: 0 16px;
+        border-right: solid 1px @grayLighter;
+        .unselectable;
+        &:last-child {
+            border-right: none;
+        }
+        &:hover, &:focus {
+            outline: none !important;
+        }
+    }
+    .preamble {
+        color: @whiteTranslucent;
+    }
+}
+.pseudolink {
+    display: inline; 
+    font-weight: 600;
+    &.white {
+        color: @whiteTranslucent;
+    }
+}
+.close-mo-right {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+}
+.reg-trailing-links {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    .h-link {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: rgba(255,255,255,.5);
+        display: inline-block;
+        padding: 0 12px;
+        position: relative;
+        &:hover {
+            color: @white;
+        }
+        &:before {
+            content: "";
+            height: 12px;
+            width: 1px;
+            background-color: @grayLighter;
+            background-color: rgba(255,255,255,.3);
+            display: block;
+        }
+        &:first-child {
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+.signin-tabswitch {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    .preamble {
+        padding-right: 6px;
+            color: @white;
+            color: rgba(255,255,255,.88);
+    }
+}
+.reg-mode {
+    display: none;
+    color: @white;
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 1em;
+  &.active {
+    display: block;
+  }
+}
+.reg-bottom {
+    margin: 12px 0 0;
+}
+.soc-logins {
+    margin: 16px 0;
+    display: table;
+    width: 100%;
+    .btn {
+        width: 50%;
+        display: table-cell;
+        font-weight: 400;
+        color: @white;
+        &.lefty {
+            .border-radius(@boxBorderRadius 0 0 @boxBorderRadius);
+        }
+        &.righty {
+            .border-radius(0 @boxBorderRadius @boxBorderRadius 0);
+        }
+        i {
+            margin: 0 8px 0 0;
+            color: @white;
+        }
+        &.google {
+            background-color: @googleplus;
+            border-color: darken(@googleplus, 4%);
+            &:hover {
+                color: @white;
+                background-color: darken(@googleplus, 4%);
+            }
+        }        
+        &.facebook {
+            background-color: @facebook;
+            border-color: darken(@facebook, 4%);
+            &:hover {
+                color: @white;
+                background-color: darken(@facebook, 4%);
+            }
+        }
+        &.twitter {
+            background-color: @twitter;
+            border-color: darken(@twitter, 12%);
+            &:hover {
+                color: @white;
+                background-color: darken(@twitter, 4%);
+            }
+        }
+    }
+    
+}
+.auth-error {
+    display: none;
+    width: 100%;
+    background-color: @red;
+    color: @white;
+    text-align: center;
+    padding: 8px 24px;
+    .border-radius(@boxBorderRadius);
+    &.active {
+        display: block;
+    }
+    a, .link {
+        font-weight: 600;
+        color: @white;
+        text-decoration: none;
+    }
+}
+
+.login-form, .register-form, .password-reset-form {
+    margin: 16px 0;
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        .input-block-level;
+        .box-shadow(none);
+        margin: 0 0 0 0;
+        padding: 0;
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
+        font-size: 1.05em;
+        -webkit-font-smoothing: antialiased;
+        border: none;
+        border-bottom: solid 1px @grayLighter;
+        .border-radius(0);
+        &.regbottom {
+            border-top: solid 1px @grayLighter;
+        }
+        &.topmost {
+            .border-radius(@boxBorderRadius @boxBorderRadius 0 0);
+        }
+        &.bottommost {
+            border-bottom: none;
+            .border-radius(0);
+        }
+    }
+}
+.login-nav {
+    position: relative;
+    margin: 0 auto 24px;
+    .or {
+        color: @grayLighter;
+    }
+    &:after {
+        content: "";
+        height: 3px;
+        width: 100%;
+        left: 0;
+        bottom: -3px;
+        position: absolute; 
+        // background-color: @grayLight;
+    }
+}
+.login-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 360px;
+}
+.login-error-block {
+    padding: 12px;
+    width: 100%;
+    margin: 8px 0;
+    background-color: darken(@blue, 5%);
+    background-color: rgba(0,0,0,.3);
+    color: @grayLighter;
+    font-size: 1.05em;
+    .msg-link {
+        display: block;
+        font-weight: 600;
+        margin-top: 8px; 
+        outline: none;
+        &:hover {
+            cursor: pointer;
+            color: @white;
+        }
+    }
+}
+.error-content {
+    position: relative;
+    margin: 50% 20% 0;
+    font-size: 1.25em;
+    footer.page-footer {
+    position: relative;
+    width: 360px;
+    }
+}
+.offline {
+    font-size: 1.35em;
+    margin: 36px 0 0;
+}
+.twitter-user-info {
+    margin: 0 0 12px;
+    font-size: 1.2em;
+    .profile-image {
+        margin-right: 8px;
+    }
+}

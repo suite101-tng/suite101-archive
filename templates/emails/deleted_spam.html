@@ -1,0 +1,15 @@
+{% extends 'emails/base.html' %}
+
+{% block email-content %}
+
+<p>Hi {{ user.first_name }},</p>
+
+<p>Suite is platform for sharing stories, comparing experiences. It's a place we've built to encourage more meaningful online discussion.</p> 
+
+<p>We've closed your account because it appears you're not here to talk, but to publish spam.</p>
+<p>{{message}}</p>
+
+<p>Thanks,<br />
+The Suite team</p>
+
+{% endblock %}

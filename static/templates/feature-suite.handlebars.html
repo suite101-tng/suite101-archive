@@ -1,0 +1,52 @@
+{{#if nextStory}}
+
+                    <div class="featured-suite">
+                        <div class="hero suite-footer">
+                            <div class="hero-image-wrapper">
+
+                            {{#if nextStorySuite}}
+                              {{#if featuredSuite.heroImage.largeImageUrl}}
+                                <div class="hero-img" style="background-image: url('{{featuredSuite.heroImage.largeImageUrl}}')"></div>
+                                {{else}}
+                                    {{#if featuredSuite.heroImage.origImageUrl}}
+                                <div class="hero-img" style="background-image: url('{{featuredSuite.heroImage.origImageUrl}}');"></div>
+                                    {{/if}}
+                                {{/if}}
+                            
+                                <div class="hero-content heroContent">
+                                 <div class="center-column">
+
+                                 <span class="in-body-label">Next story in {{featuredSuite.name}}</span>
+
+                                {{/if}}
+
+
+                                   {{#with nextStory}}
+                                    
+                                    <div class="article-teaser">
+                                        <div class="media-heading">
+                                            <a href="{{absoluteUrl}}" class="wrapping-anchor" data-id="{{id}}" data-navigate>
+                                                <div class="title-container">
+                                                    <h3 class="title">{{title}}</h3>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="{{absoluteUrl}}" class="wrapping-anchor" data-slug="{{slug}}" data-id="{{id}}" data-navigate>
+                                                <p class="excerpt">{{{excerpt}}}</p>
+                                            </a>
+                                        </div>
+                                            <p class="teaser-sub pull-left">
+                                                <a class="wrapping-anchor" href="{{author.absoluteUrl}}" data-navigate data-slug-type="user"><img src="{{author.mainImageUrl}}" alt="{{author.fullName}}" style="background-image: url({{author.mainImageUrl}})" class="profile-image small"><span class="auth-name">{{author.fullName}}</span></a>
+                                            </p>
+                                    </div>
+
+                                    {{/with}}
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}

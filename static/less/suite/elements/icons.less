@@ -1,0 +1,665 @@
+.io {
+  display: inline-block;
+  font-family: @ioIcon;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  font-size: 16px;
+  vertical-align: top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	&.io-align-left, &.io-align-center, &.io-align-right {
+		font-size: 13px;
+	}
+  &.verylight {
+  	color: @grayLightest;
+  }
+  &.lighter {
+  	color: @grayLighter;
+  }
+  &.solid {
+  	color: @gray;
+  }
+  &.bold {
+  	font-weight: 900;
+  }
+}
+
+@navbarIconSize: 21px;
+
+// Rotated & Flipped Icons
+// -------------------------
+
+.io-rotate-45  { .io-rotate(-45deg, 1);  }
+.io-rotate-90  { .io-rotate(90deg, 1);  }
+.io-rotate-180 { .io-rotate(180deg, 2); }
+.io-rotate-270 { .io-rotate(270deg, 3); }
+
+// Hook for IE8-9
+// -------------------------
+
+:root .io-rotate-45,
+:root .io-rotate-90,
+:root .io-rotate-180,
+:root .io-rotate-270 {
+  filter: none;
+}
+
+
+.io-rotate(@degrees, @rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@rotation);
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+.half-spin {
+	transform-origin: 50% 50%;
+	-o-transform-origin:50% 50%;
+	-ms-transform-origin:50% 50%;
+	-moz-transform-origin:50% 50%;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation: spin .15s ease-in;
+	-moz-animation: spin .15s ease-in;
+	-ms-animation: spin .15s ease-in;
+	-o-animation: spin .15s ease-in;
+	animation: spin .15s ease-in;	
+}
+
+.loader-spin {
+	    transform-origin: 50% 50%;
+  -o-transform-origin:50% 50%;
+  -ms-transform-origin:50% 50%;
+  -moz-transform-origin:50% 50%;
+  -webkit-transform-origin:50% 50%;
+    -webkit-animation: spin .7s infinite ease-in-out;
+    -moz-animation: spin .7s infinite ease-in-out;
+    -ms-animation: spin .7s infinite ease-in-out;
+    -o-animation: spin .7s infinite ease-in-out;
+    animation: spin .7s infinite ease-in-out;	
+}
+@spinSpee: .58s;
+.io-spin-rev {
+    transform-origin: 50% 50%;
+    -o-transform-origin:50% 50%;
+    -ms-transform-origin:50% 50%;
+    -moz-transform-origin:50% 50%;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation: spin .58s infinite linear reverse;
+    -moz-animation: spin .58s infinite linear reverse;
+    -ms-animation: spin .58s infinite linear reverse;
+    -o-animation: spin .58s infinite linear reverse;
+    animation: spin .58s infinite linear reverse;
+    &.slow {
+        -webkit-animation: spin .78s infinite linear reverse;
+        -moz-animation: spin .78s infinite linear reverse;
+        -ms-animation: spin .78s infinite linear reverse;
+        -o-animation: spin .78s infinite linear reverse;
+        animation: spin .78s infinite linear reverse;
+    }    
+ }
+
+.io-spin {
+    -webkit-filter: blur(0); 
+	    transform-origin: 44% 50%;
+  -o-transform-origin:44% 50%;
+  -ms-transform-origin:44% 50%;
+  -moz-transform-origin:44% 50%;
+  -webkit-transform-origin:44% 50%;
+    -webkit-animation: spin .7s infinite linear;
+    -moz-animation: spin .7s infinite linear;
+    -ms-animation: spin .7s infinite linear;
+    -o-animation: spin .7s infinite linear;
+    animation: spin .7s infinite linear;
+    &.large {
+    	font-size: 34px;
+    }
+ }
+ 
+@-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes spin {
+    to { -ms-transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+    to { -o-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.io-suite-logo:before {
+    content: "\e902";
+}
+.io-suite-logo-texty:before {
+    content: "\e920";
+}
+.io-suite-logo-just-texty:before {
+    content: "\e929";
+}
+.io-format_align_center:before {
+    content: "\e921";
+}
+.io-google-plus:before {
+    content: "\e900";
+}
+.io-google:before {
+    content: "\e901";
+}
+.io-android-apps:before {
+    content: "\f35c";
+}
+.io-android-arrow-back2:before {
+    content: "\f2cb";
+}
+.io-android-arrow-down2:before {
+    content: "\f35e";
+}
+.io-android-arrow-forward2:before {
+    content: "\f310";
+}
+.io-android-arrow-up2:before {
+    content: "\f367";
+}
+.io-android-expand:before {
+    content: "\f386";
+}
+.io-android-hand:before {
+    content: "\f2e3";
+}
+.io-android-lock:before {
+    content: "\f392";
+}
+.io-android-more-horizontal:before {
+    content: "\f396";
+}
+.io-android-open:before {
+    content: "\f39c";
+}
+.io-android-options2:before {
+    content: "\f39e";
+}
+.io-android-radio-button-off2:before {
+    content: "\f3a8";
+}
+.io-android-radio-button-on2:before {
+    content: "\f3a9";
+}
+.io-android-star2:before {
+    content: "\f2fd";
+}
+.io-android-sync2:before {
+    content: "\f3b2";
+}
+.io-asterisk:before {
+    content: "\f314";
+}
+.io-chatboxes:before {
+    content: "\f11c";
+}
+.io-information-circled:before {
+    content: "\f149";
+}
+.io-ios-chatboxes-outline:before {
+    content: "\f3f9";
+}
+.io-ios-chatbubble-outline:before {
+    content: "\f3fb";
+}
+.io-ios-heart-outline:before {
+    content: "\f442";
+}
+.io-ios-heart:before {
+    content: "\f443";
+}
+.io-ios-pulse-strong2:before {
+    content: "\f493";
+}
+.io-ios-pulse:before {
+    content: "\f494";
+}
+.io-locked:before {
+    content: "\f200";
+}
+.io-navicon-round:before {
+    content: "\f20d";
+}
+.io-plus-round:before {
+    content: "\f217";
+}
+.io-speedometer:before {
+    content: "\f2b3";
+}
+.io-bullet-list-2:before {
+    content: "\e603";
+}
+.io-bullet-list:before {
+    content: "\e605";
+}
+.io-grid2:before {
+    content: "\e60d";
+}
+.io-moneybag:before {
+    content: "\e903";
+}
+.io-auction:before {
+    content: "\e904";
+}
+.io-tree:before {
+    content: "\e905";
+}
+.io-windows:before {
+    content: "\e906";
+}
+.io-person_add:before {
+    content: "\e907";
+}
+.io-gavel:before {
+    content: "\e908";
+}
+.io-remove_red_eye:before {
+    content: "\e909";
+}
+.io-dollar:before {
+    content: "\e90a";
+}
+.io-paypal:before {
+    content: "\e90b";
+}
+.io-eyedropper:before {
+    content: "\e90c";
+}
+.io-pinterest-square:before {
+    content: "\e90d";
+}
+.io-twitter-square:before {
+    content: "\e90e";
+}
+.io-twitter:before {
+    content: "\e90f";
+}
+.io-facebook-official:before {
+    content: "\e910";
+}
+.io-facebook-square:before {
+    content: "\e911";
+}
+.io-external-link-square:before {
+    content: "\e912";
+}
+.io-external-link:before {
+    content: "\e913";
+}
+.io-sign-out:before {
+    content: "\e914";
+}
+.io-speech-bubble:before {
+    content: "\e915";
+}
+.io-credit:before {
+    content: "\e916";
+}
+.io-line-graph:before {
+    content: "\e917";
+}
+.io-upload-to-cloud:before {
+    content: "\e918";
+}
+.io-cloud-download:before {
+    content: "\e919";
+}
+.io-quotes-left:before {
+    content: "\e91a";
+}
+.io-enlarge2:before {
+    content: "\e91b";
+}
+.io-paragraph-left:before {
+    content: "\e91c";
+}
+.io-paragraph-center:before {
+    content: "\e91d";
+}
+.io-paragraph-right:before {
+    content: "\e91e";
+}
+.io-paypal2:before {
+    content: "\e91f";
+}
+.io-file-text-o:before {
+    content: "\f0f6";
+}
+.io-archive:before {
+    content: "\f102";
+}
+.io-camera:before {
+    content: "\f118";
+}
+.io-checkmark-circled:before {
+    content: "\f120";
+}
+.io-checkmark-round:before {
+    content: "\f121";
+}
+.io-checkmark:before {
+    content: "\f122";
+}
+.io-gear-a:before {
+    content: "\f13d";
+}
+.io-help-circled:before {
+    content: "\f142";
+}
+.io-image:before {
+    content: "\f147";
+}
+.io-images:before {
+    content: "\f148";
+}
+.io-link:before {
+    content: "\f1fe";
+}
+.io-more:before {
+    content: "\f20b";
+}
+.io-navicon:before {
+    content: "\f20e";
+}
+.io-paperclip:before {
+    content: "\f20f";
+}
+.io-person-add:before {
+    content: "\f211";
+}
+.io-printer:before {
+    content: "\f21a";
+}
+.io-reply:before {
+    content: "\f21e";
+}
+.io-share:before {
+    content: "\f220";
+}
+.io-social-facebook:before {
+    content: "\f231";
+}
+.io-social-github:before {
+    content: "\f233";
+}
+.io-social-linkedin:before {
+    content: "\f239";
+}
+.io-social-reddit-outline:before {
+    content: "\f23a";
+}
+.io-social-reddit:before {
+    content: "\f23b";
+}
+.io-social-rss-outline:before {
+    content: "\f23c";
+}
+.io-social-rss:before {
+    content: "\f23d";
+}
+.io-trash-b:before {
+    content: "\f253";
+}
+.io-arrow-expand:before {
+    content: "\f25e";
+}
+.io-arrow-move:before {
+    content: "\f263";
+}
+.io-code-working:before {
+    content: "\f270";
+}
+.io-earth:before {
+    content: "\f276";
+}
+.io-load-c:before {
+    content: "\f29c";
+}
+.io-social-pinterest-outline:before {
+    content: "\f2b0";
+}
+.io-social-pinterest:before {
+    content: "\f2b1";
+}
+.io-speakerphone:before {
+    content: "\f2b2";
+}
+.io-stats-bars:before {
+    content: "\f2b5";
+}
+.io-edit:before {
+    content: "\f2bf";
+}
+.io-edit2:before {
+    content: "\f2c0";
+}
+.io-paper-airplane:before {
+    content: "\f2c3";
+}
+.io-android-add:before {
+    content: "\f2c7";
+}
+.io-android-arrow-back:before {
+    content: "\f2ca";
+}
+.io-android-camera:before {
+    content: "\f2d3";
+}
+.io-android-close:before {
+    content: "\f2d7";
+}
+.io-android-remove:before {
+    content: "\f2f4";
+}
+.io-android-settings:before {
+    content: "\f2f7";
+}
+.io-android-star:before {
+    content: "\f2fc";
+}
+.io-android-arrow-forward:before {
+    content: "\f30f";
+}
+.io-qr-scanner:before {
+    content: "\f346";
+}
+.io-quote:before {
+    content: "\f347";
+}
+.io-social-instagram-outline:before {
+    content: "\f350";
+}
+.io-android-arrow-down:before {
+    content: "\f35d";
+}
+.io-android-arrow-up:before {
+    content: "\f366";
+}
+.io-android-bicycle:before {
+    content: "\f369";
+}
+.io-android-bookmark:before {
+    content: "\f36b";
+}
+.io-android-bulb:before {
+    content: "\f36c";
+}
+.io-android-create:before {
+    content: "\f37e";
+}
+.io-android-favorite-outline:before {
+    content: "\f387";
+}
+.io-android-favorite:before {
+    content: "\f388";
+}
+.io-android-globe:before {
+    content: "\f38c";
+}
+.io-android-home:before {
+    content: "\f38f";
+}
+.io-android-menu:before {
+    content: "\f394";
+}
+.io-android-notifications:before {
+    content: "\f39b";
+}
+.io-android-options:before {
+    content: "\f39d";
+}
+.io-android-person-add:before {
+    content: "\f39f";
+}
+.io-android-person:before {
+    content: "\f3a0";
+}
+.io-android-pin:before {
+    content: "\f3a3";
+}
+.io-android-radio-button-off:before {
+    content: "\f3a6";
+}
+.io-android-radio-button-on:before {
+    content: "\f3a7";
+}
+.io-android-share-alt:before {
+    content: "\f3ac";
+}
+.io-android-star-outline:before {
+    content: "\f3ae";
+}
+.io-android-sync:before {
+    content: "\f3b1";
+}
+.io-android-time:before {
+    content: "\f3b3";
+}
+.io-android-upload:before {
+    content: "\f3b6";
+}
+.io-ios-arrow-back:before {
+    content: "\f3cf";
+}
+.io-ios-arrow-down:before {
+    content: "\f3d0";
+}
+.io-ios-arrow-forward:before {
+    content: "\f3d1";
+}
+.io-ios-arrow-up:before {
+    content: "\f3d8";
+}
+.io-ios-body:before {
+    content: "\f3e4";
+}
+.io-ios-bolt-outline:before {
+    content: "\f3e5";
+}
+.io-ios-bolt:before {
+    content: "\f3e6";
+}
+.io-ios-browsers-outline:before {
+    content: "\f3ef";
+}
+.io-ios-browsers:before {
+    content: "\f3f0";
+}
+.io-ios-checkmark:before {
+    content: "\f3ff";
+}
+.io-ios-contact-outline:before {
+    content: "\f419";
+}
+.io-ios-contact:before {
+    content: "\f41a";
+}
+.io-ios-email-outline:before {
+    content: "\f422";
+}
+.io-ios-flag-outline:before {
+    content: "\f42c";
+}
+.io-ios-flag:before {
+    content: "\f42d";
+}
+.io-ios-flame-outline:before {
+    content: "\f42e";
+}
+.io-ios-flame:before {
+    content: "\f42f";
+}
+.io-ios-flame-outline2:before {
+    content: "\f430";
+}
+.io-ios-flame2:before {
+    content: "\f431";
+}
+.io-ios-more:before {
+    content: "\f46a";
+}
+.io-ios-personadd:before {
+    content: "\f480";
+}
+.io-ios-pricetag-outline:before {
+    content: "\f48c";
+}
+.io-ios-pricetag:before {
+    content: "\f48d";
+}
+.io-ios-printer-outline:before {
+    content: "\f490";
+}
+.io-ios-pulse-strong:before {
+    content: "\f492";
+}
+.io-ios-search-strong:before {
+    content: "\f4a4";
+}
+.io-ios-undo-outline:before {
+    content: "\f4c6";
+}
+.io-ios-undo:before {
+    content: "\f4c7";
+}
+.io-ios-upload-outline:before {
+    content: "\f4ca";
+}
+.io-social-markdown:before {
+    content: "\f4e6";
+}
+.io-social-whatsapp-outline:before {
+    content: "\f4ef";
+}
+.io-social-whatsapp:before {
+    content: "\f4f0";
+}
+.io-compass:before {
+    content: "\e924";
+}
+.io-expand:before {
+    content: "\e927";
+}
+.io-hand-paper-o:before {
+    content: "\e928";
+}
+.io-compass2:before {
+    content: "\e925";
+}
+.io-asterisk:before {
+    content: "\e926";
+}

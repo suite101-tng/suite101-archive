@@ -1,0 +1,26 @@
+<div class="paged-list-filter pagedListFilter">
+    <div class="ctxt-filter ctxtFilter">
+        <div class="q-wrapper">
+            <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these"/>
+        </div>
+        {{#if posts}}
+        <ul class="named-filters pull-right">
+            <li class="namedFilter" data-filter="draft">Drafts</li>
+        </ul>      
+        {{/if}}  
+    </div>
+</div>
+
+<div class="thing-list {{#if suites}}suites{{/if}} thingList">
+  {{#if suites}}
+    <div class="suite-teaser mini cta" data-load="true" data-actionbind data-action="createNewSuite">
+        <div class="btn circle square"><i class="io io-plus-round"></i></div>
+        <div class="texty">
+        Create a new Suite
+        </div>
+    </div>
+    {{/if}}   
+    <div class="paginatedList">
+        <div class="orbitalloader initial-loader blue"><i class="io io-load-c io-spin"></i></div>
+    </div>
+</div>

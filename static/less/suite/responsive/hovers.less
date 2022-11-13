@@ -1,0 +1,629 @@
+// Hover states for non-mobile devices
+@media only screen and (min-width: 768px) {
+// @media (min-width: 768px) {
+
+/////////////
+// GENERAL //
+/////////////
+  
+    a:hover { 
+    }
+    h1, h2, h3, h4 {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+
+	.suite-member-item {
+		.user-action {
+			.light-inline-label {
+			  &:hover {
+			    cursor: pointer;
+			    color: @gray;
+			  }
+			}
+		}
+	}
+
+
+/////////////////
+// NAVIGATION  //
+/////////////////
+
+	@navHoverOpacity: .94;
+	.navbar-fixed-top {
+		.homey {
+		    &:hover {
+		    	text-decoration: none;
+		    	.opacity(@navHoverOpacity);
+		    }
+		}
+	    .nav-el {
+	    	&.create-new {
+	    		&:hover {
+	    			.btn-create {
+					  .button-variant(@white; @blueTranslucent; darken(@blueTranslucent, 2%);); 
+					}
+	    		}
+	    	}
+	        &.is-me {
+	        	&:hover {
+		            .opacity(1);
+		        }
+	        }
+	    	.profile-image {
+	    		&:hover {
+	    			cursor:  pointer
+	    		}
+	    	}
+	        .nav-but {
+	            &:hover {
+					text-decoration: none;
+					.opacity(@navHoverOpacity);
+	                cursor: pointer;
+	            }
+	        }
+	    }
+	}
+	.user-drawer-card {
+	    .action-links {
+	        .alink {
+	            &:hover {
+	                text-decoration: none;
+	                cursor: pointer;
+	                color: @gray;
+	            }	
+	        }
+	    }
+	}
+	.drawer-actions {
+		li {
+		    a, &.fauxy {
+		    	&:hover {
+		    		cursor: pointer;
+	            	text-decoration: none;
+	            	.opacity(@navHoverOpacity);
+		    	}
+		    }
+		}
+	}
+	.drawer-tab-switch {
+	    li {
+	    	&.active {
+	    		&:hover {
+	    			color: darken(@blue, 4%);
+	    		}
+	    	}
+		    &:hover {
+		    	cursor: pointer;
+		    	color: lighten(@blue, 10%);
+		    }
+		}
+	}
+
+	.d-nav {
+	    li {
+	    	&:hover {
+	    		cursor: pointer;
+	    		color: @grayDark;
+		    }
+		}
+	}
+
+	.stage-tab-switch {
+	    li {
+	    	&.active {
+	    		&:hover {
+	    			color: darken(@blue, 4%);
+	    		}
+	    	}
+		    &:hover {
+		    	cursor: pointer;
+		    	color: lighten(@blue, 10%);
+		    }
+		}
+	}
+
+	.nav-search-pane {
+	    .trending-tags {
+	        .tag {
+				&:hover {
+					color: @blue;
+				}
+			}
+		}
+	}
+
+	.ctxt-filter {
+	    .named-filters {
+	        li {
+	            &:hover {
+	            	.hoverAnimate;
+	                cursor: pointer;
+	                color: @blue;
+	            }
+	        }
+	    }
+	}
+
+/////////////
+// SUITES  //
+/////////////
+
+	// quicksearch
+	.quick-search-results {
+	    .suite-member-item {
+	        &:hover {
+	            cursor: pointer;
+	            background-color: @white;
+	        }
+	    }
+
+	}
+
+	.suite-actions {
+		.act {
+			&:hover {
+				.io {
+					color: @grayDark;
+				}
+			}
+		}
+	}
+
+	.suite-teaser {
+	    &:hover {
+	    	.teaser-follow {
+	    		.follow-button {
+	    			              -webkit-animation: pop-upwards 260ms forwards linear;
+          animation: pop-upwards 260ms forwards linear; 
+          visibility: visible;
+		    		.opacity(.94);
+		    	}
+	    	}
+	    	.suite-owner {
+	    		.opacity(.3);
+	    	}
+	    }
+	}
+
+	.suite-drawer-cta {
+	    &:hover {
+	    	.hoverAnimate;
+	        cursor: pointer;
+	        .suite-teaser-main {
+	        	background-color: @gray;
+	        	color: @grayLighter;
+	        }
+	    }
+	}
+
+    .option {
+        &:hover {
+            cursor: pointer;
+            &.response-option {
+	            &:after {
+	            	color: @blue;
+	            }
+	        }
+            .option-label, .option-icon {
+                color: @blue;
+            }
+        }
+    }
+
+
+/////////////
+// STORIES //
+/////////////
+
+	.date-time {
+	    &:hover {
+	        cursor: pointer;
+	        color: @gray;
+	    }
+	}
+
+	.story-teaser {
+		h3.title {
+			&:hover {
+				.hoverAnimate;
+				color: @blue;
+			}
+		}
+		.story-teaser-actions {
+		    .action-item {
+		        .btn {
+		            color: @grayLighter;
+		        }
+		    }
+
+		}
+		&.parent {
+			&:hover {
+				.opacity(1);
+				cursor: pointer;
+			}
+		}
+		&:hover {
+			.story-teaser-actions {
+			    .action-item {
+			        .btn {
+			            color: @grayLight;
+			        }
+			        &:hover {
+			        	.btn {
+			        		color: @grayDark;
+			        	}
+			        }
+			    }				
+			}
+		}
+	}
+	.auth-top {
+		a {
+			text-decoration: none;
+			outline: none;
+		}
+	    .name { 
+	    	outline: none;
+	    	&:hover {
+	    		color: @blue;
+	    		text-decoration: none;
+	    	}
+	    }
+	}
+	article.story {
+        &.has-hero {  
+            header {
+                .parent-crumb {
+                    .the-parent {
+                    	&:hover {
+	                        &:before {
+	                            .opacity(1);
+	                        }
+	                        .texty {
+	                            .opacity(1);
+	                        }
+	                    }
+                    }
+                }
+            }
+        }
+    }
+
+	.story-tags, .tagsinput {
+	    .tag {
+	        &:hover {
+	            color: @grayDark;
+	            background-color: @grayLighter;
+	            border-color: darken(@grayLighter, 2%);
+	            cursor: pointer;        
+	        }
+	    }
+	}
+
+	figure {
+		&.inlineImageWrapper {
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+	.edit-nav {
+	    .act {
+	    	&:hover {
+	    		cursor: pointer;
+	    		color: @white;
+	    		background-color: darken(@grayDarkTranslucent,4%);
+	    		&:after {
+					border-bottom-color: darken(@grayDarkTranslucent,4%);
+	    		}
+	    	}
+	    }
+	}
+
+	.insert-selector {
+	    li {
+	    	&:hover {
+	    		cursor: pointer;
+	            .nav-label {
+	                background-color: rgba(0,0,0,.2);
+	                border-color: rgba(0,0,0,.05);
+	            }    		
+	    	}
+	        &.active {
+	        	&:hover {
+		            .nav-label {
+		                background-color: rgba(0,0,0,.2);
+		                border-color: rgba(0,0,0,.05);
+		            }
+	        	}
+	        }
+	    }
+	}
+
+	.story-footer {
+	    h3.title {
+	    	&:hover {
+		        .opacity(.95);   
+		    }
+	    }
+	}	
+	.upload-media { 
+	    &:hover {
+	        .io, .embed-link-label {
+	            color: @grayDark;
+	        }
+	        cursor: pointer;
+	    }	
+	}
+
+//////////////
+// PROFILES //
+//////////////
+
+	.profile-image-container {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.contact-member-links {
+	    .contact-link {
+	        &:hover {
+	            cursor: pointer;
+	            background-color: @mushroom;
+	            .io {
+	                color: @grayDark;
+	            }
+	        }
+	    }
+	}
+	.profile-settings-image {  
+	    &:hover {
+	        cursor: pointer;
+	        &:before {
+	        	.opacity(.45);
+	        }
+	        &:after {
+	            .opacity(.86);
+	        }
+	    }
+	}	
+
+///////////////////////
+//   NOTIFS + FEEDS  //
+///////////////////////
+
+	.notification-item {
+	    .texty {
+	        .verb {
+	        	&:hover {
+	        		border-bottom: none;
+	        		text-decoration: none;
+	        		color: @blue;
+	        	}
+	        }
+	    }
+	}
+
+
+
+/////////////
+//   CHAT  //
+/////////////
+
+	.msg-head {
+	    a {
+	        &:hover {
+	            text-decoration: none;
+	        }
+	    }
+	}
+	.chat-message {
+	    &:hover {
+		    .message-more {
+	            .option {
+	                display: inline-block;
+	            }
+	            .normal {
+	                display: none;
+	            }
+		    }
+        }
+	}
+	.chat-form {
+	    .new-msg {
+	    	&:hover {
+		        cursor: text;
+		    }
+		}
+	}
+
+	///////////////// STATS
+	.chart-controls {
+	    .selector-toggle {
+	        &:hover {
+	        	background-color: darken(@blue, 4%);
+	        	color: @white;
+	        }
+	    }
+	}
+	.stats-summary {
+	    .sum-block {
+	        &.active {
+	        	&:hover {
+		            .num {
+		                color: darken(@blue, 2%);
+		                color: @blue;
+		            }
+		            .sum-label {
+		                color: darken(@blue, 2%);
+		                color: @blue;
+		            }
+		        }
+	        }
+	        &:hover {
+	        	cursor: pointer;
+	            .num {
+	                color: @grayDark;
+	                color: @white;
+	            }
+	            .sum-label {
+	                color: @gray;
+	                color: @grayLighter;
+	            }            
+	        }	
+	    }
+	}
+
+
+
+	//////////////
+	//   MISC  //
+	/////////////
+	.inline-linklike {
+	    &:hover {
+	        cursor: pointer;
+	        text-decoration: inherit;
+	        color: inherit;
+	    }    
+	}
+	.static-crumb {
+		.crumb-current {
+	        &:hover {
+	            cursor: pointer;
+	            color: @grayDarker;
+	        }			
+		}
+	    .crumb-link {
+	        &:hover {
+	            cursor: pointer;
+	            color: @blue;
+	        }
+	    }
+	}
+	.btn {
+		&.upload-media {
+			&:hover {
+				.io {
+					color: @white;	
+				}
+				background-color: lighten(@gray,6%);
+				border-color: @gray;
+				color: @white;
+			}
+		}
+	}			
+	.btn-transparent {
+	  .button-variant(@gray; transparent; transparent;); 
+	    &.do-search {
+	        &:hover {
+	          cursor: pointer;
+	          color: @blue;
+	        }
+	    }
+	    &.overlay {
+	      &:hover {
+	        color: @white;
+	      }
+	    }
+	  }
+	.minor-tabs {
+		.tab-items {
+			li {
+				&:hover {
+					cursor: pointer;
+				}	  
+			}
+		}
+	}
+	.primary-tabs {
+        &.overlay {
+            .tab-items {
+                li {
+                    &:hover {
+                        cursor: pointer;
+                        color: @white;
+                    }
+                }
+            }
+        }
+	    .tab-items {
+            &.overlay {
+            	li {
+            		&:hover {
+            			.counter {
+            				color: @white;
+            			}
+            		}
+            	}
+            }
+	        li {
+	            &:hover {
+	                cursor: pointer;
+	                color: @blue;
+	                .counter {
+	                    color: @blue;
+	                }
+	            }
+			}
+		}
+	}
+	.pseudolink {
+	    &.white {
+	        &:hover {
+	        	color: @white;
+	        }
+	    }
+	}
+	.reg-trailing-links {
+	    .h-link {
+	        &:hover {
+	            color: @white;
+	        }
+	    }
+	}
+	.nar-o-links {
+	    &.overlay {
+	        li {
+	        	&:hover {
+		            color: @whiteTranslucent;
+		            border-bottom: solid 1px rgba(255,255,255,.1);
+		        }
+	        }
+	    }
+	    li {
+	        &:hover {
+	            color: @grayDark;
+	            border-bottom-color: @grayLight;
+	        }
+		}
+	}
+	.user-invite-item { 
+		&.inactive {
+			&:hover {
+				cursor: pointer;
+				.user-cell {
+					.opacity(1);
+				}
+			}
+		}
+	}
+
+	///////////////////////////
+	//   ADMIN + MODERATION  //
+	///////////////////////////	
+
+	.mod-flag-teaser {
+		&:hover {
+		    .flag-actions {
+		        .btn {
+		            .opacity(1);
+		        }
+		    }
+		}
+	}
+
+}

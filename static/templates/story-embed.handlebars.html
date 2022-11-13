@@ -1,0 +1,16 @@
+ {{#if imageType}}
+<figure contenteditable="false" unselectable="on" class="inlineImageWrapper plain {{imageType}} {{#if cover}}is-main-image{{else}}{{#if spill}}spill{{/if}}{{/if}}" data-id="{{id}}" itemscope itemtype="http://schema.org/ImageObject">
+    <img src="{{embedObject.largeImageUrl}}" alt="{{caption}}" data-id="{{id}}" data-caption="{{caption}}" data-credit="{{embedObject.credit}}" data-credit-link="{{embedObject.creditLink}}" data-type="{{embedObject.type}}" data-width="{{embedObject.width}}" data-height="{{embedObject.height}}" {{#if cover}}style="background-image: url('{{embedObject.largeImageUrl}}');"{{/if}} itemprop="contentUrl"/>
+	<figcaption class="imageCaption" data-id="{{id}}">
+	    <div class="story-embed-caption storyEmbedCaption" itemprop="caption">
+		    {{#if caption}}<span class="main-cap">{{caption}}</span>{{/if}}
+		    {{#if embedObject.credit}}<span class="credit{{#if caption}} with-caption{{/if}}">{{#if embedObject.creditLink}}<a class="wrapping-anchor" href="{{embedObject.creditLink}}" target="_blank">{{embedObject.credit}}</a>{{else}}{{embedObject.credit}}{{/if}}</span>{{/if}}
+	    </div>
+	</figcaption>
+</figure>
+{{/if}}
+{{#if linkType}}
+<figure contenteditable="false" class="embed storyEmbed" data-story-embed="{{embedId}}" data-link-id="{{id}}">
+{{title}}
+{{{htmlObject}}}
+{{/if}}

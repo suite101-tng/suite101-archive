@@ -1,0 +1,39 @@
+
+<table cellpadding="0" cellspacing="0" style="font-size: 14px; font-family: 'Helvetica', sans-serif; background-color: #fff;" width="600" align="left">
+    <tr>
+
+    <td style="width: 45px;">
+                    
+                </td>
+        <td style="padding: 20px 0;">
+            <a href="{{site_url}}"><img src="https://suite.io/static/images/suite.png" style="height: 48px;"></a>
+        </td>
+    </tr>
+            <tr>
+                <td style="width: 45px;">
+                    {% block email-image %}{% endblock email-image %}
+                </td>
+                <td style="width: 465px; border-bottom: 1px solid #e5e5e5; padding-bottom: 10px;">
+                    {% block email-summary %}{% endblock email-summary %}
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45px;">
+                </td>
+                <td style="width: 465px; padding-top: 10px; padding-bottom: 95px;">
+                    {% block email-content %}{% endblock email-content %}
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45px;">
+                </td>
+                <td style="width: 465px; padding-top: 10px; padding-bottom: 95px;">
+                    {% block email-cta %}{% endblock email-cta %}
+                </td>
+            </tr>
+
+</table>
+
+
+
+

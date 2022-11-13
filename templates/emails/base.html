@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>{{title}}</title>
+
+    <style type="text/css">
+
+        /* Resets: see reset.css for details */
+        .ReadMsgBody { width: 100%; background-color: #f7f8f4; border-top: solid 120px red;}
+        .ExternalClass {width: 100%; background-color: #f7f8f4; border-top: solid 120px red;}
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height:100%;}
+        body {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+        body {margin:0; padding:0;}
+        table {border-spacing:0;}
+        .outerTable {
+        }
+        table td {border-collapse:collapse;}
+        .yshortcuts a {border-bottom: none !important;}
+
+        /* Constrain email width for small screens */
+        @media screen and (max-width: 600px) {
+            table[class="container"] {
+                width: 95% !important;
+            }
+        }
+
+        /* Give content more room on mobile */
+        @media screen and (max-width: 480px) {
+            td[class="container-padding"] {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+         }
+
+        /* Description Overlay Pattern CSS */
+        @media only screen and (max-width: 599px) {
+                table { width: 100%; }
+                td[class=container] {
+                    background-size: auto 100%;
+                    background-position: center top;
+                    width: 100%;
+                    height: auto;
+                    min-height: 200px;
+                    padding-top: 100px !important;
+                }
+                td[class=spacer] { display: none; height: 0;}
+            }
+
+        /* styles */
+        @media only screen and (max-width: 500px) {
+          html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
+
+          /* IMPORTANT: Change according to the picture used !! */
+          .header-image{width:600px!important; height:448px!important;}
+
+        }
+
+        </style>
+
+</head>
+
+<body style="margin:0;" rightmargin="0" leftmargin="0" topmargin="0" bottommargin="0" bgcolor="#f7f8f4">
+
+<!-- 100% wrapper (grey background) -->
+<table class="outerTable" border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#f7f8f4">
+    <tbody>
+            <tr>
+                <td>
+
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" class="container" align="center" bgcolor="#f7f8f4ff">
+                    <tbody>
+                        <tr align="center">
+                            <td width="1000">
+                                <div style="background-color: #1a8bba; max-height: 38px; height: 38px;"></div>
+                                <div style="background-color: #f7f8f4; height: 22px;"></div>
+                            </td>
+                            <td width="42"><a href="{{site_url}}"><img src="https://static.suite.io/images/suite_email_tile.png" height="60" width="42" style="width: 42px;"></a></td>
+                            <td width="1000">
+                                <div style="background-color: #1a8bba; max-height: 38px; height: 38px;"></div>
+                                <div style="background-color: #f7f8f4; height: 22px;"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 600px container (white background) -->
+                <table border="0" width="600" cellpadding="0" cellspacing="0" class="container" align="center" bgcolor="#f7f8f4">
+                    <tbody>
+                        <tr>
+                            <td class="container-padding" bgcolor="#f7f8f4" style="background-color: #f7f8f4; padding-left: 30px; padding-right: 30px; font-size: 14px; line-height: 20px; font-family: Helvetica, sans-serif; color: #333;">
+
+                                <!-- ### BEGIN CONTENT ### -->
+                                <div style="line-height: 24px; width: 100%; display: block; margin-top: 16px; margin-bottom: 16px; font-size: 16px; text-align: center;">
+                                    <p style="font-weight: bold; line-height: 18px;">
+                                        {% block email-title %}{% endblock %}
+                                    </p>                                    
+                                </div>
+
+
+                                <div class="main-content" style="margin-top: 54px!important; margin-bottom: 54px!important;">
+                                    {% block message-main-body %}{% endblock %}
+
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: solid 48px #f7f8f4;">
+                                      <tr>
+                                        <td align="center" >
+                                          <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                              <td align="center" style="-webkit-border-radius: 34px; -moz-border-radius: 34px; border-radius: 34px;" bgcolor="#f7f8f4">
+                                              <!--[if mso]>&nbsp;<![endif]-->
+                                              {% block email-action-button %}{% endblock %}
+                                              <!--[if mso]>&nbsp;<![endif]-->
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                                {% block trailing-body-blurb %}{% endblock %}
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: solid 64px #f7f8f4;">
+                                      <tr>
+                                        <td align="center" style="border-top: solid 1px #e3e3e3;">
+                                          <table border="0" cellspacing="0" cellpadding="0" style="border-spacing: 48px 12px;">
+                                            <tr>
+                                              <td align="center" style="font-family: 'Helvetica'; font-size: 15px; font-weight: 400; font-style: normal; line-height: 16px; color: #aaa;">
+                                              <p>This email was sent by <a style="color: #333; text-decoration: none;" href="{{site_url}}">Suite</a>, a simpler way to swap stories and learn from each other's experiences.</p>
+                                              <p>To control which emails we send you, see your account settings.</p>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr> 
+                    </tbody>
+                    <tfoot>
+                </table>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html

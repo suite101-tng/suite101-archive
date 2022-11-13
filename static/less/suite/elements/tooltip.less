@@ -1,0 +1,37 @@
+//
+// Tooltips
+// --------------------------------------------------
+
+
+// Base class
+.tooltip {
+  position: absolute;
+  z-index: @zindex-tooltip;
+  display: block;
+  visibility: visible;
+  // Reset font and text properties given new insertion method
+  font-family: @sansFontFamily;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1em;
+  .opacity(0);
+
+  &.in     { .opacity(@tooltip-opacity); }
+  &.top    { margin-top:  -3px; padding: @tooltip-arrow-width 0; }
+  &.right  { margin-left:  3px; padding: 0 @tooltip-arrow-width; }
+  &.bottom { margin-top:   3px; padding: @tooltip-arrow-width 0; }
+  &.left   { margin-left: -3px; padding: 0 @tooltip-arrow-width; }
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+  max-width: 300px;
+  width: auto;
+  min-width: 90px;
+  padding: 6px 16px;
+  color: @tooltip-color;
+  text-align: center;
+  text-decoration: none;
+  background-color: @grayDark;
+  border-radius: @boxBorderRadius;
+}

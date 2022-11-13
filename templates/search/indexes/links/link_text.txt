@@ -1,0 +1,1 @@
+{{ object.build_search_text }}

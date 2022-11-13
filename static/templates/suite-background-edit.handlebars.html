@@ -1,0 +1,55 @@
+<div class="suite-background-editor suiteBackgroundEditor" tabindex="-1">
+	<div class="action-options center-column actionOptions"> 
+		<div class="tab-content insert-options insertOptions">           
+			<div class="tab-pane imageSelector {{#if coverTypeImage}}active{{/if}}">
+				<p>This is the image-upload toolkit!</p>
+				<div class="insert-options insertOptions">
+	                <div class="i-option">
+	        		    <button class="btn btn-grayLight upload-media insertUploadImage"><i class="io io-upload-to-cloud"></i>Upload image</button>
+	                </div>
+	                <div class="i-option split">or</div>
+	    		    <div class="i-option embedLink embed-link-wrapper">
+	    		        <input type="text" name="embed" class="media-embed-input mediaEmbedInput" placeholder="Paste a link or embed code"/>
+	    		        <button class="pull-right btn circle square btn-transparent embed-submit embedSubmit" data-actionbind data-action="addEmbed">
+	                        <i class="io io-android-arrow-forward"></i>
+	                    </button>
+	    		    </div>  
+	            </div>		
+			</div>
+			<div class="tab-pane colorMixer {{#if coverTypeColor}}active{{/if}}">
+				<div class="color-mixer-mini-app">
+					<div class="mixer-details">
+						<h4 class="insert-subhead">Mix a color <i class="io io-android-arrow-forward"></i></h4>
+						<input class="naked-input hexColorInput" value="{{color}}" placeholder="Paste a custom hex value" />
+					</div>
+					<div class="rgb-container rgbContainer">
+						<div class="rgb-col red">
+							<div class="slider-range sliderRange sliderRangeRed">
+								<div class="slider draggable rgbSlider redSlider" data-color="red"></div>
+							</div>
+							<div class="rgb-value rgbValue">
+								<input class="naked-input rgbInput rgbInputRed" value="{{color.rgb.red}}" />
+							</div>
+						</div>
+						<div class="rgb-col green">
+							<div class="slider-range sliderRange sliderRangeGreen">
+								<div class="slider draggable rgbSlider greenSlider" data-y="0" data-color="green"></div>
+							</div>
+							<div class="rgb-value rgbValue">
+								<input class="naked-input rgbInput rgbInputGreen" value="{{color.rgb.green}}" />
+							</div>
+						</div>
+						<div class="rgb-col blue">
+							<div class="slider-range sliderRange sliderRangeBlue">
+								<div class="slider draggable rgbSlider blueSlider" data-color="blue"></div>
+							</div>
+							<div class="rgb-value rgbValue">
+								<input class="naked-input rgbInput rgbInputBlue" value="{{color.rgb.blue}}" />
+							</div>
+						</div>														
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

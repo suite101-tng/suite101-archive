@@ -1,0 +1,203 @@
+<div class="page-container pageContainer" id="static-about">
+    <div class="static-main">
+
+        <div class="page-card image" style="background-image: url('/static/images/heroes/banner-4.jpg');">
+            <div class="centered feature-head">
+                <div class="reading-block static-body">                    
+                    <p>Share your stories, connect with the people and topics you care about</p>
+                </div>
+                <div class="traling-static-reg trailingStaticReg"></div>
+                <div class="sub-options subOptions">
+                    <ul class="nar-o-links overlay">
+                           
+                        <li><a class="wrapping-anchor" href="/top" data-navigate><i class="io io-ios-flame"></i>Popular posts</a></li>
+                        <li><a class="wrapping-anchor" href="/discussed" data-navigate><i class="io io-speech-bubble"></i>Discussed</a></li>
+                        <li><a class="wrapping-anchor" href="/explore" data-navigate><i class="io io-ios-browsers-outline"></i>Featured Suites</a></li>   
+                    </ul>
+                </div>
+            </div>
+            <div class="core-footer coreFooter">
+                <ul class="footer-links">
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/about">About</a>
+                    </li>
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/terms" data-navigate>Terms</a>
+                    </li>
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/privacy">Privacy</a>
+                    </li>
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/support">Community guidelines</a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+            
+		<header class="static-header centered">
+		                <h1 class="static-title">Let's talk</h1>
+		                <div class="reading-block static-body">                    
+		                    <p>Better than blogging, Suite is a conversation – a simpler, friendlier way to bring our ideas together.</p>
+		                </div>
+
+		                <div class="talk-stage centered talkStage">
+							<svg class="svg-avline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								<line id="avline1" x1="270" y1="200" x2="270" y2="200" style="stroke:#e7e7e7;stroke-width:3" />
+								<line id="avline2" x1="270" y1="200" x2="270" y2="200" style="stroke:#e7e7e7;stroke-width:3" />
+								<line id="avline3" x1="270" y1="200" x2="270" y2="200" style="stroke:#e7e7e7;stroke-width:3" />
+								<line id="avline4" x1="270" y1="200" x2="270" y2="200" style="stroke:#e7e7e7;stroke-width:3" />
+								<line id="avline5" x1="270" y1="200" x2="270" y2="200" style="stroke:#e7e7e7;stroke-width:3" />
+								<line id="avline6" x1="270" y1="200" x2="270" y2="200" style="stroke:#e7e7e7;stroke-width:3" />
+							</svg>
+							{{#each promoStories}}
+								<div class="avatar-promo avatarPromo{{@index}}">
+									<div class="profile-image medium-small profileImage" style="background-image: url('{{author.mainImageUrl}}');" alt="{{author.fullName}}" title="{{author.fullName}}"></div> 
+									<div class="texty">
+										<div class="auth-name">{{author.fullName}}</div>
+										<div class="heading">{{heading}}</div>
+									</div>
+								</div>
+							{{/each}}
+
+		                </div>
+
+		    <div class="article-body static-body">
+		        
+		        <p>Living among the tree frogs, building that underground house in the desert, finding that first fossil, riding solo down route 101... our experiences are a source of inspiration, and transfer a potent sort of knowledge that facts alone cannot.</p>
+		        <p>We built Suite to develop a form of blogging fuelled by curiosity and intelligent dialogue, to make writing a little more like talking. As our themes overlap and our little ideas spawn bigger ones, we hope Suite – superficially all about our differences – will remind us of our deeper similarities.</p>
+
+		    </div>
+
+		    
+		</header>   
+
+		<div class="page-card white">	
+			<div class="hero-content footerContent">			                     
+			    <div class="center-column">
+
+			        {{#if private}}
+			        <div class="btn is-private overlay square circle btn-transparent"><i class="io io-locked"></i></div>
+			        {{/if}}
+			    
+			        <div class="content centered">
+
+			        	{{#with featuredSuite}}
+			        		{{>suite-teaser}}
+		        		{{/with}}
+
+			            <span class="overlay-inline-next">sadf a sdf as df sdaf  sadf sda f sdaf as df asd f sdaf s daf sa df sdaf s adf sd f asdf ds af asd fd asf sa df df sa </span>
+
+			        </div>
+			    </div>
+			</div>		
+		</div>
+
+		<div class="about-section text features">
+			<div class="center-column spill">
+<!-- 				<h3 class="centered static-inline-subhead">Features</h3> -->
+				<div class="mini-features centered miniFeatures">
+					<div class="feature-block lefty">
+						<div class="icon">
+							<i class="io io-android-star"></i>
+						</div>
+						<div class="texty">
+							<h3>Approachable vibe</h3>
+							<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+						</div>
+					</div>
+					<div class="feature-block lefty">
+						<div class="icon">
+							<i class="io io-edit"></i>
+						</div>
+						<div class="texty">
+							<h3>Just write</h3>
+							<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+						</div>
+					</div>
+					<div class="feature-block lefty">
+						<div class="icon">
+							<i class="io io-android-share-alt"></i>
+						</div>
+						<div class="texty">
+							<h3>Made for discussion</h3>
+							<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+						</div>
+					</div>						
+					<div class="feature-block lefty">
+						<div class="icon">
+							<i class="io io-dollar"></i>
+						</div>
+						<div class="texty">
+							<h3>Royalties</h3>
+							<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+						</div>
+					</div>	
+					<div class="feature-block lefty">
+						<div class="icon">
+							<i class="io io-ios-browsers-outline"></i>
+						</div>
+						<div class="texty">
+							<h3>Royalties</h3>
+							<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="about-section text features">
+			<div class="center-column">
+				<hr />
+					<h3 class="centered static-inline-subhead">Our mission</h3>
+				    <div class="article-body static-body">
+				        
+				        <p>Living among the tree frogs, building that underground house in the desert, finding that first fossil, riding solo down route 101... our experiences are a source of inspiration, and transfer a potent sort of knowledge that facts alone cannot.</p>
+				        <p>We built Suite to develop a form of blogging fuelled by curiosity and intelligent dialogue, to make writing a little more like talking. As our themes overlap and our little ideas spawn bigger ones, we hope Suite – superficially all about our differences – will remind us of our deeper similarities.</p>
+
+				        <p>Suite is a simpler, more playful place to share stories. Come here to write about things you care about. And read about things you love. Best part: You’re not alone! You can connect with people who share your love of, say, modern art. And maybe even debate those that don’t.  Come to Suite to read, write and discuss what matters to you.</p>
+				        <p>More than just another writing site, Suite is a discussion platform. How does it work? Simple! Write that story that’s stuck in your head. Or respond to a story with one of your own. Hey! Now you’re part of a dialogue. Chat about ideas (if you want to) with the writer, or other writers on the site. Simple, right? And also a unique form of collaborative writing.</p>
+				        <p>(Note to wallflowers: If you just want to write - or read - that`s OK, too. You don`t have to be the life of the party to enjoy Suite.) </p>
+				        <p>Now that you`re cooking, why not build a Suite? Collect your favourite stories – your own or other people’s – into Suites. Share them with your friends along with your best cat videos. Or just gaze them lovingly! It’s all good! </p>
+				        <p>If you can channel your inner Emily Dickinson, or Philip Roth or Margaret Atwood, then you should know that our very best stories by qualifying writers can earn royalty payments – we share 70% of our profits with our community. </p>
+				        <p>Suite is one of the oldest writing communities on the web. We were sharing ideas and blogging before blogging was a “thing”. And we’ve tried every kind of way to share information online – some worked better than others. What has emerged from two decades of online publishing is a commitment to great writing, to wonderful people, to exciting ideas. We know from deep experience that all kinds of people have great ideas and stories to tell - and that they want to talk about them.</p>
+
+			    </div>
+			</div>
+		</div>
+
+        <div class="page-card image" style="background-image: url('/static/images/heroes/banner-4.jpg');">
+            <div class="centered feature-head">
+                <div class="reading-block static-body">                    
+                    <p>Share your stories, connect with the people and topics you care about</p>
+                </div>
+                <div class="traling-static-reg trailingStaticReg"></div>
+                <div class="sub-options subOptions">
+                    <ul class="nar-o-links overlay">
+                           
+                        <li><a class="wrapping-anchor" href="/top" data-navigate><i class="io io-ios-flame"></i>Popular posts</a></li>
+                        <li><a class="wrapping-anchor" href="/discussed" data-navigate><i class="io io-speech-bubble"></i>Discussed</a></li>
+                        <li><a class="wrapping-anchor" href="/explore" data-navigate><i class="io io-ios-browsers-outline"></i>Featured Suites</a></li>   
+                    </ul>
+                </div>
+            </div>
+            <div class="core-footer coreFooter">
+                <ul class="footer-links">
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/about">About</a>
+                    </li>
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/terms" data-navigate>Terms</a>
+                    </li>
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/privacy">Privacy</a>
+                    </li>
+                    <li class="toes">
+                        <a class="wrapping-anchor" href="/support">Community guidelines</a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+	</div>
+</div>
+

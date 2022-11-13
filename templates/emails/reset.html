@@ -1,0 +1,24 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+
+{% block email-summary %}Reset your password{% endblock email-summary %}
+
+{% block email-content %}
+
+	{% block email-title %}
+		You've submitted a request to reset your password, and we've sent this link to confirm it's really you.
+	{% endblock %}
+
+	{% block message-main-body %}
+
+
+
+	{% endblock %}
+
+	{% block email-action-button %}
+		<a href="{{ reset_url }}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #1a8bba; text-decoration: none; -webkit-border-radius: 2px; -moz-border-radius: 3px; border-radius: 2px; padding: 8px 18px; border: 1px solid #1a8bba; display: inline-block;">Reset your password</a>
+	{% endblock %}
+
+{% endblock %}
+

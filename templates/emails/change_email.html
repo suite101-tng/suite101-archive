@@ -1,0 +1,13 @@
+{% extends 'emails/base.html' %}
+
+{% block email-summary %}Hello {{ user.get_full_name }},{% endblock email-summary %}
+
+{% block email-content %}
+
+<p>You are receiving this email because we received a request to change your account email.</p>
+<p>Click <a href="{{ email_url }}" class="reset-link">HERE</a> to complete the email change.<p>
+<p>Or paste the following into your browser {{ email_url }}<p>
+
+<p>Thanks!<br />The Suite101 team</p>
+
+{% endblock %}

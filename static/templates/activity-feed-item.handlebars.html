@@ -1,0 +1,190 @@
+{{#if chatType}}
+<div class="feed-item chat afItem" data-score="{{score}}" data-id="{{id}}" data-key="{{key}}">
+    <div class="chatItem chat-item {{#if hasUnread}}unread{{/if}}" id="chatTeaser-{{id}}">
+        <a class="wrapping-anchor" data-navigate data-chat-id="{{id}}" href="{{absoluteUrl}}">
+
+            <div class="teaser-subhead">
+                <div class="parent-title">
+                    {{anyTitle}}
+                </div>
+            </div>
+
+            <div class="chat-teaser-body">
+
+
+                <div style="background-image: url({{lastMsgAuthHead}})" class="profile-image small last-msg-auth-head lastMsgAuthHead"></div>
+                
+                <div class="last-msg">
+                    <div class="last-msg-ident">
+                        <div class="last-msg-name">{{lastMsgAuthor}}</div>
+                        <div class="last-msg-time pull-right">{{shortTime lastMsgDate}}</div>
+                    </div>
+                    <div class="last-msg-text">{{#if lastMsg}}{{{truncate lastMsg 140}}}{{else}}Post the first message...{{/if}}</div>
+                </div>
+                <div class="plus-others plusOthers">
+                    <span class="msg-count">{{#if stats.messages}}{{stats.messages}} posts{{else}}New discussion{{/if}}</span>
+                    {{#if lastMsg}}
+                    <div class="chat-heads teaser-heads">
+                        {{#with chatMembers}}
+                            {{#each topMemberHeads}}
+                            <div style="background-image: url('{{imgUrl}}');" class="mem-head profile-image tiny profileImage"></div>
+                            {{/each}}
+                            {{#if others}}<span class="chat-also"> + {{others}}</span>{{/if}}
+                        {{/with}}
+                    </div>
+                    {{/if}}
+
+
+                </div>
+
+            </div>
+        </a>
+    </div>
+</div>
+{{/if}}
+
+{{#if addedToSuite}}
+<div class="feed-item add-to-suite afItem" data-score="{{score}}" data-id="{{id}}" data-key="{{key}}">
+Added a story to a Suite
+</div>
+{{/if}}
+
+{{#if newStory}}
+story type?
+     <div class="teaser media article-teaser storyTeaser afItem" data-score="{{score}}" data-id="{{id}}" data-key="{{key}}">
+        <div class="media-heading">
+
+            {{#if suite}}<div class="teaser-suite-subhead teaserSuiteSubhead">{{suite.name}}</div>{{/if}}
+            <div class="title-container">
+                <h3 class="title{{#if draft}} draft-title{{/if}}"><a href="{{absoluteUrl}}" class="titleLink wrapping-anchor" title="{{title}}" data-navigate> {{title}}</a></h3>
+            </div>
+        </div> 
+
+            <div class="media-body story-teaser-body storyTeaserBody">
+                    <a href="{{absoluteUrl}}" class="wrapping-anchor" title="{{title}}" data-navigate>
+                        {{#if mainImage}}   
+                            <img class="teaser-img-wrapper" src="{{mainImage}}" style="background-image: url('{{mainImage}}');"/>
+                        {{/if}}
+                        <p class="excerpt">{{{excerpt}}}</p>
+                    </a>
+
+                    {{#if storyParent}}
+                    <div class="parent-crumb parentEditCrumb">
+                        <div class="the-parent theParent">
+                            <div class="link-teaser linkTeaser" data-id="{{storyParent.id}}" itemprop="breadcrumb" itemscope itemtype="http://schema.org/Breadcrumb">
+                            {{#if storyParent.linkUrl}}
+                            <i class="io io-ios-undo-outline"></i> A response to <span class="parent-title parentTitle"><a href="{{storyParent.linkUrl}}" target="_blank" rel="nofollow" class="story-parent-link storyParentLink">{{storyParent.title}}</a></span><span class="parent-link-provider linkProvider"><span class="link-provider linkProvider"><img class="link-teaser-icon" src="{{storyParent.linkIcon}}" /> from <span class="provider-title providerTitle">{{storyParent.linkProvider}}</span></span>
+                            {{else}}
+                                {{#if storyParent.authorName}}
+                                     <i class="io io-ios-undo-outline"></i> A response to {{#if storyParent.isPublished}} <a href="{{storyParent.absoluteUrl}}" itemprop="url" data-navigate class="parent-link storyParentLink"><span class="link-teaser-icon profile-image tiny" style="background-image: url('{{storyParent.authorImg}}');"></span><span class="parent-title" itemprop="name">{{storyParent.title}}</span></a>{{else}} a story that has been removed.{{/if}}
+                                {{/if}}
+                            {{/if}}
+                            </div>  
+                        </div>
+                    </div>
+                    {{/if}}  
+            </div>
+        
+        <div class="auth-top teaser">
+        
+            <div class="auth-top-main authTopMain">
+                <a href="{{authorUrl}}" data-slug-type="user" title="{{authorName}}" class="topProfileLink img-top" data-navigate data-slug-type="user" tabindex="-1">
+                    <div class="profile-image small" style="background-image: url('{{authorImg}}');"></div>
+                    <span class="name">{{authorName}}</span>
+                </a>
+                <span class="date-time dateTime"><span class="created">{{#if yearOld}}{{createdShort}}{{else}}{{timeAgo created}}{{/if}}</span><span class="modified">Updated {{timeAgo modified}}</span></span>
+            </div>
+
+            <div class="story-teaser-actions teaserActions">
+
+            <div class="action-item">
+                <a class="tip btn circle btn-transparent" data-id="{{id}}" data-actionbind data-action="openSuiteSelector" title="Add to a Suite">
+                    <!-- <i class="io io-android-bookmark"></i> -->
+                    <i class="io io-android-add"></i>
+                </a>
+            </div>           
+
+            <div class="action-item">
+                <a class="tip btn circle btn-transparent" data-id="{{id}}" data-actionbind data-action="openSuiteSelector" title="Respond">
+                    <i class="io io-ios-undo-outline"></i>
+                </a>
+            </div>           
+
+            <div class="action-item">
+                <a class="tip btn circle btn-transparent discussThis" data-id="{{id}}" data-actionbind data-action="showStoryDiscussions" title="Discuss this story">
+                    <i class="io io-chatbox-working"></i>
+                    <span class="action-count discussionCount">{{numPubChats}}</span>
+                </a>
+            </div>
+
+            
+            </div>
+        </div>
+    </div>
+
+{{/if}}
+
+
+{{#if suiteType}}
+<div class="suite-teaser feed suiteTeaser afItem full {{#unless image}}no-image{{else}} image{{/unless}} {{#if subSuites}}parent{{/if}} {{#if open}}open{{/if}}" data-score="{{score}}" data-key="{{key}}">
+        
+    <div class="suite-teaser-main suiteTeaserMain">
+        <div class="teaser-img-wrapper">
+            <div class="teaser-img" {{#if image}}style="background-image: url('{{image}}');"{{/if}}>
+            </div>
+        </div>
+         
+        <div class="content-wrapper contentWrapper">
+        
+            <a class="wrapping-anchor suiteTeaserLink" href="{{absoluteUrl}}" data-suite-id="{{id}}" data-navigate>
+                <div class="content">
+                    
+                    <h3 class="suite-name">
+                        {{truncate name 80}}
+                    </h3>              
+                    
+                    <div class="description">
+                        {{#if stats.stories}}<span class="stats">{{stats.stories}} stor{{pluralize stats.stories "y" "ies"}}</span>{{/if}}
+                        {{#if stats.followers}}<span class="stats">{{stats.followers}} follower{{pluralize stats.followers "" "s"}}</span>{{/if}}
+                    </div>
+
+                </div>
+            </a>
+
+            <div class="teaser-foot">
+                <a href="#" class="btn follow-button btn-whiteline followButton {{#if numFollowers }}has-followers{{/if}}" data-actionbind data-action="followSuite" data-following="{{#if viewerFollowing }}1{{else}}0{{/if}}" data-suite="{{id}}"><span class="followText">{{#if viewerFollowing }}Following{{else}}Follow{{/if}}</span></a>
+            </div>
+
+            {{#if subSuites}}
+            <div class="sub-suite-toggle subSuiteToggle" data-actionbind data-action="subSuitesToggle">
+                <i class="io io-android-add"></i> {{numSubSuites}} sub-Suite{{pluralize numSubSuites "" "s"}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+
+    {{#if subSuites}}
+    <div class="sub-suites-container subSuitesContainer">
+        <ul class="teaser-sub-suites subSuiteSelectorList">
+            {{#each subSuites}}
+            <li class="subsuite-teaser ssTeaser">
+                <a class="wrapping-anchor suiteTeaserLink" href="{{absoluteUrl}}" data-suite-id="{{id}}" data-navigate>
+                    <div class="subsuite-img" {{#if image}}style="background-image: url('{{image}}');"{{/if}}></div>
+                    <div class="texty">
+                        <div class="ss-name ssName">
+                            {{name}}
+                        </div>
+                        <div class="ss-stats ssStats">
+                            <span class="stats">{{stats.stories}} stor{{pluralize stats.stories "y" "ies"}}</span>
+                            {{#if stats.followers}}<span class="stats">{{stats.followers}} follower{{pluralize stats.followers "" "s"}}</span>{{/if}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+
+</div>
+{{/if}}

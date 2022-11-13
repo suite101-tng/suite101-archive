@@ -1,0 +1,58 @@
+<div class="page-container pageContainer" id="landing-view">
+    <div class="static-main">
+        {{#unless prevPage}}
+        <section class="page-card image" style="background-image: url('{{leadStory.mainImage}}');">
+            <div class="centered feature-head">
+                <div class="center-column wide">
+                    <h1 class="big">Let's talk</h1>
+                    <div class="reading-block static-body">                    
+                        <p>Better than blogging, Suite is a conversation – a simpler, friendlier way to bring our ideas together.</p>
+                    </div>
+
+                    <div class="horizontal-statics">
+                        <div class="btn btn-blueTranslucent  home-login-butt createAccount" data-actionbind="createAccount">Sign in</div>
+                        <ul class="static-links">
+                            <li><a class="btn-transparent overlay" href="/about" data-navigate>Learn more</a></li>
+                            <li><a class="btn-transparent overlay" href="/explore" data-navigate>Explore</a></li>
+                        </ul>
+                    </div>     
+                </div>       
+            </div>
+            <div class="more-next">
+                <div class="pull-right more-label">
+                </div>
+                <div class="btn btn-transparent overlay circle huge" data-actionbind data-action="scrollToFirst"><i class="io io-ios-arrow-down"></i></div>
+            </div>
+        </section>
+        {{else}}
+            <div class="center-column">
+                <a href="{{prevLink}}" class="loadMore" rel="prev">Previous</a>
+                {{#if nextPage}}
+                <a href="{{nextLink}}" class="loadMore" rel="next">Next</a>
+                {{/if}}  
+            </div>
+        {{/unless}}
+        <div class="main-panel mainPanel">
+            <section class="landingFeaturedStories stories">
+                <div class="{{#unless stories}}isEmpty{{/unless}} article-list teaser-list paginatedList" data-current-page="{{currentPage}}">     
+                   {{#unless prevPage}}
+                       {{#with leadStory}}
+                            {{>story-teaser hideImage=true}}
+                        {{/with}}
+                    {{/unless}}
+                    {{#if stories}}
+                        {{#each stories}}
+                            {{>story-teaser}}
+                        {{/each}}
+                    {{/if}}
+                    {{#if nextPage}}
+                        <a href="{{nextLink}}" class="loadMore" rel="next">Next</a>
+                    {{/if}}
+                    {{#if prevPage}}
+                        <a href="{{prevLink}}" class="loadMore" rel="prev">Previous</a>
+                    {{/if}}                        
+                </div>
+            </section>   
+        </div>
+    </div>
+</div>

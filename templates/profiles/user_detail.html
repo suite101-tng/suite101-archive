@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load nofollow %}
+{% load others %}
+{% load space_to_dash %}
+{% load noimage %}
+
+{% block title %}{{object.get_full_name|escape|title}}{% endblock %}
+{% block meta-robots %}{{meta_robots}}{% endblock meta-robots %}
+{% block body-attr%} data-view-bind="UserDetailView" itemscope itemtype="http://schema.org/ProfilePage"{%endblock%}
+{% block body-class %}{% endblock%}
+{% block container-class %}user-detail{% endblock %}
+{% block meta-description %}{% if object.by_line %}{{object.by_line|escape|striptags}}{% else %}Story archive and member profile for {{object.get_full_name|escape|title}}{% endif %}{% endblock %}
+
+{% block meta %}
+    <link rel="canonical" href="{{SITE_URL}}{{canonical_link}}" />
+
+    {% if has_next %}
+        <link rel="next" href="{{SITE_URL}}{{next_link}}">
+    {% endif %}
+    {% if has_prev %}
+        <link rel="prev" href="{{SITE_URL}}{{prev_link}}">
+    {% endif %}
+    {% if object.get_by_line %}
+    <meta name="twitter:description" content="{{object.get_by_line}}|escape">
+    <meta property="og:description" content="{{object.get_by_line}}|escape" />
+    {% else %}
+    <meta name="twitter:description" content="Stories by {{object.get_full_name|escape|title}}">
+    <meta property="og:description" content="Stories by {{object.get_full_name|escape|title}}" />
+    {% endif %}
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@suiteio">
+    <meta name="twitter:url" content="{{SITE_URL}}{% url 'profile_detail' object.slug %}">
+    <meta name="twitter:title" content="{{object.get_full_name|escape|title}}">
+
+    {% if object.twitter_username %}
+    <meta name="twitter:creator" content="{{object.twitter.username}}">
+    {% endif %}
+    {% if object.get_profile_image %}
+    <meta name="twitter:image" content="{{object.get_profile_image}}">
+    {% endif %}
+    <meta property="article:publisher" content="https://www.facebook.com/suitestories">
+    <meta property="og:title" content="{{object.get_full_name|escape|title}}" />
+    <meta property="og:url" content="{{SITE_URL}}{% url 'profile_detail' object.slug %}" />
+    <meta property="og:type" content="article" />
+{% endblock %}
+{% block shell %}
+    {{user_detail_rendered|safe}}
+{% endblock %}
+
+{% block script-application %}
+require(['UserDetail', 'jquery'], function(UserDetail, $) {
+    $(function() {
+        var userController = new UserDetail();
+        userController.loadBootstrappedUser({
+            skipRender: true,
+            slug: '{{user_slug}}',
+            feedType: '{{feed_type}}',
+            bootstrappedModel: JSON.parse('{{user_json|safe|addslashes}}')
+        });
+    });
+});
+{% endblock %}

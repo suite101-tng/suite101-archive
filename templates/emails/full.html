@@ -1,0 +1,10 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+
+{% block email-summary %}Hi {{ user.get_full_name }} – you've been promoted.{% endblock email-summary %}
+
+{% block email-content %}
+
+{% include 'emails/_congrats_full_message.html' %}
+
+{% endblock %}

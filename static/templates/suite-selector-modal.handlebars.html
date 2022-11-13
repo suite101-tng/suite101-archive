@@ -1,0 +1,40 @@
+<div class="modal normal suiteSelector" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-card mini-card"> 
+        <div class="modal-header logged-in">
+            <h2 class="genericModalTitle">Add this {{#if addObject.storyType}}post{{else}}link{{/if}} to a Suite</h2>
+            <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent"><i class="io io-android-close"></i></button>       
+        </div>
+        <div class="modal-body-container">
+                
+            <div class="add-stage addStage">
+                {{#with addObject}}
+                    {{>story-teaser}}
+                {{/with}}
+            </div>
+
+            <div class="modal-body modal-body modal-padded-scrollable scrollable-body scrollable-modal-body modalScrollable scrollme">
+                <div class="suite-selector-list suiteSelectorList">
+<!--                     <div class="paged-list-filter pagedListFilter mySuitesFilter">
+                        <div class="ctxt-filter ctxtFilter">
+                            <div class="q-wrapper">
+                                <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter your Suites"/>
+                            </div>
+                        </div>
+                    </div>     -->        
+<!--                     <div class="suite-teaser suiteTeaser full no-image suite-selector" data-actionbind data-action="createNewSuite">
+                        <div class="suite-teaser-main suiteTeaserMain">
+                        Create a new Suite
+                        </div>
+                    </div>  -->   
+
+                    <div class="paginatedList">
+                        <div class="orbitalloader initial-loader blue"><i class="io io-load-c io-spin"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer centered butts">
+            <div class="btn btn-footer-white closeMe" data-dismiss="modal" aria-hidden="true">Done</div>
+        </div>     
+     </div>
+ </div>

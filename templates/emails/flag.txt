@@ -1,0 +1,6 @@
+Content Flagged!
+
+{{user_name}} ({{user_email}}) has flagged the following content
+{{url}}
+Reason - {{reason}}
+Message - {{message}}

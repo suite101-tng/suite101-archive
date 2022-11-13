@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+
+{% block title %}My stats{% endblock %}
+{% block meta-robots %}noindex, nofollow, noodp, noydir{% endblock %}
+{% block meta-description %}My stats{% endblock meta-description %}
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block body-class %}stats with-hero{% endblock %}
+
+{% block meta %}
+{% endblock %}
+{% block container-class %}stats-detail{% endblock %}
+{% block shell %}
+    {{stats_rendered|safe}}
+{% endblock %}
+{% block script-application %}
+    require(['UserDetail', 'jquery'], function(UserDetail, $) {
+        $(function() {
+            var userDetail = new UserDetail({
+            });
+            userDetail.loadStatsView();
+        });
+    });
+{% endblock script-application %}

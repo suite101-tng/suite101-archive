@@ -1,0 +1,78 @@
+{{#if invited}}
+    {{#if email}}
+    <div class="suite-member-item {{#if invited}}pending invited{{else}}{{#if requested}}pending requested{{/if}}{{/if}} pendingMember" data-email="{{email}}" data-pk="{{id}}">
+        <div class="user-cell">
+            <div class="btn circle btn-fineline email-avatar"><i class="io io-paper-airplane"></i></div>
+            <div class="user-name email">{{email}}</div>
+            <div class="user-byline">Invite by email</div>
+        </div>
+        <div class="user-action">
+            <span class="light-inline-label dropdown-toggle" data-toggle="dropdown" title="Options">Invited</span>
+            <ul class="dropdown-menu top-drop feed-options-menu">
+                <li class="linklike revokeInvite" data-id="{{id}}" data-name="{{user.fullName}}"><i class="io io-ios-close-empty"></i>Remove</li>
+            </ul>
+        </div>
+    </div>
+    {{else}}
+        <div class="suite-member-item pending invited pendingMember" data-email="{{email}}" data-pk="{{id}}">
+            <div class="user-cell">
+                <div style="background-image: url('{{user.mainImageUrl}}');" class="profile-image small profileImage"></div>
+                <div class="user-name">{{user.fullName}}</div>
+                <div class="user-byline">{{truncate user.byLine 80}}</div>
+            </div>
+            <div class="user-action">
+                <span class="light-inline-label dropdown-toggle" data-toggle="dropdown" title="Options">Invited</span>
+                <ul class="dropdown-menu top-drop feed-options-menu">
+                    <li class="linklike revokeInvite" data-id="{{id}}" data-actionbind data-actiondata-name="{{user.fullName}}"><i class="io io-ios-close-empty"></i>Remove</li>
+                </ul>
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
+{{#if requested}}
+<div class="suite-member-item pending invited pendingMember">
+    <div class="user-cell">
+        <div style="background-image: url('{{user.mainImageUrl}}');" class="profile-image small profileImage"></div>
+        <div class="user-name">{{user.fullName}}</div>
+        <div class="user-byline">{{truncate user.byLine 80}}</div>
+    </div>
+    <div class="user-action">
+        <span class="light-inline-label">Asked to join</span>   
+        <span class="btn btn-blue btn-sm acceptRequest updateRequest" data-actionbind data-action="updateSuiteRequestStatus" data-id="{{requestId}}" data-status="1">Accept</span>   
+        <span class="btn btn btn-sm rejectRequest updateRequest" data-actionbind data-action="updateSuiteRequestStatus" data-id="{{requestId}}" data-status="0">Reject</span>
+    </div>
+</div>
+{{/if}}
+{{#if member}}
+<div class="suite-member-item pendingMember" data-pk="{{id}}">
+    <div class="user-cell">
+        <div style="background-image: url('{{user.mainImageUrl}}');" class="profile-image small profileImage"></div>
+        <div class="user-name">{{user.fullName}}</div>
+        <div class="user-byline">{{truncate user.byLine 80}}</div>
+    </div>
+    <div class="user-action">
+    {{#unless suiteEditor}}
+        <span class="btn btn-sm light dropdown-toggle" data-toggle="dropdown" title="Options">
+            <i class="io io-android-more-horizontal one"></i><i class="io io-android-close two"></i>
+        </span>
+        <ul class="dropdown-menu top-drop feed-options-menu">
+            <li class="linklike promoteMember" data-status="editor" data-id="{{memberId}}" data-name="{{user.fullName}}"><i class="io io-ios-arrow-up"></i>Promote to Editor</li>
+            <li class="linklike removeMember" data-status="remove" data-id="{{memberId}}" data-name="{{user.fullName}}"><i class="io io-ios-close-empty"></i>Remove</li>
+        </ul>
+    {{else}}
+    <span class="light-inline-label blue">Editor</span>
+    {{#unless owner}}
+            <span class="btn btn-sm light dropdown-toggle" data-toggle="dropdown" title="Options">
+            <i class="io io-android-more-horizontal one"></i><i class="io io-android-close two"></i>
+        </span>
+        <ul class="dropdown-menu top-drop feed-options-menu">
+            <li class="linklike demoteMember" data-id="{{memberId}}" data-status="normal" data-name="{{user.fullName}}"><i class="io io-ios-arrow-up"></i>Demote (to normal)</li>
+            <li class="linklike removeMember" data-id="{{memberId}}" data-status="remove" data-name="{{user.fullName}}"><i class="io io-ios-close-empty"></i>Remove</li>
+        </ul>
+        {{/unless}}
+
+    {{/unless}}
+    </div>
+</div>
+{{/if}}
+

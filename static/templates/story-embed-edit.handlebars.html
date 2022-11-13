@@ -1,0 +1,47 @@
+<figure class="{{embedObject.imageType}} storyEmbed {{#if cover}}cover{{/if}}" data-id="{{id}}" data-disable-editing>
+    {{#if imageType}}
+    <div class="image-wrapper imageWrapper" data-disable-editing contenteditable="false" unselectable="on">
+        <img src="{{#if embedObject.largeImageUrl}}{{embedObject.largeImageUrl}}{{else}}{{embedObject.origImageUrl}}{{/if}}" alt="{{embedObject.caption}}" data-id="{{embedObject.id}}" data-caption="{{embedObject.caption}}" data-credit="{{embedObject.credit}}" data-credit-link="{{embedObject.creditLink}}" data-type="{{embedObject.type}}" data-width="{{embedObject.width}}" data-height="{{embedObject.height}}" {{#if cover}}style="background-image: url('{{embedObject.largeImageUrl}}');"{{/if}} itemprop="contentUrl" data-disable-editing/>
+        <div class="image-credit-container {{#if cover}}cover{{/if}} imageCreditContainer" data-id="{{id}}" data-disable-editing="true">
+            <div class="credit-heading">Photo credit</div>
+            <div class="credit-field-container">
+                <div class="credit-field creditField">
+                    <label class="creditLabel" for="creditLink">Credit:</label>
+                    <input maxlength="140" class="inputs sub-caption-fields credit" spellcheck="false" name="credit" class="credit" placeholder="Source/photographer name" value="{{embedObject.credit}}" />
+                </div>
+                <div class="credit-field creditField">
+                    <label class="creditLabel" for="creditLink">Credit link:</label>
+                    <input class="inputs sub-caption-fields credit-link creditLink" spellcheck="false" name="creditLink" placeholder="Link" value="{{object.creditLink}}" />
+                </div>   
+            </div>         
+        </div>        
+    </div>
+    <div data-id="{{id}}" class="edit-figcaption editFigcaption" data-disable-editing="true">
+        <textarea name="caption" class="captionEdit caption-edit" placeholder="Add a caption" spellcheck="false" data-disable-editing="true">{{caption}}</textarea>
+    </div>     
+    {{/if}}    
+
+    {{#if linkType}}
+        {{#if embedObject.htmlObject}}
+            {{{embedObject.htmlObject}}}
+        {{else}}
+            {{embedObject.title}}
+        {{/if}}
+    {{/if}}    
+
+    {{#if storyType}}
+        {{#with embedObject}}
+            {{>story-teaser}}
+        {{/with}}
+    {{/if}}   
+    <div class="embed-edit-actions embedEditActions" data-disable-editing>
+        <div class="image-controls" data-disable-editing>
+            <button class="btn circle square btn-transparent action dragHandle tip" title="Move"><i class="io io-arrow-move"></i></button>
+            {{#if imageType}}
+            <button class="btn circle square btn-transparent action toggleCreditEdit toggle-credit-edit" data-actionbind data-action="toggleImgCreditEdit" contenteditable="false" title="Image credit" data-id="{{id}}"><i class="io io-camera"></i></button>
+            {{/if}}
+            <button class="action btn btn-sm btn-dark circle square alignmentBtns {{#if spill}}active{{/if}}" data-actionbind data-action="toggleSpill" data-id="{{id}}" contenteditable="false"><i class="io io-android-expand"></i></button>
+            <button class="delete-embed delete-action removeIt action deleteEmbed" data-actionbind data-action="deleteEmbed" {{#if cover}}data-cover="true"{{/if}} data-id="{{id}}" contenteditable="false"><i class="io io-trash-b"></i></button>    
+        </div>
+    </div>    
+</figure>

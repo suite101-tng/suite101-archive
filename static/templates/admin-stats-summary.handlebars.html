@@ -1,0 +1,103 @@
+{{#if posts}}
+<div class="sum-block sumBlock" data-series="reads">
+    <div class="num">{{reads}}</div>
+    <div class="sum-label">read{{pluralize reads "" "s"}}</div>
+</div>
+
+<div class="sum-block sumBlock" data-series="rate">
+    <div class="num">{{rate}}%</div>
+    <div class="sum-label">read rate</div>
+</div>
+
+<div class="sum-block sumBlock" data-series="pageviews">
+    <div class="num">{{pageviews}}</div>
+    <div class="sum-label">pageview{{pluralize pageviews "" "s"}}</div>
+</div>
+
+<div class="sum-block sumBlock" data-series="uniques">
+    <div class="num">{{uniques}}</div>
+    <div class="sum-label">unique reader{{pluralize uniques "" "s"}}</div>
+</div>     
+{{/if}} 
+
+{{#if suites}}
+<div class="sum-block">
+    <div class="num">{{views}}</div>
+    <div class="sum-label">view{{pluralize views "" "s"}}</div>
+</div>
+
+<div class="sum-block">
+    <div class="num">{{newFollows}}</div>
+    <div class="sum-label">new follow{{pluralize newFollows "" "s"}}</div>
+</div>  
+{{/if}} 
+
+{{#if profile}}
+<div class="sum-block">
+    <div class="num">{{views}}</div>
+    <div class="sum-label">view{{pluralize views "" "s"}}</div>
+</div>
+
+<div class="sum-block">
+    <div class="num">{{newFollows}}</div>
+    <div class="sum-label">new follow{{pluralize newFollows "" "s"}}</div>
+</div>  
+{{/if}} 
+
+{{#if royalties}}
+<div class="sum-block">
+    <div class="num">{{accrued}}</div>
+    <div class="sum-label">accrued this period</div>
+</div>
+<div class="sum-block">
+    <div class="num">{{allTime}}</div>
+    <div class="sum-label">all-time</div>
+</div>      
+<div class="sum-block">
+    <div class="num">{{balance}}</div>
+    <div class="sum-label">balance</div>
+</div>  
+{{/if}} 
+{{#if users}}
+<div class="sum-block">
+    <div class="num">{{activeusers}}</div>
+    <div class="sum-label">active user{{pluralize activeusers "" "s"}}</div>
+</div>
+
+<div class="sum-block">
+    <div class="num">{{allusers}}</div>
+    <div class="sum-label">user{{pluralize allusers "" "s"}}</div>
+</div>
+
+<div class="sum-block">
+    <div class="num">{{activeratio}}</div>
+    <div class="sum-label">active ratio</div>
+</div>     
+{{/if}} 
+
+{{#if globalposts}}
+<div class="sum-block">
+    <div class="num">{{allposts}}</div>
+    <div class="sum-label">new posts</div>
+</div>
+
+<div class="sum-block">
+    <div class="num">{{approvedposts}}</div>
+    <div class="sum-label">from approved users</div>
+</div>
+
+<div class="sum-block">
+    <div class="num">{{responses}}</div>
+    <div class="sum-label">responses</div>
+</div>     
+<div class="sum-block">
+    <div class="num">{{extresponses}}</div>
+    <div class="sum-label">external responses</div>
+</div>     
+{{/if}} 
+{{#if globalroyalties}}
+<div class="sum-block">
+    <div class="num">${{totalroyalties}}</div>
+    <div class="sum-label">royalties allocated to members</div>
+</div>
+{{/if}} 

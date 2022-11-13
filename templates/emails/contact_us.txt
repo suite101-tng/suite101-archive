@@ -1,0 +1,6 @@
+Contact Form Message
+
+From - {{email}}
+Subject - {{subject}}
+
+{{message}}

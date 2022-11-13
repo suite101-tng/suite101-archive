@@ -1,0 +1,630 @@
+
+//
+// Variables
+// --------------------------------------------------
+@s3StageBaseUrl: '//d3352dq5876lbj.cloudfront.net/';
+@s3ProdBaseUrl: '//static.suite.io/';
+@localStaticUrl: '/static/';
+@assetBaseUrl: @s3ProdBaseUrl;
+
+// Stalk and stem
+// --------------------------------------------------
+
+@centerColumnWidth: @stem;
+@stem:		560px;
+@stem_med:	560px;
+@stem_sm:	92%;
+@gutter_sm: 24px;
+
+
+// shades of avocado
+@avo1: #eff6f4;
+@avo2: #f0f6f5;
+// test
+
+@avo3: #f8f8f7;
+@avo4: #44d2c3;
+@avo4: #6cd1c0;
+@avo4Translucent: rgba(108, 209, 192,.9);
+@turkTranslucent: rgba(68,210,195,.96);
+
+// @turk: #1ca5a8;
+// @turkTranslucent: rgba(28,165,168,.94);
+// Background colors
+
+@backgroundColor: @white;
+// @backgroundColor: @avo3;
+
+// current: f4f4f7
+// home: f9f9f4
+// base: f7f8f8
+// redder: f8f8f7
+// soup: f5f4f0
+// mushroom soup: f8f8f4 
+// qz: f9f9f9
+
+@suiteCoverPhotoRatio: 3.6;
+@articleMainPhotoRatio: 2;
+@baseInk: lighten(@grayDarker, 3%);
+@red: #d63020;
+@blue: #24abcc;
+@purple: #aa45d4;
+@orange: #e49210;
+@redTranslucent: rgba(214,48,32,.8);
+@blueTranslucent: rgba(26,139,186,.9);
+@greenTranslucent: rgba(76,178,95,.96);
+@whiteTranslucent: rgba(255,255,255,.94);
+@grayDarkTranslucent: rgba(49, 58, 63,.96);
+@grayLightestTranslucent: rgba(244,242,245,.9);
+
+@yellowTranslucent: rgba(255,196,12,.94);
+@mushroomTranslucent: rgba(248,248,244,.92);
+@blackOverlay: rgba(0,0,0,.7);
+@blackOverlayDense: rgba(0,0,0,.94);
+// @mushroom: #f7f8f4;
+@mushroom: #f5f7f7;
+
+// f7f8f4 yellowish
+// f7f8f8 cool chalk
+// f4f3f0
+// f2f3f5
+// f4f3f0 current
+
+// f4f7f7 cooler
+
+// Global values
+// --------------------------------------------------
+
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #2d3235;
+@grayDark:              #394145;
+@gray:                  #495b5b;
+@grayLight:             #919299;
+@grayLighter:           #e0e3e7;
+@grayLightest:			#f4f2f5;
+@white:                 #fff;
+
+// first
+@space:					#485f74;
+@spaceTranslucent:		rgba(72,95,116,.94);
+
+// oka + communist party inspired
+@space:					#117291;
+@spaceTranslucent:		rgba(17,114,145,.94);
+@primary:				@space;
+
+// Accent colors
+// -------------------------
+@blueDark:              #0064cd;
+@fadedBlue:				#7ebacd;
+@green:                 #729c24;
+@greenLight:            #bfe1cd;
+@avocado:				#bee1cd;
+@yellow:                #ffc40d;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+
+@twitter:				#55acee;
+@googleplus:			#dd4b39;
+@facebook:				#3B5998;
+@reddit:				#ff4500;
+
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        @white;
+@textColor:             @grayDark;
+
+
+// Links
+// -------------------------
+@linkColor:             @blue;
+@linkColorHover:        darken(@linkColor, 10%);
+
+// For <hr> and other short inline lines
+@minorLineLength: 300px;
+
+.suite {
+	&.suite-logo {
+	    font-family: 'io';
+	    font-weight: 400;
+	    font-size: 34px;
+	    color: @gray;
+		&::before {
+			content: "\e902";
+		}	    
+	    &.texty {
+    	    font-size: 2.0em;
+			&::before {
+				content: "\e920";
+			}
+	    }
+	    &.wee {
+	    	font-size: 36px;
+	    }	
+	    &.micro {
+	    	font-size: 28px;
+	    }
+	    &.nano {
+			font-size: 15px;
+			line-height: 13px;
+			margin-right: 4px;
+			vertical-align: top;
+			display: inline-block;
+	    }
+	    &.big {
+			font-size: 3.4em;
+			line-height: 1em;
+	    }
+		// &::before {
+		// 	content: "\e902";
+		// }
+		&.white {
+			color: @white;
+		}
+		&.blue {
+			color: @blue;
+		}
+	}
+}
+.name-tag {
+	font-family: @sansFontFamily;
+	font-weight: 900;
+	text-transform: lowercase;
+	font-size: 1.05em;
+}
+
+// Icon font
+@ioIcon: "io";
+@nav-icon-size: 22px;
+
+@font-face {
+	font-family: 'io';
+	src:url('@{assetBaseUrl}fonts/suite.woff2') format('woff2'),
+		url('@{assetBaseUrl}fonts/suite.woff') format('woff'),
+		url('@{assetBaseUrl}fonts/suite.eot') format('eot');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@serifFontFamily:       "proxima-nova",Helvetica, Arial, sans-serif;
+@altSansFontFamily:     "freightSans",Helvetica, Arial, sans-serif;
+// @serifFontFamily:       "freightSans",Helvetica, Arial, sans-serif;
+@sansFontFamily:        "proxima-nova",Helvetica, Arial, sans-serif;
+// @sansFontFamily:        "freightSans",Helvetica, Arial, sans-serif;
+
+@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+@baseFontSize:          16px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        25px;
+@altFontFamily:         @serifFontFamily;
+
+@headlineType: 			2.05em;
+@subheadSize:			@headlineType / 1.7;
+
+// Story settings
+@baseStoryLineHeight:   1.3em;
+@baseStoryFontSize:     1.1em;
+@baseStoryFontWeight:   400;
+
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         inherit; // empty to use BS default, @textColor
+
+@iconsFontPath:         "@{assetBaseUrl}fonts";
+@fontPath:				"@{assetBaseUrl}fonts";
+
+
+// Buttons
+@buttonFontWeight:      400;
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          12px 26px; // 44px
+@paddingSmall:          2px 13px;  // 26px
+@paddingMini:           0 6px;   // 22px
+
+@baseBorderRadius:      32px;
+@borderRadiusLarge:     52px;
+@borderRadiusSmall:     32px;
+@boxBorderRadius:		4px;
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             lighten(@mushroom,2%); // for striping
+@tableBackgroundHover:              @mushroom; // for hover
+@tableColorHover:		            #000; // for hover
+@tableBorder:                       #ddd; // table and cell border
+
+// Buttons
+// -------------------------
+@btnCircleHeight:					34px;
+@btnBackground:                     @grayLightest;
+@btnBackgroundHighlight:            @grayLighter;
+@btnBorder:                         @grayLight;
+
+@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              @green;
+@btnSuccessBackgroundHighlight:     lighten(@green, 10%);
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               @red;
+@btnDangerBackgroundHighlight:      lighten(@red,10%);
+
+@btnInverseBackground:              #4c4c4c;
+@btnInverseBackgroundHighlight:     @grayDarker;
+
+
+// Forms
+// -------------------------
+@inputBackground:               @white;
+@inputBorder:                   #ccc;
+@inputBorderRadius:             @boxBorderRadius;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @white;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownDividerTop:            #e5e5e5;
+@dropdownDividerBottom:         @white;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @white;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1030;
+@zindexFixedNavbar:       1031;
+@zindexModalBackdrop:     1040;
+@stageIndex:			  1030;
+@zindexModal:             1050;
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  #f5f5f5;
+
+
+// Navbar
+// -------------------------
+@navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
+
+@navbarHeight:                    72px;
+@navbarBackground:                #fff;
+@navbarBackgroundHighlight:       lighten(@navbarBackground, 5%);
+@navbarBorder:                    #e0e0df;
+
+@navbarText:                      @white;
+@navbarLinkColor:                 @white;
+@navbarLinkColorHover:            @black;
+@navbarLinkColorActive:           @grayLight;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+
+@navbarBrandColor:                @navbarLinkColor;
+
+// Inverted navbar
+@navbarInverseBackground:                #333333;
+@navbarInverseBackgroundHighlight:       #333333;
+@navbarInverseBorder:                    #252525;
+
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @grayLight;
+@navbarInverseLinkColorHover:            @white;
+@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseLinkBackgroundHover:       #dcdcdc;
+@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+
+@navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+@navbarInverseSearchBackgroundFocus:     @white;
+@navbarInverseSearchBorder:              @navbarInverseBackground;
+@navbarInverseSearchPlaceholderColor:    #ccc;
+
+@navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+// Pagination
+// -------------------------
+@paginationBackground:                #fff;
+@paginationBorder:                    #ddd;
+@paginationActiveBackground:          #f5f5f5;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @grayLighter;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #d40110;
+@errorBackground:         #f2dede;
+@errorBorder:             lighten(@red, 20%);
+
+@successText:             @gray;
+@successBackground:       lighten(@green, 35%);
+@successBorder:           #5e993e;
+
+@infoText:                @grayDark;
+@infoBackground:          @white;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            @white;
+@tooltipBackground:       @grayDark;
+@tooltipArrowWidth:       8px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       #fff;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+//** Width of the `border` for generating carets that indicator dropdowns.
+@caret-width-base:          4px;
+//** Carets increase slightly in size for larger components.
+@caret-width-large:         5px;
+
+
+
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@brand-primary:         darken(#428bca, 6.5%); // #337ab7
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:               #fff;
+//** Global text color on `<body>`.
+@text-color:            @gray-dark;
+
+//** Global textual link color.
+@link-color:            @brand-primary;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      darken(@link-color, 15%);
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
+
+//== Typography
+
+
+// Typography
+// -------------------------
+@font-face {
+	font-family: 'freightText';
+	src: url('@{assetBaseUrl}fonts/FreigTexBooWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/FreigTexBooWeb.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'freightText';
+	src: url('@{assetBaseUrl}fonts/FreigTexBooItaWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/FreigTexBooItaWeb.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'freightText';
+	src: url('@{assetBaseUrl}fonts/FreigTexBolWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/FreigTexBolWeb.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'freightText';
+	src: url('@{assetBaseUrl}fonts/FreigTexBolItaWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/FreigTexBolItaWeb.woff') format('woff');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'freightSans';
+	src: url('@{assetBaseUrl}fonts/freightsansblack.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/freightsansblack.woff') format('woff'),
+	url('@{assetBaseUrl}fonts/freightsansblack.eot') format('eot');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'freightSans';
+	src: url('@{assetBaseUrl}fonts/freightsansbook.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/freightsansbook.woff') format('woff'),
+	url('@{assetBaseUrl}fonts/freightsansbook.eot') format('eot');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'freightSans';
+	src: url('@{assetBaseUrl}fonts/freightsansbold.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/freightsansbold.woff') format('woff'),
+	url('@{assetBaseUrl}fonts/freightsansbold.eot') format('eot');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'freightSans';
+	src: url('@{assetBaseUrl}fonts/freightsansbolditalic.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/freightsansbolditalic.woff') format('woff'),
+	url('@{assetBaseUrl}fonts/freightsansbolditalic.eot') format('eot');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('@{assetBaseUrl}fonts/ProximaNova-LightWeb.woff') format('woff'),
+	url('@{assetBaseUrl}fonts/ProximaNova-LightWeb.eot') format('eot');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('@{assetBaseUrl}fonts/ProximaNova-RegularItWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/ProximaNova-RegularItWeb.woff') format('woff'),
+	url('@{assetBaseUrl}fonts/ProximaNova-RegularItWeb.eot') format('eot');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('@{assetBaseUrl}fonts/ProximaNova-RegularWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/ProximaNova-RegularWeb.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('@{assetBaseUrl}fonts/ProximaNova-BoldItWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/ProximaNova-BoldItWeb.woff') format('woff');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('@{assetBaseUrl}fonts/ProximaNova-BoldWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/ProximaNova-BoldWeb.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('@{assetBaseUrl}fonts/ProximaNova-ExtrabldWeb.woff2') format('woff2'),
+	url('@{assetBaseUrl}fonts/ProximaNova-ExtrabldWeb.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed:    floor((@baseFontSize * @line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+@headings-color:          inherit;
+
+
+
+@zindex-navbar:            1000;
+@zindex-dropdown:          1000;
+@zindex-popover:           1060;
+@zindex-tooltip:           1070;
+@zindex-navbar-fixed:      1030;
+@zindex-modal:             1040;
+
+
+@tooltip-max-width:           200px;
+@tooltip-color:               #fff;
+@tooltip-bg:                  #000;
+@tooltip-opacity:             .98;
+@tooltip-arrow-width:         5px;
+@tooltip-arrow-color:         @tooltip-bg;
+
+
+@popover-bg:                          #fff;
+@popover-max-width:                   276px;
+@popover-border-color:                rgba(0,0,0,.2);
+@popover-fallback-border-color:       #ccc;
+@popover-title-bg:                    darken(@popover-bg, 3%);
+@popover-arrow-width:                 10px;
+@popover-arrow-color:                 @popover-bg;
+@popover-arrow-outer-width:           (@popover-arrow-width + 1);
+@popover-arrow-outer-color:           fadein(@popover-border-color, 5%);
+@popover-arrow-outer-fallback-color:  darken(@popover-fallback-border-color, 20%);
+

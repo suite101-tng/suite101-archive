@@ -1,0 +1,21 @@
+<div class="chatInviteModal modal normal chat-email-invite-modal" style="display: none;">
+    <div class="modal-card center-column">
+        <div class="modal-intro centered">
+            <p>{{title}}</p>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body-wrapper new-message">
+                <form action="" class="inviteForm">
+                    {{#if instruction}}
+                    <p class="instr">{{instruction}}</p>
+                    {{/if}}
+                    <textarea class="msg emailInviteMsg" name="msg" placeholder="{{placeholder}}"></textarea>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer centered add-to-footer">
+            <button class="btn btn-blueline submitBtn" type="submit" class="btn">Send invite</button>
+            <button type="button" class="btn btn-fineline" data-dismiss="modal" aria-hidden="true"><i class="io io-ios-close-empty"></i>Cancel   </button>
+        </div>
+    </div>
+</div>

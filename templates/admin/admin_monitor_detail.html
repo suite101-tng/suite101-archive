@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+
+{% block title %}Suite admin{% endblock %}
+{% block meta-robots %}noindex, nofollow, noodp, noydir{% endblock %}
+{% block meta-description %}Suite Admin{% endblock meta-description %}
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block body-class %}admin{% endblock %}
+
+{% block meta %}
+{% endblock %}
+{% block container-class %}admin-detail{% endblock %}
+{% block shell %}
+    {{admin_rendered|safe}}
+{% endblock %}
+{% block script-application %}
+    require(['AdminDetail', 'jquery'], function(AdminDetail, $) {
+        $(function() {
+            var adminDetail = new AdminDetail({
+                
+            });
+            adminDetail.loadAdminMonitorView({
+	            adminType: '{{admin_type}}',
+	            skipRender: true 
+            });
+        });
+    });
+{% endblock script-application %}

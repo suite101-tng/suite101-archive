@@ -1,0 +1,24 @@
+{%spaceless%}
+<!-- Twitter -->
+<meta name="twitter:card" content="{% if suite.hero_image.get_large_image_url %}summary_large_image{% else %}summary{% endif %}" />
+<meta name="twitter:site" content="@suiteio" />
+<meta name="twitter:url" content="{{SITE_URL}}/{{suite.get_hashed_id}}" />
+<meta name="twitter:img:src" content="{{ suite.hero_image.get_large_image_url }}" />
+<meta name="twitter:title" content="{{suite.name|escape|title}}">
+<meta name="twitter:description" content="{{suite.description|escape}}">
+{% if suite.owner.twitter_username%}
+<meta name="twitter:creator" content="{{suite.owner.twitter_username}}" />
+{% endif %}
+{% if suite.hero_image.get_large_image_url %}
+<meta name="twitter:image" content="{{ suite.hero_image.get_large_image_url }}">
+{% endif %}
+<!-- OG -->
+<meta property="og:title" content="{{suite.name|escape|title}}" />
+<meta property="og:type" content="website" />
+{% if suite.hero_image.get_large_image_url %}
+<meta name="og:image" content="{{ suite.hero_image.get_large_image_url }}">
+{% endif %}
+<meta property="og:url" content="{{SITE_URL}}/{{suite.get_hashed_id}}">
+<meta property="og:description" content="{{suite.description|escape}}" />
+<meta property="og:site_name" content="Suite" />
+{% endspaceless %}

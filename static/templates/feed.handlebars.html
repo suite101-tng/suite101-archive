@@ -1,0 +1,40 @@
+<div class="page-container pageContainer" id="feed-view" data-view-bind="feedView">
+    <div class="pageWrapper page-wrapper">
+
+                 <nav class="sub-nav subNav">
+                    <ul class="nav-items userContentNav">
+                        <li class="nav-tab exploreTab {{#if explore}}active{{/if}}" data-tab="explore">My feed</li>
+                        <li class="nav-tab exploreTab {{#if storyType}}active{{/if}}" data-tab="stories">Discussed</a></li>
+                        <li class="nav-tab exploreTab {{#if suiteType}}active{{/if}}" data-tab="suites">Long reads</li>
+                        <li class="nav-tab pull-right exploreTab {{#if suiteType}}active{{/if}}" data-tab="suites"><i class="io io-android-settings"></i></li>
+                        
+                    </ul>
+                </nav>
+
+        <div class="static-main">       
+
+            <header class="static-header centered">
+                <div class="static-crumb">
+<!--                         <h1 class="static-title tip">
+                        {{title}}
+                    </h1> -->
+                </div>
+            </header>           
+            <div class="feedTab storyFeed" id="all">
+                <div class="stageScrollable stage-scrollable convList paginatedList">
+                    {{#if storyFeed}}
+                    {{#each storyFeed}}
+                        {{>story-teaser}}
+                    {{/each}}
+                    {{else}}
+                    <div class="centered phill">
+                        <p>Follow people and Suites of interest to build your story feed</p>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>                                    
+        </div>
+    </div>
+</div>
+
+

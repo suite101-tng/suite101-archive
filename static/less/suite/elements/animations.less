@@ -1,0 +1,98 @@
+.fade {
+  opacity: 0;
+  .transition(opacity .15s linear);
+  &.in {
+    opacity: 1;
+  }
+}
+
+.pageFadeIn {
+    .transition(transform cubic-bezier(0.19, 1, 0.22, 1));
+    .transition-delay(400ms);
+    .transition-duration(600ms);
+}
+
+.coreAnimate {
+    .transition(transform cubic-bezier(0.19, 1, 0.22, 1));
+    .transition-delay(0);
+    .transition-duration(300ms);
+}
+
+.hoverAnimate {
+    .transition(all cubic-bezier(0.19, 1, 0.22, 1));
+    .transition-delay(0);
+    .transition-duration(200ms);
+}
+
+.heroSliderAnimate {
+    .transition(all cubic-bezier(0.19, 1, 0.22, 1));
+    .transition-duration(300ms);
+    .transition-delay(0);
+}
+
+.linearAnimate {
+    .transition(transform ease-in-out(0.2s));
+    .transition-delay(0);
+    .transition-duration(500ms);
+}
+
+.collapse {
+  display: none;
+  visibility: hidden;
+
+  &.in      { display: block; visibility: visible; }
+  tr&.in    { display: table-row; }
+  tbody&.in { display: table-row-group; }
+}
+
+@-webkit-keyframes pop-upwards {
+  0% {
+    -webkit-transform: matrix(0.97, 0, 0, 1, 0, 12);
+            transform: matrix(0.97, 0, 0, 1, 0, 12);
+    opacity: 0; }
+
+  20% {
+    -webkit-transform: matrix(0.99, 0, 0, 1, 0, 2);
+            transform: matrix(0.99, 0, 0, 1, 0, 2);
+    opacity: .7; }
+
+  40% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, -1);
+            transform: matrix(1, 0, 0, 1, 0, -1);
+    opacity: 1; }
+
+  70% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+            transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+            transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1; } }
+
+@keyframes pop-upwards {
+  0% {
+    -webkit-transform: matrix(0.97, 0, 0, 1, 0, 12);
+            transform: matrix(0.97, 0, 0, 1, 0, 12);
+    opacity: 0; }
+
+  20% {
+    -webkit-transform: matrix(0.99, 0, 0, 1, 0, 2);
+            transform: matrix(0.99, 0, 0, 1, 0, 2);
+    opacity: .7; }
+
+  40% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, -1);
+            transform: matrix(1, 0, 0, 1, 0, -1);
+    opacity: 1; }
+
+  70% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+            transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+            transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1; } }

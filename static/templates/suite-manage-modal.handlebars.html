@@ -1,0 +1,114 @@
+<div class="suiteManageModal modal normal" style="display: none;" tabindex="-1">
+    <div class="modal-card  ">       
+
+        <div class="tab-content">
+            <div class="tab-pane {{#unless userTab}}active{{/unless}} settingsTab suiteSettingsTab" id="manage-settings">                
+
+                <div class="modal-header opaque white">
+                    <h2>Edit this Suite</h2>
+                    <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent"><i class="io io-android-close"></i></button>       
+                </div>
+
+                <div class="modal-body">
+                    <div class="suite-setting-element">
+                        <div class="setting-label title-desc wee-form-label manageTitle">Title</div>
+                        <div class="setting-main suiteTitleContainer form-field-container">
+                            <div class="suite-manage-form-field title manageSuiteTitle" maxlength="80" data-placeholder="Give your Suite a name">{{suite.name}}</div>
+                        </div>   
+
+                        <div class="setting-label title-desc wee-form-label manageDesc">Description</div>
+                        <div class="setting-main suiteDescriptionContainer form-field-container">
+                            <div class="suite-manage-form-field description miniCreateInput manageSuiteDesc" data-placeholder="Type a short description">{{suite.description}}</div>
+                        </div>
+                    </div>
+
+<!--                     <div class="suite-setting-element">
+                        <div class="setting-label wee-form-label">Automatic background image</div>
+                        <div class="setting-main autoHeroSetting">
+                            <div class="suite-privacy-options">
+                                <div class="{{#if suite.activeHero}}checked{{/if}} p-option toggleActiveHeroSetting">
+                                    <i class="io io-checkmark-circled"></i>
+                                    <div class="p-option-desc">
+                                        <div class="desc-head">Auto</div>
+                                        <div class="desc-body">Automatically use an image from recent Suite posts</div>
+                                    </div>
+                                </div>
+                            </div>                                           
+                        </div>
+                    </div> -->
+
+                    <div class="suite-setting-element soupy ">
+                        <div class="setting-main privacySettings">
+                            <div class="suite-privacy-options">
+                                <div class="{{#unless suite.private}}checked{{/unless}} p-option suiteIsPublic toggleSuitePrivacy" data-private="false">
+                                    <i class="io io-checkmark-circled"></i>
+                                    <div class="p-option-desc">
+                                        <div class="desc-head">Public</div>
+                                        <div class="desc-body">Anyone can see (and ask to join) this Suite.</div>
+                                    </div>
+                                </div>
+                                <div class="{{#if suite.private}}checked{{/if}} p-option suiteIsPrivate toggleSuitePrivacy" data-private="true">
+                                    <i class="io io-checkmark-circled"></i>
+                                    <div class="p-option-desc">
+                                        <div class="desc-head">Private</div>
+                                        <div class="desc-body">Only you and invited members can see this Suite.</div>
+                                    </div>
+                                </div>
+                            </div>                                           
+                        </div>
+                    </div>
+
+                    <div class="suite-setting-element soupy ">
+                        <div class="setting-main collabsSettings">
+                            <button class="btn btn-fineline pull-right cardTab showUserSettings">Collaborators</button>
+                        </div>
+                    </div>
+
+                    <div class="suite-setting-element">
+                        <div class="setting-label wee-form-label">Other settings</div>
+                        <div class="setting-main otherSettings">
+                            <div class="btn btn-fineline" data-actionbind data-action="deleteSuite">Delete</div>
+                        </div>
+                    </div>
+  
+                </div>  <!-- / .modal-body -->     
+                <div class="modal-footer">
+                    <button class="btn btn-nakedBlue save-suite-settings saveSuiteSettings">Done</button>
+                </div>
+            </div> <!-- / .tab-pane -->
+
+            <!-- Members' tab -->
+            <div class="tab-pane {{#if userTab}}active{{/if}} settingsTab suite-user-settings-tab settingTab suiteUserSettingsTab" id="manage-members">                
+
+                <div class="modal-header opaque white slide-pane slideFromRight">
+                    <button class="btn circle pull-left btn-transparent showSettings"><i class="io io-ios-arrow-back"></i></button> 
+                    <h2>Invite collaborators</h2>
+                    <button data-dismiss="modal" aria-hidden="true" class="close-modal-card btn btn-transparent closeMe"><i class="io io-android-close"></i></button>       
+                </div>
+
+                <div class="modal-body slideFromRight">
+
+                    <div class="header-search-input centered headerSearchInput">
+                        <span class="search-chip searchChip"><i class="io io-ios-search-strong"></i></span>
+                        <input class="naked-input quickSearchInput" data-placeholder="Search by name or email" placeholder="Search by name or email" />
+                        <div class="quick-search-results inviteSearchResults">
+                        </div>
+                    </div>
+
+                    <div class="invited-container invitedContainer">
+                        <div class="invite-list invites inviteList"></div>
+                        <div class="invite-list requests requestList"></div>
+                        <div class="invite-list members memberList"></div>
+                    </div>                
+
+                </div> 
+                <div class="modal-footer">
+                    <button class="btn btn-nakedBlue save-suite-settings saveSuiteSettings">Done</button>
+                </div>  
+
+            </div>
+        </div> <!-- /.modal-body -->
+
+    </div>
+</div>
+

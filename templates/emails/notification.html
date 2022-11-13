@@ -1,0 +1,36 @@
+{% extends 'emails/base.html' %}
+
+{% block email-content %}
+
+<p>Hello {{ user.get_full_name }},</p>
+
+{% if notification.type == 'message' %}
+    You have a <a href="{{site_url}}{% url 'inbox_list_threads' %}#{{notification.content_object.thread.pk}}">new message</a> from {{notification.other_user}}
+{% endif %}
+
+{% if notification.type == 'suiteinvite' %}
+    {{notification.other_user}} has invited you to <a href="{{site_url}}{% url 'notification_list' %}">join their suite</a> "{{notification.content_object.suite.name}}"
+    <br /><br />
+{% endif %}
+
+{% if notification.type == 'suiterequest' %}
+    {{notification.other_user}} has asked to <a href="{{site_url}}{% url 'notification_list' %}">join your suite</a> {{notification.content_object.suite.name}}
+    <br /><br />
+{% endif %}
+
+{% if notification.type == 'follow' %}
+    {% if notification.content_object.content_type.model == 'suiteuser' %}
+        {{notification.other_user}} is now <a href="{{site_url}}{% url 'notification_list' %}">following you</a>!
+    {% else %}
+        {{notification.other_user}} is now <a href="{{site_url}}{% url 'notification_list' %}">following your suite</a> "{{notification.content_object.content_object.name}}"!
+    {% endif %}
+{% endif %}
+
+{% if notification.type == 'article' %}
+    {{notification.other_user}} has <a href="{{site_url}}{% url 'notification_list' %}">responded</a> to your story "{{notification.content_object.parent.title}}""
+    <br /><br />
+{% endif %}
+
+<p>Thanks!<br />The Suite101 team</p>
+
+{% endblock %}

@@ -1,0 +1,172 @@
+<div class="page-container pageContainer" id="admin-{{adminType}}">
+    <div class="static-main with-subnav">
+
+	<nav class="sub-nav subNav ">
+		<ul class="nav-items userContentNav">
+			<li class="nav-tab {{#if storiesType}}active{{/if}}"><a href="/admin/stories" class="wrapping-anchor" data-navigate><span class="nav-label">Stories</span></a></li>
+			<li class="nav-tab {{#if suitesType}}active{{/if}}"><a href="/admin/suites" class="wrapping-anchor" data-navigate><span class="nav-label">Suites</span></a></li>
+			<li class="nav-tab {{#if membersType}}active{{/if}}"><a href="/admin/members" class="wrapping-anchor" data-navigate><span class="nav-label">Members</span></a></li>
+			<li class="nav-tab {{#if flagsType}}active{{/if}}"><a href="/admin/flags" class="wrapping-anchor" data-navigate><span class="nav-label">Flags</span></a></li>
+			<li class="nav-tab {{#if linksType}}active{{/if}}"><a href="/admin/links" class="wrapping-anchor" data-navigate><span class="nav-label">Links</span></a></li>
+			<li class="nav-tab {{#if tagsType}}active{{/if}}"><a href="/admin/tags" class="wrapping-anchor" data-navigate><span class="nav-label">Tags</span></a></li>
+		</ul>
+	</nav>
+
+	{{#if adminHome}}
+        <div class="tab-content">
+            <div class="center-column spill">
+            	<p>Welcome to admin home</p>
+
+				<div class="about-section text features">
+					<div class="mini-features centered miniFeatures">
+
+						<div class="feature-block lefty">
+							<a href="/admin/mod" class="wrapping-anchor" data-navigate>
+								<div class="icon">
+									<i class="io io-android-star"></i>
+								</div>
+								<div class="texty">
+									<h3>Moderation</h3>
+									<p>13 noob stories; 16 royal applications; 45 flags</p>
+								</div>
+							</a>
+						</div>
+
+						<div class="feature-block lefty">
+							<a href="/admin/tags" class="wrapping-anchor" data-navigate>
+								<div class="icon">
+									<i class="io io-android-star"></i>
+								</div>
+								<div class="texty">
+									<h3>Story tags</h3>
+									<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+								</div>
+							</a>
+						</div>
+						<div class="feature-block lefty">
+							<a href="/admin/members" class="wrapping-anchor" data-navigate>
+								<div class="icon">
+									<i class="io io-android-star"></i>
+								</div>
+								<div class="texty">
+									<h3>Members</h3>
+									<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+								</div>
+							</a>
+						</div>
+						<div class="feature-block lefty">
+							<a href="/admin/royalties" class="wrapping-anchor" data-navigate>
+								<div class="icon">
+									<i class="io io-android-star"></i>
+								</div>
+								<div class="texty">
+									<h3>Royalties</h3>
+									<p>sadf sad fasd f dsaf dsaf afdasf sda f ds fsadf sda  sda f sdaf sda fsdaf sda f sda f dsaf.</p>
+								</div>
+							</a>
+						</div>							
+
+					</div>
+				</div>                	
+            </div>
+        </div>
+
+    {{else}}
+
+            {{#if suitesType}}
+            <div class="center-column wide centered">
+                <div class="monitor-list-view monitorListView">
+                    <div class="paged-list-filter pagedListFilter centered">
+                        <div class="ctxt-filter ctxtFilter centered">
+                            <div class="q-wrapper">
+                                <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="stageScrollable stage-scrollable paginatedList">
+                    </div>
+                </div> 
+            </div>
+            {{/if}}
+            {{#if flagsType}}
+            <div class="center-column">
+                <div class="monitor-list-view monitorListView">
+                    <div class="paged-list-filter pagedListFilter centered">
+                        <div class="ctxt-filter ctxtFilter centered">
+                            <div class="q-wrapper">
+                                <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                            </div>
+                            <ul class="named-filters">
+                                <li class="namedFilter {{#unless clearedFilter}}active{{/unless}}" data-filter="open">Open</li>
+                                <li class="namedFilter {{#if clearedFilter}}active{{/if}}" data-filter="cleared">Cleared</li>
+                            </ul>	  	                            
+                        </div>
+                    </div>                    
+                    <div class="stageScrollable stage-scrollable paginatedList">
+                    </div>
+                </div> 
+            </div>
+            {{/if}}                
+			{{#if membersType}}
+            <div class="center-column full">
+                <div class="monitor-list-view monitorListView">
+                    <div class="paged-list-filter pagedListFilter centered">
+                        <div class="ctxt-filter ctxtFilter centered">
+                            <div class="q-wrapper">
+                                <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                            </div>
+                            <ul class="named-filters">
+                                <li class="namedFilter {{#unless allFilter}}active{{/unless}}" data-filter="all">Active</li>
+                                <li class="namedFilter {{#if newFilter}}active{{/if}}" data-filter="new">New</li>
+                                <li class="namedFilter {{#if legsFilter}}active{{/if}}" data-filter="legs">Legs</li>
+                            </ul>	                            
+                        </div>
+                    </div>                    
+                    <div class="stageScrollable stage-scrollable paginatedList">
+                    </div>
+                </div> 
+            </div>
+            {{/if}}
+
+            {{#if storiesType}}
+            <div class="monitor-list-view monitorListView">
+                <div class="paged-list-filter pagedListFilter centered">
+                    <div class="ctxt-filter ctxtFilter centered">
+                        <div class="q-wrapper">
+                            <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                        </div>
+                        <ul class="named-filters">
+                            <li class="namedFilter {{#unless noobFilter}}active{{/unless}}" data-filter="noob">Noob</li>
+                            <li class="namedFilter {{#if deferredFilter}}active{{/if}}" data-filter="deferred">Deferred</li>
+                        </ul>
+                    </div>
+                </div>                    
+                <div class="stageScrollable stage-scrollable paginatedList">
+                </div>
+            </div> 
+            {{/if}}
+
+            {{#if linksType}}
+            <div class="monitor-list-view monitorListView">
+                <div class="paged-list-filter pagedListFilter centered">
+                    <div class="ctxt-filter ctxtFilter centered">
+                        <div class="q-wrapper">
+                            <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                        </div>
+<!--                         <ul class="named-filters">
+                            <li class="namedFilter {{#unless noobFilter}}active{{/unless}}" data-filter="noob">Noob</li>
+                            <li class="namedFilter {{#if deferredFilter}}active{{/if}}" data-filter="deferred">Deferred</li>
+                        </ul> -->
+                    </div>
+                </div>                    
+                <div class="stageScrollable stage-scrollable paginatedList">
+                </div>
+            </div> 
+            {{/if}}
+
+
+    {{/if}}
+    
+</div>
+</div>
+

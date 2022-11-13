@@ -1,0 +1,10 @@
+Hello {{ user.get_full_name }}!
+
+You are receiving this email because we received a request to change your account email.
+
+Click <a href="{{ email_url }}" class="reset-link">HERE</a> to complete the email change.
+
+Or paste the following into your browser {{ email_url }}
+
+Thanks!
+The Suite101 team

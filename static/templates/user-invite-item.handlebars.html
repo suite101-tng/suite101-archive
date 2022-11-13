@@ -1,0 +1,31 @@
+{{#if email}}
+<div class="suite-member-item pending invited pendingMember" data-email="{{email}}" data-pk="{{id}}">
+    <div class="user-cell">
+        <div class="btn circle btn-fineline email-avatar"><i class="io io-paper-airplane"></i></div>
+        <div class="user-name email">{{email}}</div>
+        <div class="user-byline">Invite by email</div>
+    </div>
+    <div class="user-action">
+        <span class="light-inline-label dropdown-toggle" data-toggle="dropdown" title="Options">Invited</span>
+        <ul class="dropdown-menu top-drop feed-options-menu">
+            <li class="linklike revokeInvite" data-id="{{id}}" data-name="{{fullName}}"><i class="io io-ios-close-empty"></i>Remove</li>
+        </ul>
+    </div>
+</div>
+{{else}}
+    <div class="user-invite-item userInviteItem {{#unless selected}}inactive userSelect{{/unless}}" data-resource="{{resourceUri}}" data-email="" data-pk="{{id}}">
+        <div class="user-cell">
+            <div style="background-image: url('{{mainImageUrl}}');" class="profile-image small profileImage"></div>
+            <div class="user-name">{{fullName}}{{#if isYou}}<span class="is-you">(This is you)</span>{{/if}}</div>
+            <div class="user-byline">{{#if byLine}}{{truncate byLine 40}}{{else}}Member since {{timeAgo dateJoined}}{{/if}}</div>
+        </div>
+        <div class="user-action">
+        {{#unless isYou}}
+            {{#if selected}}
+                <button class="pull-right btn btn-sm btn-subdued" data-id="{{id}}" data-actionbind data-action="removeMember">Remove</button>
+            {{/if}}
+            {{else}}
+        {{/unless}}
+        </div>
+    </div>
+{{/if}}

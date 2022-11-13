@@ -1,0 +1,50 @@
+{% extends 'emails/base.html' %}
+{% load others %}
+{% load bleach_filter %}
+
+{% block email-summary %}{{other_user.get_full_name}} is now following
+
+    {% if obj.content_type.model == 'suiteuser' %}
+        you
+    {% else %}
+        "{{obj.content_object.name}}"!
+    {% endif %}
+
+{% endblock email-summary %}
+
+{% block email-content %}
+
+    {% block email-title %}
+        {{other_user.get_full_name}} is now following {% if obj.content_type.model == 'suiteuser' %}you{% else %}"{{obj.content_object.name}}" on Suite{% endif %}
+    {% endblock %}
+
+    {% block message-main-body %}
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top: solid 24px #fff;">
+            <tbody>
+                <tr>
+                    <td align="center">
+
+                        <div class="user-card authCard">
+                            <a href="{{site_url}}{{other_user.get_absolute_url}}">
+                                <img src="{{other_user.get_profile_image|add_http}}" height="94" width="94" style="width: 94px; height: 94px; text-align: center; border-radius: 94px;" alt="{{other_user.get_full_name}}"/>
+                                <div class="auth-text">
+                                    <h3 class="author-name" style="font-weight: bold; font-size: 20px; color: #333;" itemprop="author">{{other_user.get_full_name}}</h3>
+                                    <div class="byline" style="font-family: 'Times New Roman'; font-size: 22px; font-weight: normal; font-style: normal; line-height: 22px; color: #aaa;">{{other_user.by_line}}</div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    {% endblock %}
+
+    {% block email-action-button %}
+        <a href="{{site_url}}{{other_user.get_absolute_url}}" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #1a8bba; text-decoration: none; -webkit-border-radius: 34px; -moz-border-radius: 34px; border-radius: 34px; padding: 8px 18px; border: 1px solid #1a8bba; display: inline-block;">View {{other_user.first_name}}'s profile</a>
+    {% endblock %}
+
+{% endblock %}

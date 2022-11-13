@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+
+{% block title %}{{title}}{% endblock %}
+{% block meta-robots %}{{meta_robots}}{% endblock %}
+{% block meta-description %}{{description}}{% endblock meta-description %}
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block body-class %}story{% endblock %}
+{% block ga-script %}{% endblock %}
+
+{% block meta %}
+    <!-- iOS defaults -->
+    <meta content='no' name='apple-mobile-web-app-capable' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <meta name="copyright" content="{{story_json_obj.author.fullName}}" />
+    <link rel="canonical" href="{{canonical_link}}" />
+    <!-- OpenGraph tags -->
+    <meta property="og:title" content="{{ article.title|escape }}" />
+    <meta property="og:type" content="article" />
+    {% if story_json_obj.mainImage %}
+    <meta property="og:image" content="https:{{story_json_obj.mainImage.largeImageUrl}}" />
+    {% endif %}
+    <meta property="og:url" content="{{SITE_URL}}/{{article.hashed_id}}" />
+    <meta property="og:description" content="{% if article.subtitle %}{{article.subtitle|striptags|escape}}{% else %}{{story_json_obj.bodyExcerptNoTags}}{% endif %}" />
+    <meta property="og:site_name" content="Suite" />
+    <meta property="article:publisher" content="https://www.facebook.com/suitestories">
+    <!-- Twitter tags -->
+    <meta name="twitter:card" content="{% if story_json_obj.mainImage %}summary_large_image{% else %}summary{% endif %}">
+    <meta name="twitter:site" content="@suiteio">
+    {% if story_json_obj.author.twitterUsername%}
+    <meta name="twitter:creator" content="{{story_json_obj.author.twitterUsername}}">
+    {% endif %}
+    <meta name="twitter:url" content="{{SITE_URL}}/{{article.hashed_id}}">
+    <meta name="twitter:title" content="{{ article.title|escape }}">
+    <meta name="twitter:description" content="{{description}}">
+    {% if story_json_obj.mainImage %}
+    <meta name="twitter:image:src" content="https:{{story_json_obj.mainImage.largeImageUrl}}">
+    {% endif %}
+
+    <!-- Standard tags -->
+    <meta name="author" content="{{story_json_obj.author.fullName}}" />
+{% endblock %}
+{% block container-class %}article-detail{% endblock %}
+{% block shell %}
+{{ request.get_user_agent }}
+    {{story_detail_rendered|safe}}
+{% endblock %}
+{% block script-application %}
+    require(['StoryDetail', 'jquery'], function(StoryDetail, $) {
+        $(function() {
+            new StoryDetail({
+                json: JSON.parse('{{story_json_str|safe|addslashes}}')
+            });
+        });
+    });
+{% endblock script-application %}

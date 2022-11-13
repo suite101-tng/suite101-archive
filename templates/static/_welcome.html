@@ -1,0 +1,65 @@
+
+<header class="static-header tight">
+    <div class="center-column">
+        <h1>Hi.</h1>
+    </div>
+</header>              
+<div class="center-column static-reading">
+    <p>Welcome {{ request.user.first_name }}, your email is confirmed and you're now a full member. Suite was created to offer a more approachable, conversational way to write – a place that makes it just as easy to stand out as blend in.</p> 
+
+    <p>Here are a few things to get you started:</p>
+
+</div>
+<div class="soup starter">
+<div class="center-column">
+
+{% if request.user.is_authenticated %}
+{% if request.user.is_active %}
+
+<ul class="started-list">
+
+
+<li>
+
+<a href="/rules" target="_blank" class="wrapping-anchor">
+<i class="io io-ios-information-outline"></i>
+<div class="texty">
+     <h3>Read the rules</h3>
+    <p>Suite is a diverse, nurturing place to write – a place that works because we all observe a few simple groundrules.</p>
+</div>
+</a>
+
+</li>
+
+<li class="openRightDrawer">
+<i class="io io-ios-contact"></i>
+<div class="texty">
+<h3>Set up your profile</h3>
+<p>Check your privacy and email settings, add a profile photo and byline.</p>
+</div>
+</li>
+
+<li class="">
+
+<i class="io io-ios-book-outline"></i> 
+<div class="texty">
+     <h3>Look around</h3>
+    <p>Browse the latest stories and meet some of the other members. Follow Suites or people to add their activity to your feed.</p>
+</div>
+
+</li>
+
+</ul>
+
+{% else %}
+
+<div class="centered article-body">
+<p>Sure, it's fun to look around – but in order to do anything really interesting here, you'll need to click on the activation link we sent to your email address.</p>
+</div>
+{% endif %}
+{% endif %}
+
+</div>
+
+
+</div>

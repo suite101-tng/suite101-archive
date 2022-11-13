@@ -1,0 +1,197 @@
+.drawer-user-teaser {
+    margin: 0 0 24px;
+    padding: 0 0 24px;
+    border-bottom: solid 1px @mushroom;
+    position: relative;
+    &::last-child {
+        border: none;
+    }
+    .profile-image {
+        position: absolute;
+    }
+    .user-name {
+        font-weight: 600;
+        font-size: 1em;
+        line-height: 1.05em;
+        margin: 0 0 4px;
+        color: @gray;
+    }
+    .user-byline {
+        font-weight: 400;
+        line-height: 1.05em;
+        font-size: 1em;
+        color: lighten(@gray,3%);
+    }
+    .teaser-text {
+        margin: 0 0 0 42px;
+    }
+}
+.story-faved-container {
+    width: 400px;
+    margin: 0 auto;
+}
+.user-min-card {
+    width: 100%;
+    margin: 0 0 8px;
+    text-align: left;
+    padding: 0 0 8px;
+    position: relative;
+    display: block;
+    border-bottom: dotted 1px @grayLighter;
+    .box-sizing(border-box);
+
+    .auth-text {
+        display: block;
+        margin: 0 auto;
+        .stats {
+            margin: 8px 0;
+            font-size: 1.15em;
+            color: @gray;
+            font-weight: 300;
+            .stat {
+                display: block;
+                line-height: 1.15em;
+                i { margin-right: 6px; }
+            }
+        }
+    }
+    .user-name {
+        display: inline;
+        color: @gray;
+        font-size: 1.15em;
+        line-height: 1em;
+        font-weight: 400;
+        line-height: 38px;
+        margin: 0 0 0 46px;
+        .hoverAnimate;
+    }
+    .auth-img-container {
+        position: absolute;
+        z-index: 9;
+    }
+    a.wrapping-anchor {
+    }
+    .profile-image {
+        position: absolute;
+        left: 0;
+
+    }
+    .byline {
+        line-height: 1.15;
+        font-size: 1.25em;
+        color: @grayDark;
+        position: relative;
+        min-height: 30px;
+        margin-bottom: 24px;
+        font-weight: 300;
+    }
+    &:hover {
+        .user-name {
+            color: @white;
+            background-color: @blue;
+            text-decoration: none;
+        }
+        .profile-image {
+           &::after {
+                background-color: @blue;
+                opacity: .5;
+                position: absolute;
+                content: "";
+                height: 38px;
+                width: 38px;
+                .border-radius(38px);
+            }
+        }
+    }
+}
+.user-card {
+    width: 420px;
+    // width: 100%;
+    margin: 0 auto 48px;
+    text-align: center;
+    padding: 0 0 48px;
+    border-bottom: solid 1px @grayLighter;
+    position: relative;
+    display: block;
+    vertical-align: top;
+    &:last-child {
+        border-bottom: none;
+    }
+    &.author {
+        width: 480px;
+    }
+    &.small-author {
+        width: 42%;
+        padding: 0 24px 0 0;
+        display: table-cell;
+        border: none;
+        &:hover {
+            background-color: transparent;
+        }
+    }
+    .stats {
+        margin: 0 auto 12px;
+        font-size: 1em;
+        color: @grayLight;
+        font-weight: 300;
+        display: table;
+        .stat {
+            position: relative;
+            display: table-cell;
+            padding: 0 12px;
+            line-height: 1.15em;
+            i { margin-right: 6px; }
+    &:before {
+        position: absolute;
+        display: block;
+        left: -2px;
+        content: "";
+    height: 5px;
+    width: 5px;
+    top: 7px;
+    .border-radius(100%);
+    background-color: @grayLighter;
+    }
+            &:first-child {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+    .auth-text {
+        display: block;
+        margin: 0 auto;
+        max-width: 480px;
+    }
+    .author-name {
+        display: block;
+        color: @gray;
+        font-size: 1.25em;
+        line-height: 1em;
+        font-weight: 900;
+        &:hover {
+            color: @blue;
+            text-decoration: none;
+        }
+    }
+    .auth-img-container {
+        position: absolute;
+        z-index: 9;
+    }
+    a.wrapping-anchor {
+    }
+    .profile-image {
+        margin: 0 auto 9px;
+
+    }
+    .byline {
+        line-height: 1.15;
+        font-size: 1.15em;
+        color: @gray;
+        position: relative;
+        height: 48px;
+        margin: 8px 0;
+        font-weight: 300;
+    }
+}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{%block title %}{{ title }}{% endblock %}
+{% block meta-robots %}{{meta_robots}}{% endblock meta-robots %}
+{% block meta %}
+
+    <!-- iOS defaults -->
+    <meta content='no' name='apple-mobile-web-app-capable' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <!-- <meta name="copyright" content="" /> -->
+    <link rel="canonical" href="{{canonical_link}}" />
+    <!-- OpenGraph tags -->
+    <meta property="og:title" content="{{ title|escape }}" />
+    <meta property="og:type" content="article" />
+    <!-- <meta property="og:image" content="https:{{story_json_obj.mainImage.largeImageUrl}}" /> -->
+    <!-- <meta property="og:url" content="{{SITE_URL}}/{{url}}" /> -->
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:site_name" content="Suite" />
+    <meta property="article:publisher" content="https://www.facebook.com/suitestories">
+    <!-- Twitter tags -->
+    <meta name="twitter:card" content="{% if mainImage %}summary_large_image{% else %}summary{% endif %}">
+    <meta name="twitter:site" content="@suiteio">
+    {% if twitter_creator %}
+    <meta name="twitter:creator" content="{{twitter_creator}}">
+    {% endif %}
+    <meta name="twitter:url" content="{{SITE_URL}}/{{url}}">
+    <meta name="twitter:title" content="{{ title|escape }}">
+    <meta name="twitter:description" content="{{description}}">
+    {% if mainImage %}
+    <meta name="twitter:image:src" content="https:{{mainImage}}">
+    {% endif %}
+
+    <!-- Standard tags -->
+    {% if post_author %}
+    <meta name="author" content="{{post_author}}" />
+    {% endif %}
+    <link rel="canonical" href="{{SITE_URL}}{{canonical_link}}" />
+
+    {% if next_page_url %}
+        <link rel="next" href="{{SITE_URL}}{{next_page_url}}}">
+    {% endif %}
+    {% if previous_page_url %}
+        <link rel="prev" href="{{SITE_URL}}{{previous_page_url}}">
+    {% endif %}
+
+{% endblock %}
+
+{% block meta-description %}{{description|escape}}{% endblock %}
+{% block body-attr%}data-spa="true" itemscope itemtype="http://schema.org/Article"{%endblock%}
+{% block navbar-class %}{% endblock%}
+
+{% block shell %}
+    {{conv_detail_rendered|safe}}
+{% endblock %}
+
+{% block script-application %}
+require(['ConversationDetail', 'jquery'], function(ConversationDetail, $) {
+    $(function() {
+        var convController = new ConversationDetail();
+        convController.loadConvFromModel(JSON.parse('{{conv_json|safe|addslashes}}'))
+        });
+    });
+{% endblock %}

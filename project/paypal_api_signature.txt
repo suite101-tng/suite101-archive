@@ -1,0 +1,4 @@
+API Username:	accounts_api1.suite.io
+API Password:	BD7QUUHJZJ2THXFA
+Signature:		AFcWxV21C7fd0v3bYYYRCpSSRl31A5KHyZeDy93hk1MpJCoVWJd8lMVq
+Request date: 	Sep 17, 2014 22:50:55 PDT

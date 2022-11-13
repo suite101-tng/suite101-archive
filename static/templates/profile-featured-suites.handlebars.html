@@ -1,0 +1,15 @@
+<div class="home-suites-feature">
+    <div class="suite-feature-container main-panel-suites suiteList">
+    {{#unless prevPage}}
+        {{#each featuredSuites}}{{>suite-teaser}}{{/each}}
+    {{/unless}}
+    </div>
+    {{#if showMoreSuites}}
+    <div class="trailing-more-butts">
+        <div data-actionbind data-action="showAllSuites" class="btn btn-fineline showAllSuites">See all {{stats.suites}} Suites</div>
+    </div>
+    {{/if}}
+</div>
+<div class="core-subhead centered">
+    <div class="subhead">Recent posts</div>
+</div>

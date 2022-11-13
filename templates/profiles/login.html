@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block meta-robots %}noindex{% endblock %}
+{% block meta-description %}Please log in to continue.{% endblock meta-description %}
+{% block page-container-attrs %}data-scroll-nav="light"{%endblock%}
+{% block page-container-class %}with-full-hero with-hero{% endblock %}
+
+{% block meta %}
+<meta property="og:title" content="Please login to continue" />
+<meta property="og:description" content="" />
+{% endblock %}
+
+{% block body-class %}login-page cover-page{% endblock%}
+{% block content %}
+
+        <div class="hero full-page detailHero">
+            <div class="hero-image-wrapper heroImageWrapper">
+                <div class="hero-img" style="background-image: url('{{ STATIC_URL }}images/heroes/buildingtop.jpg');"></div>
+                 <header class="suite-header full-card suiteHeader">
+
+                   <div class="suite-details suiteDetails center-column" data-scroll-top="fadeOut">
+
+        <div class="suite-description-container descContainer">
+            <p class="suite-descript">Hi. Please <span class="force-but login btn btn-blueTranslucent">log in</span> in to continue</p>
+            </div>
+        </div>
+
+                    </div>
+
+
+
+
+                    
+          </div>
+        </div>
+{% endblock %}
+{% block script-application %}
+    require(['views/LoginView'], function(LoginView) {
+      $('body').on('click', '.login', function() {
+          var lv = new LoginView();
+          lv.render({});
+          });
+        });
+{% endblock %}
+
+

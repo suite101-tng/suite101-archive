@@ -1,0 +1,368 @@
+{% if request.user.is_authenticated and request.user.is_moderator %}{% load hijack_tags %}{% endif %}
+{% load compress %}
+{% load humanize %}
+{%spaceless%}
+<!DOCTYPE html>
+<!--               _
+ ___ _   _ _ _| |_ ___
+/ __| | | | |_   _/ _ \
+\__ \ |_| | | | |   __/
+ ___/ ___ |_| |_| \___ 
+
+-->
+<html lang="en-us" class="{% block html-class %}{% endblock %}">
+  <head>
+    <title>{%block title%}Suite{%endblock%}</title>
+    <meta charset="utf-8" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta property="og:site_name" content="Suite" />
+    <link href="{{S3_URL}}" rel="dns-prefetch" />
+    <meta name="description" content="{% autoescape on %}{% block meta-description %}Share your stories, connect with the people and topics you care about.{% endblock meta-description %}{% endautoescape %}"/>
+    <meta name="robots" content="{% block meta-robots %}index,follow,noodp,noydir{% endblock meta-robots %}" />
+    <meta name="twitter:widgets:csp" content="on">
+    <meta id="viewport" name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#f7f8f4">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f7f8f4">
+
+    {% compress css %}
+      <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/main.css" />
+    {% endcompress %}
+    <!--[if lt IE 9]>
+      <script src="{{ STATIC_URL }}js/lib/es5-shim.min.js"></script>
+      <script src="{{ STATIC_URL }}js/lib/html5shiv.js"></script>
+    <![endif]-->
+    {% block meta %}{% endblock %}
+    {% if debug and HIDE_DJDEBUG %}
+      <style>
+        #djDebug {
+          display: none !important;
+        }
+      </style>
+    {%endif%}
+    {% block headscripts %}{% endblock %}
+    <script type="application/ld+json">{% block json_ld %}{{json_ld|safe}}{% endblock %}</script>
+  </head>
+
+<body class="{% block body-class %}{% endblock%}" {%block body-attr%}{%endblock%}>
+    <nav class="navbar navbar-fixed-top navbarFixedTop {% if not request.user.is_authenticated %}anon{% endif %} {% block navbar-class %}{% endblock %} noprint" data-view-bind="NavView"> 
+        <div class="top-left topLeft">
+
+            <div class="nav-el navEl homey">
+                <a href="/" rel="home" data-navigate class="nav-budt"><span class="suite suite-logo texty navig"></span></a>
+            </div>       
+
+        </div>
+
+<!--         <div class="top-center topCenter">
+            <div class="nav-el navEl homey">
+                <a href="/" rel="home" class="wrapping-anchor is-us isUs" data-navigate><span class="suite suite-logo navig"></span></a>
+            </div>   
+        </div>      -->   
+        <div class="top-right topRight">    
+            <div class="nav-el navEl search-nav pull-left searchNav">
+                <div class="search-header searchHeader">
+                    <button class="nav-but" data-actionbind data-action="toggleSearch"><i class="io io-ios-search-strong io-rotate-90"></i></button>            
+                        <!-- <div class="search-term searchTerm" placeholder="Search Suite">{{query}}</div>                 -->
+                        <form name="mainSearch" autocomplete="off">
+                            <input class="naked-input search-term searchTerm" autofocus type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search Suite" value="{{q}}" name="q" tabindex="-1" data-placeholder="Search Suite" placeholder="Search Suite" value="{{q}}"/>
+                        </form>
+
+                    <button data-actionbind data-action="toggleSearch" class="btn circle btn-transparent close-me closeSearch"><i class="io io-android-close"></i></button>
+                </div>
+                <div class="nav-search-body navSearchBody">
+                    <div class="search-results searchResults"></div>
+                </div>
+            </div>
+        {% if request.user.is_authenticated %}         
+
+            {% if request.user.is_active %}
+<!--             <div class="nav-el navEl create-new createNew">
+                <button class="btn nav-but nrn-item-normal rnItem" data-actionbind data-action="newStoryModal"><i class="io io-edit2"></i></button>
+            </div> -->
+            <div class="nav-el navEl pull-left create-new createNew">
+                <button class="btn circle square btn-avo nrn-item-normal rnItem" data-actionbind data-action="newConvModal"><i class="io io-edit"></i></button>
+            </div>            
+            
+            {% endif %}    
+
+           <div class="nav-el my-losenge navEl isMe is-me btn-group">
+                <a class="btn" href="{{request.user.get_absolute_url}}" data-navigate>
+                    <span class="profile-image small nav-butt pull-left" style="background-size: cover; background-image: url('{{request.user.get_profile_image}}');"></span>
+<!--                     <span class="texty">{{ request.user.first_name }}</span> -->
+                </a>
+<!--                 <div class="btn circle square toggleRightDrawer myMenu" data-actionbind data-action="openDrawer"><i class="io io-navicon"></i></div> -->
+<div class="btn toggleRightDrawer myMenu notifs" data-actionbind data-action="openDrawer"><span class="notif-count notifCount">32</span></div>
+            </div>            
+                        
+        {% else %}
+        <div class="nav-el navEl login">
+            <button data-actionbind data-type="register" data-action="loginModal" class="btn btn-primary nav">Sign in</button>
+            <!-- <a href="/login" data-navigate class="btn btn-primary nav">Sign in</a> -->
+           <div class="nav-el navEl toggle-menu">
+                <div class="btn circle square toggleRightDrawer myMenu" data-actionbind data-action="openDrawer"><i class="io io-navicon"></i></div>
+            </div>
+        </div> 
+
+        {% endif %}
+
+        </div>
+    </nav>  <!-- / navbar -->
+
+    {% block modals %}{% endblock%}
+    <!-- .shell -->
+    <div class="shell {% block shell-class %}{% endblock %}">
+      {%block shell%}
+      <div class="page-container pageContainer {% block page-container-class %}{%endblock%}" {% block page-container-attrs %}{%endblock%}>
+        <div class="page-wrapper">
+          {%block outside-container %}{%endblock%}
+          {% block hero-container %}{% endblock %}
+          <div class="main container {% block container-class %}{% endblock %}">
+            {% block content %}{% endblock %}
+          </div><!-- /.container -->
+          {% block after-main-container%}{% endblock%}
+        </div>
+      </div><!-- end page-container -->
+      {% endblock shell %}
+    </div>
+    <div class="story-progress storyProgress" data-progress="0"></div>
+    <!-- /.shell -->
+    {% block out-of-shell %}{% endblock %}
+    <div class="alertsContainer centered alert-container"></div><!-- /.alert-container -->
+
+    <!-- Nav drawer -->
+    <nav class="drawer navDrawer noprint {%if not request.user.is_authenticated %}window {% endif %}" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement" data-view-bind="drawerView">
+        
+        <div class="main-drawer mainDrawer">
+            <div class="upper-controls upperControls">
+                {%if request.user.is_authenticated %}    
+                <div class="drawer-profile-link pull-left profileLink">
+                    <a class="wrapping-anchor" href="{{request.user.get_absolute_url}}" data-navigate>
+                        <div class="profile-image innerDrMe" style="background-image: url('{{request.user.get_profile_image}}');"></div>
+                        <div class="texty">
+                            <span class="myname me">{{request.user.get_full_name}}</span>
+                            <div class="myaddress"><span class="boilerplate">suite.io/</span>{{request.user.slug}}</div>
+                            <div class="logout-link" data-actionbind data-action="logMeOut"><i class="io io-sign-out"></i>Log out</div>
+                        </div>
+                    </a>
+                </div> 
+                {% else %}
+<!--                 <div class="drawer-profile-link anon pull-left profileLink">
+                    <a href="/login" data-navigate class="btn btn-primary nav">Sign in</a>
+                </div>   -->                           
+                {% endif %}            
+                <button data-actionbind data-action="closeDrawer" class="btn circle btn-transparent close-me"><i class="io io-android-close"></i></button>
+            </div>
+
+            <div class="inner-drawer home-pane righty drawerScrollable innerDrawerShift">
+         
+                <div class="profile-menu profileMenu">
+                    <div class="user-drawer-menu">
+
+            {% if request.user.is_authenticated and not request.user.is_active %}
+            <div class="inactive-notice inactiveNotice red">
+              <p><span class="btn circle btn-transparent overlay"><i class="io io-android-person"></i></span>Your account is inactive. <span class="pull-right btn btn-red btn-sm inline-button" data-actionbind data-action="reactivateAccount">Activate</span></p>
+            </div>
+            {% endif %}                         
+
+                        <ul class="drawer-actions drawerProfileActions">                  
+
+                            {%if request.user.is_authenticated %} 
+<!--                                 <li class="main-drawer-link">
+                                    <a href="/chat" data-navigate>
+                                        <i class="io io-chatboxes"></i>Private chat  
+                                    </a>
+                                </li>    -->
+                                <li class="main-drawer-link">
+                                    <a href="/stats" data-navigate>
+                                        <i class="io io-stats-bars"></i>Stats  
+                                    </a>
+                                </li>          
+                                <li class="main-drawer-link">
+                                    <a href="/settings" data-navigate>
+                                        <i class="io io-gear-a"></i>Settings  
+                                    </a>
+                                </li>  
+                                <li class="main-drawer-link">
+                                    <a href="/archived" data-navigate>
+                                        <i class="io io-archive"></i>Archived articles  
+                                    </a>
+                                </li>                                  
+                                {% if request.user.is_moderator %}
+                                <li class="main-drawer-link">
+                                    <a href="/admin" data-navigate>
+                                        <i class="io io-suite"></i>Admin/moderation  
+                                    </a>
+                                </li>                              
+                                {% endif %}
+                            {% else %}
+                                <li class="main-drawer-link">
+                                    <a href="/about" data-navigate>
+                                        <i class="io io-help-circled"></i>About  
+                                    </a>
+                                </li>   
+                                <li class="main-drawer-link">
+                                    <a href="/terms" data-navigate>
+                                        <i class="io io-stats-bars"></i>Terms  
+                                    </a>
+                                </li>          
+                                <li class="main-drawer-link">
+                                    <a href="/rules" data-navigate>
+                                        <i class="io io-android-person"></i>Community guidelines  
+                                    </a>
+                                </li> 
+                            {% endif %}
+                        </ul>
+                    </div>
+
+
+                    <div class="my-things myThings">
+                        <div class="tab-controls">
+                            <ul class="drawer-tab-switch">
+                                <li class="things-tab thingsTab" data-toggle="tab" data-target="#d-suites">Suites</li>
+                                <li class="things-tab thingsTab" data-toggle="tab" data-target="#d-posts">Posts</li>
+                                <li class="things-tab thingsTab" data-toggle="tab" data-target="#d-people">People</li>
+                                <li class="things-tab thingsTab" data-toggle="tab" data-target="#d-posts">DMs</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane active things-container thingsContainer">                                
+                        </div>                          
+                        </div>
+                    </div>
+
+                </div>
+            </div>      
+
+            <div class="lower-links lowerLinks">
+                {% if request.user.is_authenticated and not request.user.is_active %}
+                <div class="inactive-notice inactiveNotice red">
+                  <p>Your account is inactive. <span class="btn btn-whiteline inline-button" data-actionbind data-action="reactivateAccount">Activate it</span></p>
+                </div>
+                {% endif %}
+
+                <ul class="horiz-links drawer-trailing-links">
+                    {% if request.user.is_authenticated %}
+                    <li class="pull-left"><a class="wrapping-anchor" href="/about" data-navigate>About</a></li>
+                    {% endif %}
+                    <li class="pull-left"><a class="wrapping-anchor" href="/support" data-navigate>Support</a></li>
+                    <li class="pull-left twitter"><a href="https://twitter.com/suiteio" itemprop="url"><i class="io io-twitter"></i></a></li>
+                    <li class="pull-left facebook"><a href="https://facebook.com/suitestories" itemprop="url"><i class="io io-social-facebook"></i></a></li>                    
+                    {% if request.user.is_authenticated %}
+                        <li class="pull-right pseudolink" data-actionbind data-action="logMeOut"><i class="io io-sign-out"></i>Log out</li>
+                    {% endif %}
+                </ul>
+            </div>            
+
+        </div>
+        
+    </nav>
+
+    <!-- / Drawer -->
+    <script>var require = {baseUrl: '{{ STATIC_URL }}js'}; if(navigator && navigator.appVersion && navigator.appVersion.indexOf('Mac') !== -1) { document.documentElement.className += ' Macintosh'; }</script>
+    {% compress js %}
+    <script src="{{ STATIC_URL }}js/lib/modernizr.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/require.js"></script>
+    <script src="{{ STATIC_URL }}js/config.js"></script>
+    {% endcompress %}
+    <script id="config">
+      // <![CDATA[
+      if(!window.console || typeof window.console === 'undefined') { window.console = {log: function() {},dir: function() {}};}
+      require.config({
+        config: {
+        main: {
+          {% if request.user.is_authenticated %}
+          loggedInUser: {
+            {% if request.user.is_staff %}isStaff: true,{% endif %}
+            {% if request.user.is_moderator%}isModerator: true,{%endif%}
+            id: {{request.user.id}},
+            byLine: '{{request.user.by_line|linebreaksbr}}',
+            fullName: '{{request.user.get_full_name}}',
+            firstName: '{{request.user.first_name}}',
+            mainImageUrl: '{{request.user.get_profile_image}}',
+            absoluteUrl: '{{request.user.get_absolute_url}}',
+            slug: '{{request.user.slug}}',
+            privacy: '{{request.user.privacy}}',
+            personalUrl: '{{request.user.personal_url}}',
+            location: '{{request.user.location}}',
+            royal: '{{request.user.royal}}',
+            active: '{{request.user.is_active}}',
+            social: {
+                'twitter': '{% if request.user.twitter_connected %}{{user.twitter_username}}{% endif %}',
+                'facebook': '{% if request.user.facebook_connected %}{{user.facebook_username}}{% endif %}'
+            },
+            stats: {{request.user.get_user_stats|safe}},
+            {% if request.user.sees_tour %}showTour: true,{% endif %}
+            isDisabled: {% if request.user.disabled %}1{% else %}0{% endif %},
+            isInactive: {% if not request.user.is_active %}1{% else %}0{% endif %}
+          },
+          {% endif %}
+          activeSuite: '',
+          staticUrl: '{{STATIC_URL}}',
+          logDis: '{{login_disabled}}',
+        }}
+      });
+      {% block script-config %}{% endblock %}
+      // ]]>
+    </script>
+    <script type="text/javascript">
+    window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+    </script>
+    <script async src="//platform.instagram.com/en_US/embeds.js"></script>   
+    <script id="main">
+      // <![CDATA[
+      require(['suiteio'], function(suiteio) {
+      suiteio.initialize({csrf_token: '{{ csrf_token }}'});
+      require(['main'], function (main) {
+      {% block script-application %}{% endblock %}
+      });
+      });
+      // ]]>
+    </script>
+
+        <script type='text/javascript'>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+    '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+    })();
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-49000332-1', 'suite.io', {
+      'cookieDomain': 'none'
+      });
+      {% block ga-script %}{% endblock %}
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+{%endspaceless%}

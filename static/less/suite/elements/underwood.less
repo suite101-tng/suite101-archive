@@ -1,0 +1,311 @@
+@underwood_height: 34px;
+@underwoodGutter: 1px;
+@underwood_width: 34px;
+@underwood_border_width: 0;
+@underwood_background: @mushroom;
+@underwood_background_active: darken(@underwood_background, 8%);
+@underwood_accent: @gray;
+@underwood_color: darken(@grayLight, 8%);
+@activeColor: @grayDarker;
+
+.ed-letter {
+    font-weight: 700;
+    &.italic {
+        font-style: italic;
+        font-family: @serifFontFamily;
+    }
+    &.quote {
+        font-style: normal;
+        font-size: 26px;
+        line-height: 40px;
+    }
+}   
+
+.clearfix:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: " ";
+    font-size: 0;
+}
+.underwood-toolbar-arrow-under:after, .underwood-toolbar-arrow-over:before {
+    display: none;
+            // content: "";
+            // position: absolute;
+            // width: 0;
+            // height: 0;
+            // top: 8px;
+            // z-index: -1;
+            // .border-radius(2px);
+            // bottom: initial;
+            // left: 50%;
+
+            // margin-left: -12px; 
+            // box-sizing: border-box;
+            
+            // border: .9em solid @grayDarkTranslucent;
+            // border-color: @grayDarkTranslucent;
+            
+            // transform-origin: 0 0;
+            // transform: rotate(-45deg);
+
+}
+.underwood-toolbar-arrow-under:after {
+    top: @underwood_height + @underwoodGutter;
+}
+.underwood-toolbar-arrow-over:before {
+    top: -8px;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent @underwood_accent transparent;
+}
+.underwood-toolbar, .underwood-anchor-preview {
+    position: relative;
+    // top: 50%;
+    // left: 50%;
+    // z-index: 2000;
+    font-size: 16px;
+    font-family: @sansFontFamily;
+    // visibility: hidden;
+    .box-shadow(0 0 6px rgba(0,0,0,.175));
+    .hoverAnimate;
+    &.static-toolbar {
+        visibility: visible;
+    }
+    &.fixed-toolbar {
+        // visibility: visible;
+        // position: fixed;
+        // left: 64px;
+        // top: 20px;
+    }
+}
+.underwood-toolbar ul, .underwood-anchor-preview ul {
+    margin: 0;
+    padding: 0;
+}
+.underwood-toolbar li, .underwood-anchor-preview li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.underwood-toolbar li {
+    &:first-child {
+        border-left: none;
+    }
+    border-left: solid 1px darken(@underwood_background,6%);
+}
+.underwood-toolbar li button, .underwood-anchor-preview li button {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+    // line-height: 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.underwood-toolbar li .underwood-action-underline, .underwood-anchor-preview li .underwood-action-underline {
+    text-decoration: underline;
+}
+.underwood-toolbar li .underwood-action-pre, .underwood-anchor-preview li .underwood-action-pre {
+    padding: 15px 0;
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Menlo', monospace;
+}
+.underwood-anchor-preview {
+    i {
+        display: inline-block;
+        margin: 5px 5px 5px 10px;
+        text-decoration: none;
+        font-style: normal;
+        cursor: pointer;
+    }
+}
+.underwood-toolbar-active, .underwood-anchor-preview-active {
+  -webkit-animation: pop-upwards 160ms forwards linear;
+          animation: pop-upwards 160ms forwards linear; 
+          visibility: visible;
+}
+.sticky-toolbar {
+    position: fixed;
+    top: 1px;
+}
+.dynamic-toolbar {
+  -webkit-animation: pop-upwards 160ms forwards linear;
+          animation: pop-upwards 160ms forwards linear; 
+}
+.underwood-action-bold {
+    font-weight: bolder;
+}
+.underwood-action-italic {
+    font-style: italic;
+}
+.underwood-toolbar-form {
+    display: none;
+    background-color: @underwood_background;
+    .border-radius(@boxBorderRadius);
+    label {
+        display: block;
+    }
+    a {
+        display: inline-block;
+        margin: 0 6px;
+        text-decoration: none;
+        font-family: @ioIcon;
+        color: @underwood_color;
+        &.anchor-toggle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: @underwood_width;
+            background-color: @underwood_background_active;
+            padding: 0;
+            margin: 0;
+            bottom: 0;
+            text-align: center;
+            line-height: @underwood_height;
+            .border-radius(@boxBorderRadius 0 0 @boxBorderRadius);
+            &:hover {
+                background-color: @underwood_background_active;
+                color: @white;
+            }
+        }
+        &.underwood-toolbar-save {
+            margin: 0 16px 0 0;
+            &:hover {
+                color: @white;
+            }
+        }
+    }
+    .underwood-toolbar-input {
+        height: @underwood_height - @underwood_border_width - 1px;
+        background: @underwood_background;
+        color: @underwood_color;
+    }
+    .underwood-toolbar-input::-webkit-input-placeholder {
+        color: @underwood_color;
+    }
+    .underwood-toolbar-input:-moz-placeholder {
+        color: @underwood_color;
+    }
+    .underwood-toolbar-input::-moz-placeholder {
+        color: @underwood_color;
+    }
+    .underwood-toolbar-input:-ms-input-placeholder {
+        color: @underwood_color;
+    }
+}
+.underwood-toolbar-form input,.underwood-toolbar-form a {
+    font-family: @sansFontFamily;
+    border-bottom: solid 2px @underwood_accent;
+    text-decoration: none;
+    border: none;
+}
+.underwood-toolbar-form .underwood-toolbar-input, .underwood-toolbar-form label {
+    margin: 0 0 0 46px;
+    padding: 0 16px;
+    width: 300px;
+    border: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.underwood-toolbar-form .underwood-toolbar-input:focus, .underwood-toolbar-form label:focus {
+    outline: 0;
+    border: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.underwood-placeholder {
+    position: relative;
+}
+.underwood-placeholder:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(data-placeholder) !important;
+    font-style: normal;
+    white-space: pre;
+    color: @grayLight;
+}
+.underwood-toolbar {
+    background-color: transparent;
+    .border-radius(@boxBorderRadius);
+    &.underwood-toolbar-arrow-over {
+        li > button {
+            border-bottom: none;
+        }
+    }
+    li {
+        padding: 0;
+        button {
+            min-width: @underwood_width;
+            height: @underwood_height;
+            border: none;
+            background-color: @underwood_background;
+            color: @underwood_color;
+            transition: background-color 100ms ease-in, color 100ms ease-in;
+            // border-top: solid 1px darken(@underwood_accent,4%);
+            // border-bottom: solid 1px @gray;
+            border-top: solid @underwood_border_width @underwood_accent;
+            // .hoverAnimate;
+            &.underwood-action-spacer1, &.underwood-action-spacer2 {
+                min-width: 1px;
+                padding: 0;
+                background-color: @avo4;
+                &:hover {
+                    border: none;
+                    background-color: @avo4;
+
+                }
+            }
+        }
+        &:last-child {
+            button {
+                border-right: none;
+                .border-radius(0 @boxBorderRadius @boxBorderRadius 0);
+                }
+            }
+        &:first-child {
+            button {
+                border-left: none;
+                .border-radius(@boxBorderRadius 0 0 @boxBorderRadius);
+                }
+            }
+        button:hover {
+            background-color: @underwood_background_active;
+            color: @activeColor;
+        }
+        .underwood-button-active {
+            background-color: @underwood_background_active;
+            color: @activeColor;
+        }
+
+        .underwood-button-first {
+            border-left: none;
+            .border-radius(0 @boxBorderRadius @boxBorderRadius 0);
+        }
+    }
+}
+.underwood-anchor-preview {
+    top: -12px;
+    border-bottom: none;
+}
+.underwood-toolbar-anchor-preview {
+    background-color: @underwood_background;
+    color: @underwood_color;
+    padding: 0 24px;
+    height: @underwood_height;
+    line-height: @underwood_height;
+    text-decoration: none;
+    bottom: 20px !important;
+    a {
+        text-decoration: none;
+        color: @grayLighter;
+        &:hover {
+            color: @white;
+            border: none;
+        }
+    }
+}

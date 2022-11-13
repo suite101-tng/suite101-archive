@@ -1,0 +1,14 @@
+<div class="teaser story-teaser in-drawer drawerStory {{#if draft}}draft{{/if}}" data-href="{{absoluteUrl}}" data-slug="{{slug}}" data-resource="{{resourceUri}}" data-id="{{id}}" itemscope itemtype="http://schema.org/Article">
+    <div class="micro-heading microHeading"><a href="{{absoluteUrl}}" class="wrapping-anchor" data-navigate>{{heading}}{{#if draft}}<span class="is-draft">Draft</span>{{/if}}</a></div>
+    <div class="lower-deck">
+        <div class="modified pull-left">Updated {{#if updated}}{{timeAgo updated}}{{else}}{{timeAgo created}}{{/if}}</div>
+        <div class="post-actions pull-right">
+            <button class="btn btn-transparent circle dropdown-toggle" data-toggle="dropdown"><i class="io io-more"></i></button>
+            <ul class="flat-menu dropdown-menu">
+                <li class="linklike editPost"><i class="io io-edit"></i>Edit</li>
+            </ul>      
+        </div>
+    </div>
+</div>
+
+

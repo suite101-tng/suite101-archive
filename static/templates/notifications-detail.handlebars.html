@@ -1,0 +1,57 @@
+<div class="page-container pageContainer" id="notifications-view">
+    <div class="pageWrapper page-wrapper">
+                 <nav class="sub-nav subNav ">
+                    <ul class="nav-items userContentNav">
+                        <li class="nav-tab notifTab allTab {{#if allFilter}}active{{/if}}" data-toggle="tab" data-target="#all" data-toggle="tab"><span class="nav-label">Notifications</span></li>
+                        <li class="nav-tab notifTab msgTab {{#if msgsFilter}}active{{/if}}" data-toggle="tab" data-target="#msgs" data-toggle="tab"><span class="nav-label">Unread messages</span></li>
+                        {{#if isMod}}<li class="nav-tab notifTab modTab {{#if modFilter}}active{{/if}}" data-toggle="tab" data-target="#mod" data-toggle="tab"><span class="nav-label">Moderation</span></li>{{/if}}
+                        
+                    </ul>
+                </nav>
+
+            <div class="notifications-container notifsContainer">
+ 
+
+                <div class="tab-content">
+                    <div class="center-column">
+                    <div class="tab-pane notifTab allTab {{#if allFilter}}active{{/if}} allNotifs" id="all">
+                        <div class="stageScrollable stage-scrollable paginatedList">
+                        {{#if allFilter}}
+                            {{#if notifs}}
+                                {{#each notifs}}
+                                    {{>notification}}
+                                {{/each}}
+                            {{/if}}
+                        {{/if}}
+                        </div>
+                    </div>
+                    <div class="tab-pane notifTab msgTab msgNotifs {{#if msgsFilter}}active{{/if}}" id="msgs">
+                        <p class="static-modified centered">View all your <a href="/chat" data-navigate>private chats</a></p>
+                        <div class="stageScrollable stage-scrollable paginatedList">
+                            {{#if msgsFilter}}
+                                {{#if notifs}}
+                                    {{#each notifs}}
+                                        {{>notification}}
+                                    {{/each}}
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div> 
+                    {{#if isMod}}
+                    <div class="tab-pane notifTab modTab modNotifs {{#if modFilter}}active{{/if}}" id="mod">
+                        <div class="stageScrollable stage-scrollable paginatedList">
+                            {{#if modFilter}}
+                                {{#if notifs}}
+                                    {{#each notifs}}
+                                        {{>notification}}
+                                    {{/each}}
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div> 
+                    {{/if}}
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

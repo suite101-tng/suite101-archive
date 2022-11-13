@@ -1,0 +1,27 @@
+<div class="nav-edit-controls">
+    <button class="btn btn-dark act up pull-left cover-image-toggle insert-trigger insertTrigger" data-actionbind data-action="startInsert">Embed</button>
+
+    <button class="btn btn-dark pull-right act up done bare toggleEditControl" data-actionbind data-action="toggleEditAction" title="View story">{{#if create}}Cancel{{else}}View{{/if}}</button>    
+    <button class="btn btn-dark pull-right act up save saveStay saveIt tip" data-actionbind data-action="{{#if create}}saveDraft{{else}}saveEdit{{/if}}" title="Save">Save<span class="saved didSave">d</span></button>
+    {{#unless isPublished}}
+    <button class="btn btn-blueTranslucent pull-right act up publish tip" title="Publish" data-actionbind data-action="saveAndPublish">Publish</button>
+    {{/unless}}
+
+    <div class="edit-more-container pull-right editMoreContainer">
+        <button class="btn btn-dark act up circle square edit-more-toggle dropdown-toggle" data-toggle="dropdown"><i class="io io-ios-arrow-down"></i></button>
+        <ul class="story-status top-drop dropdown-menu">
+            <li class="text-item storyPermalink">
+                <div class="label">{{#if isPublished}}Published {{timeAgo created}}{{else}}Not published{{/if}}</div>
+                <div class="link">Last modified {{timeAgo modified}}</div>
+                <div class="main-post word-count wordCount"><span class="num">{{wordCount}}</span><span class="texty"> word{{pluralize wordCount "" "s"}}</span></div>
+            </li>    
+            
+
+            <li class="linklike more-action" data-type="story" data-id="{{id}}" data-actionbind data-action="openSuiteSelector" title="Add to a Suite"><i class="io io-android-add"></i>Add to a Suite</li>  
+            <li class="linklike more-action" data-actionbind data-action="deleteStory"><i class="io io-trash-b"></i>Delete</li>
+            {{#if isPublished}}
+            <li class="linklike more-action" data-actionbind data-action="saveDraft"><i class="io io-ios-arrow-down"></i>Unpublish</li>
+            {{/if}}
+        </ul>
+    </div>  
+</div>

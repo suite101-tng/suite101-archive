@@ -1,0 +1,61 @@
+<div class="page-container pageContainer" {{#unless articleCreate }}id="story-{{id}}"{{else}}id="story-create"{{/unless}} {{#if adsEnabled}}data-page-change-remove="true"{{/if}}>
+    <div class="pageWrapper page-wrapper">
+        <article class="story {{#if topBanner}}top-banner{{/if}}" data-id="{{id}}" itemscope itemtype="http://schema.org/Article">
+            <header>
+                <div class="header-block headerBlock" data-light="">
+                    <div class="center-column">
+                        <!-- Title/intro -->
+                            <div class="auth-top authTop">
+                                <a href="{{author.absoluteUrl}}" data-slug-type="user" title="{{author.fullName}}" class="topProfileLink img-top" data-navigate data-slug-type="user" tabindex="-1"><div class="profile-image small" style="background-image: url('{{author.mainImageUrl}}');"></div></a>
+                                <div class="texty">
+                                    <div class="lower-deck">
+                                        <span class="author-name authorName">{{author.fullName}}</span>
+                                        <span class="date-time dateTime">{{shortTime created}}</span>
+                                    </div>
+                                    <div class="lower-deck">
+                                        <span class="author-byline authorByline">{{truncate author.byLine}}</span>
+                                    </div>
+                                </div>
+                            </div>                                
+
+                        <h1 itemprop="name" name="title" content="{{titleEscaped}}" class="post-title article-title storyTitle">{{ title }}</h1>
+                        <div class="article-byline articleByline {{subtitleClass}}">{{subtitle}}</div>
+                    </div> <!-- /center-column -->
+                </div>
+            </header>  
+            <div class="story-main articleCenterColumn">
+                <div class="article-body center-column body-copy storyBody" itemprop="articleBody">{{{ body }}}</div>
+            </div>
+        </article>
+        <div class="story-rollin storyRollin">
+            <div class="end-actions endActions">   
+                <div class="story-teaser-actions teaserActions">        
+                    <div class="action-item icon-swap">
+                        <button class="btn btn-transparent " title="Delete">Delete
+                        </button>
+                    </div>
+
+                    <div class="action-item icon-swap">
+                        <button class="btn btn-transparent " title="Download">Download
+                        </button>
+                    </div>                    
+
+                    <div class="action-item icon-swap pull-right">
+                        <button class="dropdown-toggle tip btn btn-transparent" data-toggle="dropdown" title="Actions">
+                            Actions
+                        </button>
+                        <ul class="flat-menu dropdown-menu">
+                            <li class="text-item storyPermalink">
+                                <span class="label">Revive this article by converting it to Suite's new discussion format:</span>
+                                <button class="btn btn-subdued btn-sm" data-actionbind data-action="convertThis" data-id="{{id}}">Convert</button>
+                            </li>    
+                            <li class="last report linklike light" data-actionbind data-action="flagStory" title="Report">
+                                <i class="io io-flag"></i>Delete this article
+                            </li>
+                        </ul>      
+                    </div>
+                </div>                                    
+            </div> <!-- /end actions -->
+        </div>
+    </div>
+</div>

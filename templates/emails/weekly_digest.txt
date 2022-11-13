@@ -1,0 +1,26 @@
+{% extends 'emails/base.html' %}
+
+{% block email-summary %}Suite Weekly Digest{% endblock email-summary %}
+
+{% block email-content %}
+
+Hi {{user.first_name}}
+
+{% if total_reads %}
+You've been read a total of {{total_reads}} times! Congrats
+{% endif %}
+
+{% if responses_rendered %}
+Check out the latest responses to your stories
+{{responses_rendered|safe}}
+{% endif %}
+
+{% if missed_stories %}
+Here are some stories you may have missed.
+{{missed_stories|safe}}
+{% endif %}
+
+Thanks!
+The Suite team
+
+{% endblock %}

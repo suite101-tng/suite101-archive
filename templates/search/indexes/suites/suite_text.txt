@@ -1,0 +1,5 @@
+{{ object.follower_count }}
+{{ object.name }}
+{{ object.owner.get_full_name }}
+{{ object.description }}
+{{ object.get_suite_tags }}

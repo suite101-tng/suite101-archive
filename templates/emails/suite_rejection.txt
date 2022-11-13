@@ -1,0 +1,13 @@
+Hello {{user.get_full_name}},
+
+Sorry to let you know but {{suite.owner.get_full_name}} has decided not to let you join the suite "{{suite.name}}"
+
+{% if message %}
+{{suite.owner.get_full_name}} left this message for you
+
+"{{message}}"
+{% endif %}
+
+Thanks!<br />The Suite101 team
+
+{% endblock %}

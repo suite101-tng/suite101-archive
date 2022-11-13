@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load cache %}
+{% load humanize %}
+{% block meta-description %}{{description}}{% endblock %}
+{% block title %}{{title}}{% endblock %}
+{% block meta-robots %}{{meta_robots}}{% endblock meta-robots %}
+{% block body-attr%} itemscope itemtype="http://schema.org/CollectionPage"{%endblock%}
+
+{% block body-class %}no-hero cover{% endblock%}
+{% block container-class %}feed-detail{% endblock %}
+
+{% block meta %}
+    <link rel="canonical" href="{{canonical_link}}" />
+    {% if next_page_num %}
+        <link rel="next" href="{{ current_url }}?page={{next_page_num}}">
+    {% endif %}
+    {% if prev_page_num %}
+        <link rel="prev" href="{{ current_url }}?page={{prev_page_num}}">
+    {% endif %}
+{% endblock %}
+
+{% block shell %}      
+    {{feed_rendered|safe}}
+{% endblock %}
+
+{% block script-application %}
+    {% if request.user.is_authenticated %}
+    require(['ExploreDetail', 'jquery'], function(ExploreDetail, $) {
+        $(function() {
+            var exploreDetail = new ExploreDetail({
+            });
+            exploreDetail.loadFeedView({
+                skipRender: true,
+                rebuildMe: {{rebuildMe}}
+            });
+        });
+    });
+    {% else %}
+    require(['ExploreDetail', 'jquery'], function(ExploreDetail, $) {
+        $(function() {
+            var exploreDetail = new ExploreDetail({
+            });
+            exploreDetail.loadFeedView({
+                skipRender: true
+            });
+        });
+    });
+    {% endif %}
+{% endblock %}

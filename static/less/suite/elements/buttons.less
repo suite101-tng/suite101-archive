@@ -1,0 +1,289 @@
+@baseButtonHeight: 32px;
+@btnSmallHeight: 28px;
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: 400;
+  text-align: center;
+  vertical-align: top;
+  touch-action: manipulation;
+  color: @gray;
+  // background-color: @white;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid rgba(0,0,0,.07);;
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
+  height: @baseButtonHeight;
+  .button-size(0; 12px; 16px; (@baseButtonHeight - 2px); @boxBorderRadius);
+  .user-select(none);
+  .transition(all .15s cubic-bezier(.64,.24,.36,.63));
+  outline: none !important;
+  &.btn-fine-dotted {
+    border: dotted 1px @grayLight;
+    color: @grayLight;
+  }
+  &.stacked {
+    display: block;
+  }
+  &.round {
+    .border-radius(@baseBorderRadius);
+  }
+  &.right-icon {
+      .io {
+          margin: 0 0 0 6px;
+      }
+  } 
+  &.force-but {
+    margin: -4px 6px;
+    font-family: @sansFontFamily;
+    color: @white;
+  }
+
+  .io {
+    margin-right: 12px;
+    &.righty {
+      margin: 0 0 0 12px;
+    }
+  }
+
+  &.verylight {
+    border-color: @grayLightest;
+    color: @grayLightest;
+  }
+  &.lighter {
+    border-color: @grayLighter;
+    color: @grayLighter;
+  }
+  &.light {
+    border-color: @grayLight;
+    color: @grayLight;
+    background-color: rgba(255,255,255,.4);
+  }
+  &:active,
+  &.active {
+    outline: none;
+    &:focus,
+    &.focus {
+      .tab-focus();
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @gray;
+    text-decoration: none;
+    outline: none;
+  }
+
+  &.tiny {
+    padding: 1px 13px;
+    font-size: 14px;
+    i {
+      margin-right: 8px;
+    }
+  }
+  &.btn-appendage {
+    padding: 0 8px;
+  }
+  &.huge {
+    .io {
+      font-size: 36px;
+      font-weight: 900;
+    }
+  }
+  &.circle {
+      &.square {
+        .border-radius(@boxBorderRadius); 
+      }
+        .border-radius(100%);
+        padding: 0;
+        min-width: @baseButtonHeight;
+        height: @baseButtonHeight;
+        line-height: @baseButtonHeight;
+        text-align: center;
+        vertical-align: top;
+        &.small {
+          min-width: @btnSmallHeight;
+          height: @btnSmallHeight;
+          line-height: @btnSmallHeight - 2px;
+        }
+        &.tiny {
+          min-width: 26px;
+          height: 26px;
+          line-height: 26px; 
+        }
+        .io {
+          margin: 0;
+          vertical-align: top;
+        }
+        &.loading {
+        i {
+            position: absolute;
+            .opacity(0);
+            &.load-indicator {
+                position: relative;
+                .opacity(100);
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+  }
+
+}
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-transparent {
+  .button-variant(@gray; transparent; transparent;); 
+    border-color: transparent;
+    i {
+        margin-right: 0;
+    }
+    &.do-search {
+      color: @grayLighter;
+        vertical-align: middle;
+        padding: 0 6px;
+        line-height: 1em;
+    }
+    &.overlay {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+.btn-follow {
+    .button-variant(@blue; transparent; @blue); 
+    &.following {
+      .button-variant(@white; @blue; darken(@blue, 3%);); 
+    }
+}
+.btn-published {
+  .button-variant(@blue; @white; @blue;); 
+}
+.btn-primary {
+  .button-variant(@white; @primary; darken(@primary, 2%);); 
+  &.nav {
+    .button-variant(@white; darken(@primary, 2%); darken(@primary, 4%);); 
+  }
+}
+.btn-blue {
+  .button-variant(@white; @blue; darken(@blue, 3%);); 
+}
+.btn-naked {
+  line-height: 48px;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  &.bluish {
+    color: @blue;
+  }
+  &.grayish {
+    color: @grayLight;
+  }
+}
+.btn-avo {
+  .button-variant(@white; @avo4; darken(@avo4, 2%);); 
+}
+.btn-blueTranslucent {
+  .button-variant(@white; @blueTranslucent; darken(@blue, 3%);); 
+}
+.btn-create {
+  .button-variant(@grayLight; transparent; @grayLighter;); 
+}
+.btn-greenTranslucent {
+  .button-variant(@white; @greenTranslucent; darken(@green, 3%);); 
+}
+.btn-subdued {
+  .button-variant(darken(@grayLight, 5%); darken(@mushroom,3%); darken(@grayLighter,3%);); 
+  &:hover {
+    background-color: @blue;
+    color: @white;
+    border-color: darken(@blue,3%);
+  }
+}
+.btn-dark {
+  .button-variant(@grayLighter; @grayDark; darken(@grayDark, 2%);); 
+}
+.btn-gray {
+  .button-variant(@grayLight; @mushroom; @grayLight); 
+}
+.btn-red {
+  .button-variant(@white; @red; darken(@red, 3%);); 
+}
+.btn-green {
+  .button-variant(@white; @green; darken(@green, 3%);); 
+}
+.btn-radio {
+  .button-variant(@grayLight; transparent; @grayLighter); 
+  &.checked {
+    .btn-blue;
+  }
+}
+.btn-white {
+  .button-variant(@grayLight; @white; @grayLighter); 
+}
+.btn-whiteTranslucent {
+  .button-variant(@gray; @whiteTranslucent; @grayLight); 
+}
+.btn-o {
+  .button-variant(@white; transparent; @white);
+}
+.btn-greenline {
+  .button-variant(@green; transparent; @green); 
+}
+.btn-blueline {
+  .button-variant(@blue; transparent; @blue); 
+}
+.btn-redline {
+  .button-variant(@red; transparent; @red); 
+}
+.btn-grayLight {
+  .button-variant(@grayLight; transparent; @grayLight); 
+}
+.btn-fineline {
+  .button-variant(@grayLight; transparent; @grayLight); 
+}
+.btn-whiteline {
+  .button-variant(@white; transparent; rgba(255,255,255,.6);); 
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  .button-size(0; 10px; 14px; 26px; @boxBorderRadius);
+  height: @btnSmallHeight;
+}
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+
+// Search form button
+.search-user-btn {
+  position: absolute;
+  right: 0;
+  top: 19px;
+}
+

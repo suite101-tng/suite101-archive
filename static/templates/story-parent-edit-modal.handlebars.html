@@ -1,0 +1,43 @@
+<div class="suiteManageModal modal normal suite-manage-modal" style="display: none;" tabindex="-1">
+    <div class="modal-card center-column">
+        <div class="modal-header">
+            <div class="modal-search-container">
+                <input class="modal-search-header modalSearchHeader" type="text" placeholder="{{modalTitle}}" />
+                <div class="help-text">Type to search</div>
+            </div>
+        </div>
+
+        <div class="modal-body modal-padded-scrollable scrollable-body scrollable-modal-body modalScrollable scrollme">
+            <div class="suiteStoryAdminList"></div>                
+        </div>
+
+        <div class="modal-footer centered add-to-footer">
+            <button type="button" class="btn btn-fineline" data-dismiss="modal" aria-hidden="true">Done</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+      
+
+                            {{#if ownerViewing}}
+                            <div class="crumb-controls crumbControls">
+                                <div class="crumb-control-container">
+                                    <div class="min-form-field storyParentInput" data-placeholder="Search for a story or paste a link" placeholder="Search for a story or paste a link" contenteditable="true"></div>
+                                    <div class="form-field-footer formFieldFooter">
+                                        <!-- <div class="profile-field-sub-label">Spark, inspiration for this story</div> -->
+                                        <div class="btn btn-sm pull-left btn-blue submit inputSubmit" data-actionbind data-action="parentQuickSearch">Fetch!</div>
+                                        <!-- <span class="form-button-cta with-results withResults">Click to select</span> -->
+                                        <div class="btn btn-sm pull-left with-results clear-this submit withResults" data-actionbind data-action="resetQuickSearch">Clear</div>
+
+                                        <div class="btn btn-sm pull-right submit remove-parent removeParent" data-actionbind data-action="removeParent">Remove current</div>
+                                    </div>
+                                </div>
+                                <div class="quick-search-results quickSearchResults"></div>
+                            </div>
+                            <div class="crumbOverlay crumb-overlay"></div>
+                            {{/if}}

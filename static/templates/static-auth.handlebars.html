@@ -1,0 +1,106 @@
+<div class="page-container pageContainer" id="static-{{authType}}">
+            <div class="hero full-page detailHero">
+            <div class="hero-image-wrapper heroImageWrapper">
+                <div class="hero-img" style="background-image: url('/static/images/heroes/buildingtop.jpg');"></div>        
+
+
+
+                <div class="login-frame loginFrame">
+
+                    <a href="/" rel="home" data-navigate class="nav-but"><span class="suite suite-logo texty big white"></span></a>
+
+                    {{#if reset_with_keyType}}
+                    <div class="reset-blurb rel centered active resetBlurb">
+                        <p class="blurb">Enter your new password.</p>
+                        <i class="io io-android-arrow-down"></i>
+                    </div>                    
+                    <form class="login-form loginForm" action="" autocomplete="off" autofill="off" method="POST">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf}}">
+                        <input type="hidden" name="authtype" value="{{authType}}">
+                        <input type="hidden" name="resetkey" value="{{resetKey}}">
+                        <div class="field-wrapper">
+                            <input class="naked-login loginPwField bottommost" id="login_pw" maxlength="4096" name="password1" type="password" placeholder="Password">
+                        </div>
+                        <div class="field-wrapper">
+                            <input class="naked-login loginPwFieldRepeat regbottom" id="login_pw_repeat" maxlength="4096" name="password2" type="password" placeholder="Enter it again">
+                        </div>                            
+                        <button class="btn btn-blue  login-button loginButton" type="submit">Make it so</button>
+                    </form>
+                    {{/if}}
+
+
+                    {{#if standardLogin}}
+                        <div class="login-nav loginNav login-choices centered">
+                            <div class="reg-mode regMode loginRegBlurb {{#unless forgotType}}active{{/unless}}">Sign into Suite</div>
+                            <div class="reg-mode regMode forgotBlurb {{#if forgotType}}active{{/if}}">Reset your password</div>
+                        </div>
+                        <!-- Social -->
+                        <div class="centered connect-header {{#unless forgotType}}active{{/unless}} socialOptions">
+                            <div class="soc-logins">
+                                <a class="lefty btn square btn-transparent twitter whitelineBlue twitterRegister" href="/login/twitter/{{#if next}}?next={{next}}{{/if}}"><i class="io io-twitter"></i></a>
+                                <a href="/login/facebook/{{#if next}}?next={{next}}{{/if}}" class="righty btn square btn-transparent facebook whitelineBlue faded"><i class="io io-social-facebook"></i></a>
+                            </div>
+                            <span class="inner-option">
+                                <span class="option-label">or email:</span>
+                            </span>
+                        </div>
+                        
+                        <div class="reset-blurb centered {{#if forgotType}}rel active{{/if}} resetBlurb">
+                            <p class="blurb">Submit your email address and we'll send you a reset link.</p>
+                            <i class="io io-android-arrow-down"></i>
+                        </div>
+
+                        <form class="login-form loginForm" action="" autocomplete="off" autofill="off" method="POST">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf}}">
+                            <input type="hidden" name="authtype" value="{{authType}}">
+                            <input type="hidden" name="currenturl" value="{{currentUrl}}">
+
+                            {{#if logoutType}}
+                                <button class="btn btn-blue  login-button loginButton" type="submit">Log me out</button>
+                            {{else}}
+                            <div class="login-fields">
+                                <div class="field-wrapper">
+                                    <!-- <input class="naked-login loginEmailField topmost" id="loginEmail" autocomplete="off" autocapitalize="off" autocorrect="off" autofill="off" maxlength="255" name="email" type="text" value="" placeholder="Your email address"/> -->
+                                    <input autocapitalize="off" autocorrect="off" id="login_email" maxlength="255" name="email" type="text" spellcheck="false" value="" placeholder="Email address" />                                
+                                </div>
+                                <div class="field-wrapper {{#if regType}}active open{{/if}} regExtras">
+                                    <input class="naked-login loginFullNameField" id="regFullName" autocomplete="off" autocapitalize="off" autocorrect="off" autofill="off" maxlength="255" name="fullname" type="text" value="" placeholder="Your full name"/>
+                                </div>                        
+                                <div class="field-wrapper firstPass {{#unless forgotType}}active{{/unless}}">
+                                    <input class="naked-login loginPwField bottommost" id="login_pw" maxlength="4096" name="password1" type="password" placeholder="Password">
+                                </div>
+                                <div class="field-wrapper {{#if regType}}active open{{/if}} regExtras">
+                                    <input class="naked-login loginPwFieldRepeat regbottom" id="login_pw_repeat" maxlength="4096" name="password2" type="password" placeholder="Enter it again">
+                                </div>                        
+                            </div>
+                            <button class="btn btn-blue login-button loginButton" type="submit">Sign in</button>
+                            {{/if}}
+                        </form>
+                        <div class="auth-error {{#if error}}active{{/if}} authError">{{error}}</div>
+
+                        <div class="reg-footer centered">
+                        {{#unless logoutType}}                    
+                            <div class="loginFoot {{#if loginType}}active{{/if}}">
+                                <div tabindex="-1" data-actionbind data-action="loadReg" class="white link pseudolink" title="Create an account">New here?</div> 
+                                <div tabindex="-1" data-actionbind data-action="loadReset" class="white link pseudolink showReset" title="Forgot your password">Lost your password?</div> 
+                            </div>
+                            <div class="regFoot {{#if regType}}active{{/if}}">
+                                <div tabindex="-1" data-actionbind data-action="loadLogin" class="white link pseudolink" title="Already a member">Already a member?</div> 
+                            </div>  
+                            <div class="resetFoot {{#if forgotType}}active{{/if}}">
+                                <div tabindex="-1" data-actionbind data-action="loadLogin" class="white link pseudolink" title="Back to sign-in">Back to sign-in</div> 
+                            </div>           
+                        {{else}}  
+                            <div class="logoutFoot">
+                                <a href="/" data-navigate tabindex="-1" class="white link" title="Back to feed">...or go back to your feed</a> 
+                            </div>                                   
+                        {{/unless}}
+                        </div>
+                    {{/if}}
+
+                    
+          </div>
+</div>
+</div>
+
+</div>

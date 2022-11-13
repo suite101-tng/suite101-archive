@@ -1,0 +1,49 @@
+<div class="teaser story-teaser storyTeaser {{#if draft}}draft{{/if}}">
+    <div class="teaser-main center-column teaserMain">
+        <h3 class="title"><a href="{{absoluteUrl}}" class="titleLink wrapping-anchor" title="{{title}}" data-navigate> {{title}}</a></h3>    
+        <div class="story-teaser-body storyTeaserBody">
+           <p class="excerpt">{{{excerpt}}}</p>
+        </div>
+        <div class="story-teaser-actions teaserActions">
+
+                <div class="action-item">
+                    <div class="tip btn circle btn-transparent" data-id="{{id}}" data-type="story" data-actionbind data-action="viewArticle" title="View article">
+                        <i class="io io-remove_red_eye"></i>
+                    </div>
+                </div>
+
+                <div class="action-item icon-swap">
+                    <a class="dropdown-toggle tip btn btn-transparent circle " data-toggle="dropdown" title="More options">
+                        <i class="io io-more one"></i><i class="io io-android-close two"></i>
+                    </a>
+                    <ul class="flat-menu dropdown-menu">
+                        <li class="text-item storyPermalink">
+                            <span class="label">Share link:</span>
+                            <input class="link shareAct" readonly="true" value="https://suite.io/{{hash}}" />
+                        </li>
+                        <li>
+                            <a class="twitter" href="http://twitter.com/intent/tweet?{{tweetParamsEncoded}}">
+                                <i class="io io-twitter"></i>Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsuite.io/{{hash}}">
+                                <i class="io io-social-facebook"></i>Facebook
+                            </a>
+                        </li>                    
+                        <li>
+                            <a class="mail" href="mailto:?subject=Suite: {{title}} by {{author.fullName}}&amp;body=https://suite.io/{{hash}}%0A%0A{{bodyExcerptNoTags}}" target="_blank">
+                                <i class="io io-paper-airplane"></i>Send via email
+                            </a>
+                        </li>
+                        <li class="report linklike light" data-actionbind data-action="flagStory" title="Report">
+                            <i class="io io-flag"></i>Report to moderators
+                            </li>
+                    </ul>      
+                </div>
+         
+            </div>
+        </div> <!-- /.teasermain -->
+</div>
+
+

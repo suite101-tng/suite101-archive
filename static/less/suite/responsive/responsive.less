@@ -1,0 +1,25 @@
+// Responsive
+@import "vp1024.less";
+@import "vp768.less";
+@import "vp480.less";
+@import "hovers.less";  
+
+.Macintosh {
+    .notmac {
+        display: none;
+    }
+    .mac {
+        display: block;
+    }
+    button.mac,
+    label.mac,
+    span.mac {
+        display: inline-block;
+    }
+}
+/*** Print ***/
+@media print {    
+    .noprint, .noprint * {
+        display: none !important;
+    }
+}

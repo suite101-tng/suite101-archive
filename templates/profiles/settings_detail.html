@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block headscripts %}
+{% endblock %}
+
+{% block title %}Settings{% endblock %}
+{% block meta-robots %}noindex, nofollow, noodp, noydir{% endblock %}
+{% block meta-description %}My settings{% endblock meta-description %}
+{% block body-attr %}data-spa="true"{% endblock %}
+
+{% block body-class %}settings{% endblock %}
+
+{% block meta %}
+{% endblock %}
+{% block container-class %}settings-detail{% endblock %}
+{% block shell %}
+    {{settings_rendered|safe}}
+{% endblock %}
+{% block script-application %}
+    require(['UserDetail', 'jquery'], function(UserDetail, $) {
+        $(function() {
+            var userDetail = new UserDetail({
+            });
+            userDetail.loadSettingsView({
+	            skipRender: true,
+	            settingsData: JSON.parse('{{settings_json_str|safe|addslashes}}')
+            });
+        });
+});
+{% endblock %}

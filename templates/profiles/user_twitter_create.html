@@ -1,0 +1,30 @@
+{% extends "profiles/login_base.html" %}
+{% block title %}Create an account{% endblock %}
+
+{% block inner-content %}
+    <form class="register-form" method="POST">
+        {% csrf_token %}
+        <div class="twitter-user-info">
+            <img src="{{new_user.get_profile_image}}" class="profile-image small" style="background-image: url('{{new_user.get_profile_image}}');"/>
+            <i class="io io-social-twitter"></i> {{ twitter_username }}
+        </div>
+        {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            {{ form.name.errors }}{{ form.name }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.email.errors }}{{ form.email }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.password.errors }}{{ form.password }}
+        </div>
+            <button type="submit" class="btn btn-large green">Sign up</button>
+    </form>
+            <div class="registration-bottom">
+                <ul class="pulse-nav spc">
+                    <li><a href="{% url 'about' %}">Learn more</a></li>
+                    <li><a href="{% url 'explore' %}">Explore</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>           
+            </div>
+{% endblock %}

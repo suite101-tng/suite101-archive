@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load space_to_dash %}
+
+{% block ga-script %}
+    ga('set', 'dimension3', '1');
+{% endblock %}
+
+{%block title %}{{ suite.name|title }}{% endblock %}
+{% block meta-robots %}{{meta_robots}}{% endblock meta-robots %}
+{% block meta %}
+    {% include 'meta-suite.html' %}
+    <link rel="canonical" href="{{SITE_URL}}{{canonical_link}}" />
+
+    {% if page.has_next %}
+        <link rel="next" href="{{SITE_URL}}{% url 'suite_detail' suite.owner.slug suite.get_hashed_id %}?page={{page.next_page_number}}">
+    {% endif %}
+    {% if page.has_previous %}
+        <link rel="prev" href="{{SITE_URL}}{% url 'suite_detail' suite.owner.slug suite.get_hashed_id %}?page={{page.previous_page_number}}">
+    {% endif %}
+
+{% endblock %}
+
+{% block meta-description %}{{suite.description|escape}}{% endblock %}
+{% block body-attr%}data-spa="true" itemscope itemtype="http://schema.org/CollectionPage"{%endblock%}
+{% block navbar-class %}{% endblock%}
+
+{% block shell %}
+{{suite_detail_rendered|safe}}
+{% endblock shell %}
+{% block script-application %}
+require(['SuiteDetail'], function(SuiteDetail) {
+    $(function() {
+        new SuiteDetail({
+            feedType: '{{feed_type}}',
+            json: JSON.parse('{{suite_json_str|safe|addslashes}}')
+        });
+    });
+});
+{% endblock %}

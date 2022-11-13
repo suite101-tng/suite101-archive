@@ -1,0 +1,21 @@
+<li class=" teaser media article-teaser articleTeaser draggable" data-slug="{{slug}}" data-id="{{id}}" itemscope itemtype="http://schema.org/Article" draggable="true">
+            <div class="media-heading">
+                <div class="title-container">
+                    <h3 class="title{{#if draft}} draft-title{{/if}}"><a href="{{absoluteUrl}}" class="wrapping-anchor" data-slug="{{slug}}" data-id="{{id}}" title="{{title}}" data-navigate>{{title}}</a></h3>
+                </div>
+            </div> 
+                <div class="media-body">
+                    <a href="{{absoluteUrl}}" class="wrapping-anchor" data-slug="{{slug}}" data-id="{{id}}" title="{{title}}" data-navigate>   
+                        {{#if mainImage}}
+                        <div class="teaser-img-wrapper" style="background-image: url('{{mainImage}}');"></div>
+                        {{/if}}
+                        <p class="excerpt">{{{excerpt}}}</p>
+                    </a>                
+                </div>
+
+            <div class="media-footer">
+                <div class="teaser-sub">
+                    <span class="date-stamp {{#unless parent}}{{#unless showUser}}bare{{/unless}}{{/unless}}">{{timeAgo created}}</span>
+                </div>
+            </div>
+</li>

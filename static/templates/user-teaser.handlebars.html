@@ -1,0 +1,22 @@
+<div class="user-card authCard">
+    <a href="{{absoluteUrl}}" class="wrapping-anchor" data-navigate data-slug-type="user">
+        <div class="auth-text">
+            <h4 class="author-name" itemprop="author">{{fullName}}</h4>
+            <div class="byline">{{truncate byLine 80}}</div>
+        </div>
+        <div class="user-img-container">
+            <img class="profile-image medium" src="{{mainImageUrl}}" style="background-image: url('{{mainImageUrl}}');" alt="{{fullName}}" />
+        </div>        
+                    <div class="stats">
+                {{#if stats.stories}}<span class="stat">{{stats.stories}} stor{{pluralize stats.stories "y" "ies"}}</span>{{/if}}
+                {{#if stats.followers}}<span class="stat">{{stats.followers}} follower{{pluralize stats.followers "" "s"}}</span>{{/if}}
+            </div>
+    </a>
+                <div class="actions">
+                    {{#unless isYou}}
+                    <div class="follow-button btn blueline left followButton" data-actionbind data-action="followUser" data-following="{{#if viewerFollowing }}1{{else}}0{{/if}}" data-user="{{id}}"><span class="followText">{{#if viewerFollowing }}Following{{else}}Follow{{/if}}</span></div>
+                    {{else}}
+                    <btn class="btn follow-button">This is you!</btn>
+                    {{/unless}}
+                </div>
+</div>

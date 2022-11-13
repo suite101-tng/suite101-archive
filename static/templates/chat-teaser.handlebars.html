@@ -1,0 +1,19 @@
+<div class="chatItem chat-item {{#if newMessages}}unread{{/if}}" data-hash="{{hashedId}}" data-id="{{id}}">
+
+    <div class="chat-teaser-body">
+    
+        <a href="{{absoluteUrl}}" data-navigate class="wrapping-anchor">
+            <div style="background-image: url({{chatMembers.topMemberHeads.0.imgUrl}})" class="profile-image small last-msg-auth-head lastMsgAuthHead"></div>        
+            <div class="last-msg">
+                <div class="last-msg-ident">
+                    <span class="last-msg-name first">{{chatMembers.topMemberHeads.0.name}}</span>{{#if chatMembers.topMemberHeads.1.name}}{{#if chatMembers.topMemberHeads.2.name}}, {{else}} and {{/if}}<span class="last-msg-name">{{chatMembers.topMemberHeads.1.name}}</span>{{#if chatMembers.topMemberHeads.2.name}}{{#if chatMembers.others }}, {{else}} &amp; {{/if}}<span class="last-msg-name">{{chatMembers.topMemberHeads.2.name}}</span>{{/if}}{{/if}}{{#if chatMembers.others}}</span><span class="chat-also"> &amp; {{chatMembers.others}} other{{pluralize chatMembers.others "" "s"}}</span>{{/if}}
+                    {{#if chatMembers.stats.messages}}<div class="msg-count {{#if newMessages}}unread{{/if}}">{{#if newMessages}}{{newMessages}}{{else}}{{chatMembers.stats.messages}}{{/if}}</div>{{/if}}  
+                </div>
+                <div class="parent-title">
+                    {{anyTitle}}
+                </div>
+                <div class="last-msg-text">{{#if lastMsgDate}}<span class="last-msg-time">{{shortTime lastMsgDate}}:</span>{{/if}}{{#if lastMsg}}"{{{truncate lastMsg 140}}}"{{else}}Just another curiously empty discussion...{{/if}}</div></div>
+        </a>            
+
+    </div>
+</div>

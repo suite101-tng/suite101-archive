@@ -1,0 +1,44 @@
+<div class="page-container pageContainer" id="static-{{viewType}}">
+    <div class="static-main supportDetailView">
+   
+	    <header class="static-header support-header centered">
+	    	<div class="center-column">
+			    <input autocomplete="off" type="text" class="search-term ctxtSearchInput" name="searchTerm" placeholder="How can we help?" value="{{query}}"/>
+						<div class="tips">
+                            <span class="btn btn-transparent">Type to search</span>
+                        </div>			    
+	<!-- 	        <div class="static-crumb">
+		            <h1 class="static-title tip"  data-toggle="tab" data-target="#unreadNotifs" title="All notifications">
+		                How can we help?
+		            </h1>
+		        </div> -->
+	        </div>
+                    <div class="primary-tabs primaryTabs">
+                    </div>	        
+	    </header>   
+	    
+	    <div class="center-column">
+							{{#if modViewing}}
+								<div class="mod-actions centered">
+									<button class="btn btn-sm btn-subdued" data-actionbind data-action="createNewSupportQuestion">Add a question</button>
+								</div>
+							{{/if}}	    
+            <div class="support-list supportList">
+                <div class="paged-list-filter pagedListFilter">
+                    <div class="ctxt-filter ctxtFilter">
+                        <div class="q-wrapper">
+                            
+                        </div>
+                    </div>
+                </div>                        
+                <div class="paginatedList">
+			      	{{#if questions}}
+			        	{{#each questions}}
+				        	{{>support-question}}
+			        	{{/each}}
+		        	{{/if}}	                    
+                </div>
+            </div>
+	    </div>
+    </div>
+</div>

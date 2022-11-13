@@ -1,0 +1,6 @@
+{% extends "profiles/login_base.html" %}
+{% block inner-content %}
+    <p>Looks there there was a problem communicating with Twitter</p>
+    <p>Please click <a href="{% url 'twitter_api_connect' %}">here to try again</a></p>
+    <p>If this problem, persists, please <a href="">let us know!</a></p>
+{% endblock %}

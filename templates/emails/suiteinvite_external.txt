@@ -1,0 +1,2 @@
+{{sender.get_full_name}} has invited you to collaborate on a Suite "{{obj.suite.name}}"
+{{site_url}}{{obj.get_absolute_url}}">View the Suite and create an account to join.

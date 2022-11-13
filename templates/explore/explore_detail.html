@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block meta-description %}{{description}}{% endblock %}
+{% block title %}{{title}}{% endblock %}
+{% block meta-robots %}{{index_status}}{% endblock meta-robots %}
+{% block body-attr%} itemscope itemtype="http://schema.org/CollectionPage"{%endblock%}
+
+{% block body-class %}explore{% endblock%}
+{% block container-class %}explore-detail{% endblock %}
+
+{% block meta %}
+    <link rel="canonical" href="{{SITE_URL}}{{canonical_link}}" />
+    {% if next_page_num %}
+        <link rel="next" href="{{SITE_URL}}{{ current_url }}?page={{next_page_num}}">
+    {% endif %}
+    {% if prev_page_num %}
+        <link rel="prev" href="{{SITE_URL}}{{ current_url }}?page={{prev_page_num}}">
+    {% endif %}
+{% endblock %}
+
+{% block shell %}
+    {{explore_rendered|safe}}
+{% endblock %}
+
+{% block script-application %}
+    require(['ExploreDetail', 'jquery'], function(ExploreDetail, $) {
+        $(function() {
+            var exploreDetail = new ExploreDetail({
+            });
+            exploreDetail.loadExploreView({
+                skipRender: true,
+                viewType: '{{view_type}}',
+                currentTab: '{{current_tab}}'
+            });
+        });
+    });
+{% endblock %}

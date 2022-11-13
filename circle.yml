@@ -1,0 +1,31 @@
+dependencies:
+  pre:
+    - pip install pyyaml
+
+machine:
+  environment:
+    DEBUG: True
+    LOG_STORAGE: '/tmp/'
+    DATABASE_URL: 'sqlite:////home/ubuntu/test.sqlite'
+    DB_SLAVE1_URL: 'sqlite:////home/ubuntu/test.sqlite'
+    DB_SLAVE2_URL: 'sqlite:////home/ubuntu/test.sqlite'
+    STATICSITEMAPS_ROOT_DIR: '/home/ubuntu/sitemaps/'
+    MEDIA_ROOT: '/home/ubuntu/'
+    CACHE_DEFAULT: 'djangopylibmc://127.0.0.1:11211'
+    CACHE_SESSIONS: 'djangopylibmc://127.0.0.1:11211'
+
+test:
+  pre:
+    - cd js_spec; npm install;
+    - pip install requests-oauthlib --upgrade --force
+  override:
+    - coverage run --source=conversations,lib,profiles,suites manage.py test --exclude-dir=apps/storages/
+    # - cd js_spec; grunt test
+  post:
+    # - coveralls
+
+deployment:
+    development:
+        branch: master
+        commands:
+            - cd /home/ubuntu/suite/ops/cuisine_scripts; sh stage_full_deploy.sh

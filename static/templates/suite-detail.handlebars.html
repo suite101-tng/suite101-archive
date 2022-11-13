@@ -1,0 +1,240 @@
+<div class="page-container pageContainer" id="suite-{{id}}">
+    <div class="page-wrapper">
+    
+    <div class="hero suite detail-hero {{#unless image}}no-image{{/unless}} detailHero">
+        <div class="hero-image-wrapper heroImageWrapper">
+            <div class="suite-image-container suiteImageContainer">
+                {{#with image}}
+                    {{>suite-hero}}
+                {{/with}}
+            </div>
+            
+            <header class="suite-header suiteHeader">
+                <div class="suite-details suiteDetails center-column centered spill" data-scroll-top="fadeOut">
+
+                    <div class="suite-title-container titleContainer">
+                        <h1 class="suite-name suiteName ctrPlaceholder" data-field="title">{{name}}</h1>
+                    </div>
+                    <div class="suite-description-container descContainer">
+                        <div class="suite-descript suiteDescription ctrPlaceholder" data-field="description">{{description}}</div>
+                    </div>
+
+                     <div class="auth suite-owner centered suiteAuth">
+                        <div class="feat-mem-heads featMemHeads">
+                            {{#each featuredMembers}}<a href="{{absoluteUrl}}" title="{{fullName}}" class="wrapping-anchor tip" data-navigate><span style="background-image: url('{{mainImageUrl}}');" title="{{fullName}}" class="profile-image small profileImage"></span></a>{{/each}}{{#if edViewing}}<div class="btn circle btn-blue" data-actionbind data-action="inviteToSuite"><i class="io io-person-add"></i></div>{{/if}}
+                        </div>
+
+                        <div class="meta">
+
+                            <a href="{{featuredMembers.0.absoluteUrl}}" title="{{featuredMembers.0.fullName}}" class="wrapping-anchor" data-navigate>{{featuredMembers.0.fullName}}</a>
+                            {{#if otherMembers }}<span class="contribs"> and {{otherMembers}} other{{pluralize otherMembers "" "s"}}</span>{{/if}}
+                            </div>
+                        </div>
+
+
+
+                       {{#if edViewing}}
+                        <div class="suite-image-controls suiteImageControls" style="display: none;">
+                            <div style="display: none;" class="no-ul-all white gray-on-hover toggleCaptionOwner edit-caption" data-actionbind data-action="toggleCaption">Caption</div>
+                            <div class="mydropzone suiteImgDropZone story-image-uploader"></div>
+                        </div>
+
+                        <div class="suite-action-butts suite-cover-edit suite-manage-group suiteManageGroup editFuncs">
+                            <button class="btn btn-dark when-closed whenClosed" data-actionbind data-action="openSuiteManageOptions">Manage</button>
+                            <div class="suite-action btn-group">
+                                <button class="btn circle square pull-left btn-dark when-open whenOpen" data-actionbind data-action="closeSuiteManageOptions"><i class="io io-ios-arrow-back"></i></button> 
+                                <button class="btn btn-dark when-open " data-actionbind data-action="editSuiteAction">Cover</button>
+                                <button class="btn btn-dark when-open whenOpen" data-id="{{id}}" data-type="suite" data-actionbind data-action="manageSuite">Settings</button>
+                            </div>
+                       </div>
+                       {{else}}
+                        <div class="suite-action-butts actionButts">
+                            <div class="suite-action">
+                                <div class="btn btn-red followButton suiteFollow" data-suite="{{id}}" data-actionbind data-action="followSuite" data-following="{{#if viewerFollowing }}1{{else}}0{{/if}}"><span class="followText">{{#if viewerFollowing }}Following{{else}}Follow{{/if}}</span></div>
+                            </div>
+                        </div>
+                        {{/if}}
+                       
+                        {{#if private}}
+                        This Suite is private
+                        <div class="btn is-private square circle btn-transparent"><i class="io io-locked"></i></div>    
+                        {{/if}}
+
+
+               </div>
+
+                {{#if edViewing}}
+                <div class="background-edit-container backgroundEditContainer">
+                </div>                
+                <div class="hero-caption hero-caption-edit heroCaptionEdit" style="display: none;">
+                    <div class="caption-popup captionPopup">
+                        <p><textarea name="caption" class="inputs caption" placeholder="Enter a caption" maxlength="140">{{heroImage.caption}}</textarea></p>
+                        <p><label for="credit"></label><textarea name="credit" class="inputs credit" placeholder="Source/photographer" maxlength="140">{{heroImage.credit}}</textarea></p>
+                        <p><label for="text"></label><input type="text" name="creditLink" class="inputs creditLink" placeholder="Link" value="{{heroImage.creditLink}}"></p>
+                        <a class="btn btn-sm btn-whiteline small close" href="#">Done</a>
+                    </div>
+                </div>
+                <div class="suite-edit-nav suiteEditNav">
+                    <button class="btn btn-dark pull-left" data-actionbind data-action="toggleBackgroundEdit">Background</button>
+                    <button class="editing save btn saveSuite btn-dark tip pull-right" data-actionbind data-action="saveSuite" title="Save">Save</button>
+                    <button class="editing tip btn btn-dark pull-right" data-actionbind data-action="toggleEditAction">Cancel</button>                
+                </div>
+                {{/if}}
+
+                {{#if heroImage.caption}}
+                <div class="hero-caption heroCaption" style="display: none;">
+                    <div class="caption-popup captionPopup">
+                        <p class="caption">{{heroImage.caption}}
+                        {{#unless heroImage.creditLink}}
+                            {{#if heroImage.credit}}
+                            <span class="credit">({{heroImage.credit}})</span>
+                            {{/if}}
+                        {{else}}
+                            {{#if heroImage.credit}}
+                            <span class="credit-link">(<a class="white no-ul gray-on-hover" href="{{heroImage.creditLink}}" target="_blank">{{heroImage.credit}}</a>)</span>
+                            {{else}}
+                            <span class="credit-link">(<a class="white no-ul gray-on-hover" href="{{heroImage.creditLink}}" target="_blank">Credit</a>)</span>
+                            {{/if}}
+                        {{/unless}}
+                        </p>
+
+                </div>
+                </div>
+                {{/if}}
+
+            </header>
+        </div>
+
+    </div> <!-- end of hero tab -->
+
+    <nav class="sub-nav subNav ">
+        <ul class="nav-items userContentNav">
+            <li class="nav-tab suiteTab active" data-toggle="tab" data-target="#stories-suite-{{id}}">
+                {{#if stats.stories}}<span class="counter">{{stats.stories}}</span>{{/if}}
+                <span class="nav-label"> Post{{pluralize stats.stories "" "s"}}</span>
+            </li>
+            <li class="nav-tab suiteTab" data-toggle="tab" data-target="#followers-suite-{{id}}">
+                {{#if stats.followers}}<span class="counter">{{stats.followers}}</span>{{/if}}
+                <span class="nav-label"> Follower{{pluralize stats.followers "" "s"}}</span>
+            </li>
+   <li class="nav-tab suiteTab pull-right">
+
+                    <div class="share-actions secActions">
+
+                        <div class="act dropdown-toggle tip btn circle btn-transparent icon-swap" data-toggle="dropdown" title="More">
+                            <i class="io io-ios-more one"></i><i class="io io-android-close two"></i>
+                        </div>
+                        <ul class="flat-menu dropdown-menu">
+                            <li>
+                                <a class="mail" href="mailto:?subject=Suite: {{name}} by {{owner.fullName}}&amp;body=https://suite.io/{{hash}}%0A%0A{{description}}" target="_blank">
+                                    <i class="io io-paper-airplane"></i>Send via email
+                                </a>
+                            </li>
+                            <li class="report linklike light" data-id="{{id}}" data-type="suite" data-actionbind data-action="flagSuite" title="Report">
+                                <i class="io io-ios-flag"></i>Report to moderators
+                            </li>
+                            <li>
+                                <a class="twitter" href="http://twitter.com/intent/tweet?{{tweetParamsEncoded}}" title="Tweet"><i class="io io-twitter"></i>Share on Twitter</a>
+                            </li>
+                            <li>
+                                <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsuite.io/{{hash}}" title="Share on Facebook"><i class="io io-social-facebook"></i>Share on Facebook</a>
+                            </li>
+                            <li class="text-item suitePermalink">
+                                <span class="label">Share link:</span>
+                                <input class="link shareAct" readonly="true" value="https://suite.io/{{hash}}" />
+                            </li>
+                        </ul>   
+                    </div>
+                </li>            
+        </ul>
+    </nav>
+
+    <div class="page-outer-wrapper pageOuterWrapper scrollTop tab-pane active">
+        <div class="page-wrapper pageWrapper">
+            <div class="dot-marker dotMarker"></div>
+
+                    <div class="tab-content suite-main-content-pane">
+
+                        <!-- Stories tab -->
+                         <section class="stories tab-pane active storiesTab" id="stories-suite-{{id}}">
+
+                                {{#if viewerIsMember}}
+                                    <div class="center-column">
+                                        <div class="add-story centered" data-actionbind data-action="addSomethingToSuite">
+                                            <div class="texty"><i class="io io-android-add"></i>Add something</div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#unless stories}}
+                                <div class="centered cta">
+                                    <span class="story-cta"></span>
+                                    <p class="nothing">No stories yet</p>
+                                </div>
+                                {{/unless}}
+
+                            <div class="article-list profile-feed-list paginatedList">
+                                {{#each stories}} 
+                                    {{>story-teaser}}
+                                {{/each}}
+                            </div>
+                            <div class="paging-controls pagingControls">
+                                {{#if nextPage}}
+                                    <a href="{{nextLink}}" class="wrapping-anchor" rel="next">Next</a>
+                                {{/if}}
+                                {{#if prevPage}}
+                                    <a href="{{prevLink}}" class="wrapping-anchor" rel="prev">Previous</a>
+                                {{/if}}
+                            </div>
+                        </section>
+
+                        <section class="followers tab-pane followersTab" id="followers-suite-{{id}}">
+                            <div class="paged-list-filter pagedListFilter centered">
+                                <div class="ctxt-filter ctxtFilter centered">
+                                    <div class="q-wrapper">
+                                        <input type="text" class="ctxt-search-input ctxtSearchInput ctxtFilterStories" placeholder="Filter these..."/>
+                                    </div>
+                                </div>
+                            </div>                        
+                            <div class="center-column wide centered">                           
+                                <div class="user-list followerList {{#unless followers}}isEmpty{{/unless}} paginatedList">
+                                    {{#each followers}}
+                                        {{>user-teaser}} 
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </section>
+
+                </div> <!-- // tab content -->
+             
+        </div>
+    </div> <!-- page-outer-wrapper -->
+               
+                    <div class="edit-toggle editToggle">
+
+
+                        {{#if isMod}}
+                            <div class="btn-group mod-func">
+                                <button class="btn dropdown-toggle  btn circle square btn-fineline featureToggle {{#if featured}}featured{{/if}}" data-toggle="dropdown" title="Mod this"><i class="io io-android-star"></i>
+                                </button>
+                                <button class="btn btn-fineline circle square" data-actionbind data-action="modAction" data-mod-action="card" data-user="{{owner.pk}}" title="Mod">{{level}}</button>
+                                <ul class="mod-action-menu flat-menu dropdown-menu">
+                                    <li class="linklike {{#if featured}}active{{/if}}" data-actionbind data-action="modAction" data-mod-action="feature" data-id="{{id}}" data-type="suite"><i class="io"></i>Feature</li>
+                                    <li class="linklike {{#if ads}}active{{/if}}" data-actionbind data-action="modAction" data-mod-action="ads" data-id="{{id}}" data-type="story"><i class="io"></i>Show ads</li>
+                                </ul>
+                            </div>
+                        {{/if}}
+                    </div>
+
+
+                    {{#if edViewing}}    
+
+                        <!-- <div class="addToSuiteContainer add-to-suite-container" style="display: none;"></div> -->
+                        <section class="editNav edit-nav noprint" style="display: none;">
+                        <div class="suiteEditControls suite-edit-actions">
+                            <!-- Edit/mgmt functions -->
+                        </div>
+                        </section>                        
+                    {{/if}}
+
+    </div>
+</div>

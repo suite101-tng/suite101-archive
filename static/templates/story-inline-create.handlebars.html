@@ -1,0 +1,16 @@
+<div class="inline-create-form miniCreateForm {{#if mainBody}}mainBodyResponse{{/if}}" data-id="{{id}}">
+	<section class="editNav edit-nav noprint"><div class="storyEditControls story-edit-controls">
+		{{>story-edit-controls isPublished=false inline=true}}
+	</div></section>
+	<div class="center-column">
+		<h1 class="post-title inline article-title storyTitle">{{inlineTitle}}</h1>
+		<div class="mini-story-body article-body storyBody" placeholder="Type a response">{{{inlineBody}}}</div>
+        <div class="story-tag-edit storyTagEdit">            
+        </div>
+
+		<div class="story-mini-actions storyMiniActions">
+			<div class="act pull-right word-count miniWordCount"></div>
+		</div>
+	</div>
+	<div class="storyMediaDropZone story-image-uploader"></div>
+</div>

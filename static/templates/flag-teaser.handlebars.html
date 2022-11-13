@@ -1,0 +1,15 @@
+<div class="mod-flag-teaser modFlagTeaser" data-id="{{id}}">
+    <div class="flag-head">
+        <div style="background-image: url({{user.mainImageUrl}})" class="profile-image small"></div>
+        <span class="flag-user-name"><a href="{{user.absoluteUrl}}" class="wrapping-anchor" data-navigate>{{user.fullName}}</a></span>
+        <span class="verb">flagged</span>
+        <a href="{{object.absoluteUrl}}" class="wrapping-anchor" data-navigate><span class="flag-object-title">{{object.title}}</span></a>
+        <span class="flag-teaser-created">{{timeAgo created}}</span>
+        <div class="flag-actions pull-right">
+            <button class="btn btn-sm btn-subdued" data-actionbind data-action="clearFlag" data-id="{{id}}">Clear</button>
+        </div>        
+    </div>
+    <div class="flag-body">
+        <div class="flag-message">{{{message}}}</div>
+    </div>
+</div>        

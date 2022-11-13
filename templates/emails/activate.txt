@@ -1,0 +1,6 @@
+Hi {{ user.get_full_name }} – thanks for signing up!
+
+To confirm your email address and activate your account, please click the the following link:
+{{ activation_url }} 
+
+<p>Having trouble? Reply to this message and we'll swoop!<p>
